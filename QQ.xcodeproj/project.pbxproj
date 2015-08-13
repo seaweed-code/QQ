@@ -10,9 +10,9 @@
 		376943E01B7CA34F004C85F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943DF1B7CA34F004C85F3 /* main.m */; };
 		376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943E21B7CA34F004C85F3 /* AppDelegate.m */; };
 		376943EC1B7CA34F004C85F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376943EA1B7CA34F004C85F3 /* Main.storyboard */; };
-		376943EE1B7CA34F004C85F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376943ED1B7CA34F004C85F3 /* Images.xcassets */; };
 		376943F11B7CA34F004C85F3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376943EF1B7CA34F004C85F3 /* LaunchScreen.xib */; };
 		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
+		376944071B7CA713004C85F3 /* ImageSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376944061B7CA713004C85F3 /* ImageSet.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,11 +32,11 @@
 		376943E11B7CA34F004C85F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		376943E21B7CA34F004C85F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		376943EB1B7CA34F004C85F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		376943ED1B7CA34F004C85F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		376943F01B7CA34F004C85F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		376943F61B7CA34F004C85F3 /* QQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		376943FB1B7CA34F004C85F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376943FC1B7CA34F004C85F3 /* QQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTests.m; sourceTree = "<group>"; };
+		376944061B7CA713004C85F3 /* ImageSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageSet.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +81,9 @@
 				376943E11B7CA34F004C85F3 /* AppDelegate.h */,
 				376943E21B7CA34F004C85F3 /* AppDelegate.m */,
 				376943EA1B7CA34F004C85F3 /* Main.storyboard */,
-				376943ED1B7CA34F004C85F3 /* Images.xcassets */,
 				376943EF1B7CA34F004C85F3 /* LaunchScreen.xib */,
 				376943DD1B7CA34F004C85F3 /* Supporting Files */,
+				376944061B7CA713004C85F3 /* ImageSet.xcassets */,
 			);
 			path = QQ;
 			sourceTree = "<group>";
@@ -194,9 +194,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376944071B7CA713004C85F3 /* ImageSet.xcassets in Resources */,
 				376943EC1B7CA34F004C85F3 /* Main.storyboard in Resources */,
 				376943F11B7CA34F004C85F3 /* LaunchScreen.xib in Resources */,
-				376943EE1B7CA34F004C85F3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,10 +343,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = QQ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -354,10 +355,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = QQ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
