@@ -1,5 +1,5 @@
 //
-//  TelphoneViewController.h
+//  WSNavigationController.h
 //  QQ
 //
 //  Created by weida on 15/8/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TelphoneViewController : UIViewController
+@interface WSNavigationController : UINavigationController
 
 @end

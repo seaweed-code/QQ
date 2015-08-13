@@ -1,23 +1,24 @@
 //
-//  DynamicViewController.m
+//  TelphoneViewController.m
 //  QQ
 //
 //  Created by weida on 15/8/13.
 //  Copyright (c) 2015年 weida. All rights reserved.
 //
 
-#import "DynamicViewController.h"
+#import "WSTelphoneViewController.h"
 
-@interface DynamicViewController ()
+@interface WSTelphoneViewController ()
 
 @end
 
-@implementation DynamicViewController
+@implementation WSTelphoneViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.title = @"联系人";
+    self.view.backgroundColor = [UIColor greenColor];
     // Do any additional setup after loading the view.
 }
 

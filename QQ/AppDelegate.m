@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "MessageViewController.h"
-#import "TelphoneViewController.h"
-#import "DynamicViewController.h"
+#import "WSNavigationController.h"
+#import "WSMessageViewController.h"
+#import "WSTelphoneViewController.h"
+#import "WSDynamicViewController.h"
 
 
 @interface AppDelegate ()
@@ -42,19 +43,13 @@
     
     _mainTabBar = [[UITabBarController alloc]init];
     
-    MessageViewController *message = [[MessageViewController alloc]init];
+    WSMessageViewController *message = [[WSMessageViewController alloc]init];
     
-    [message.tabBarItem setTitle:@"消息"];
-    
-    TelphoneViewController *tel = [[TelphoneViewController alloc]init];
-    
-    [tel.tabBarItem setTitle:@"联系人"];
+    WSTelphoneViewController *tel = [[WSTelphoneViewController alloc]init];
 
-    DynamicViewController *dynamic = [[DynamicViewController alloc]init];
+    WSDynamicViewController *dynamic = [[WSDynamicViewController alloc]init];
     
-    [dynamic.tabBarItem setTitle:@"动态"];
-    
-    [_mainTabBar setViewControllers:@[message,tel,dynamic]];
+    [_mainTabBar setViewControllers:@[[[WSNavigationController alloc]initWithRootViewController:message],[[WSNavigationController alloc]initWithRootViewController:tel],[[WSNavigationController alloc]initWithRootViewController:dynamic]]];
     
     return _mainTabBar;
 }

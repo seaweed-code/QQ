@@ -1,5 +1,5 @@
 //
-//  MessageViewController.h
+//  TelphoneViewController.h
 //  QQ
 //
 //  Created by weida on 15/8/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessageViewController : UIViewController
+@interface WSTelphoneViewController : UIViewController
 
 @end
