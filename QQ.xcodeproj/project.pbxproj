@@ -30,6 +30,9 @@
 		376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943E21B7CA34F004C85F3 /* AppDelegate.m */; };
 		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
 		376944071B7CA713004C85F3 /* ImageSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376944061B7CA713004C85F3 /* ImageSet.xcassets */; };
+		379B77B21B7CCCF4006A8722 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B11B7CCCF4006A8722 /* MessageViewController.m */; };
+		379B77B51B7CCD05006A8722 /* TelphoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B41B7CCD05006A8722 /* TelphoneViewController.m */; };
+		379B77B81B7CCD0F006A8722 /* DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B71B7CCD0F006A8722 /* DynamicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,12 @@
 		376943FB1B7CA34F004C85F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376943FC1B7CA34F004C85F3 /* QQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTests.m; sourceTree = "<group>"; };
 		376944061B7CA713004C85F3 /* ImageSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageSet.xcassets; sourceTree = "<group>"; };
+		379B77B01B7CCCF4006A8722 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		379B77B11B7CCCF4006A8722 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		379B77B31B7CCD05006A8722 /* TelphoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelphoneViewController.h; sourceTree = "<group>"; };
+		379B77B41B7CCD05006A8722 /* TelphoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelphoneViewController.m; sourceTree = "<group>"; };
+		379B77B61B7CCD0F006A8722 /* DynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicViewController.h; sourceTree = "<group>"; };
+		379B77B71B7CCD0F006A8722 /* DynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +209,9 @@
 		376943DC1B7CA34F004C85F3 /* QQ */ = {
 			isa = PBXGroup;
 			children = (
+				379B77AE1B7CCCBE006A8722 /* Message */,
+				379B77AF1B7CCCBE006A8722 /* Telphone */,
+				379B77AD1B7CCCBE006A8722 /* Dynamic */,
 				376943E11B7CA34F004C85F3 /* AppDelegate.h */,
 				376943E21B7CA34F004C85F3 /* AppDelegate.m */,
 				376943DD1B7CA34F004C85F3 /* Supporting Files */,
@@ -233,6 +245,33 @@
 				376943FB1B7CA34F004C85F3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		379B77AD1B7CCCBE006A8722 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				379B77B61B7CCD0F006A8722 /* DynamicViewController.h */,
+				379B77B71B7CCD0F006A8722 /* DynamicViewController.m */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		379B77AE1B7CCCBE006A8722 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				379B77B01B7CCCF4006A8722 /* MessageViewController.h */,
+				379B77B11B7CCCF4006A8722 /* MessageViewController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		379B77AF1B7CCCBE006A8722 /* Telphone */ = {
+			isa = PBXGroup;
+			children = (
+				379B77B31B7CCD05006A8722 /* TelphoneViewController.h */,
+				379B77B41B7CCD05006A8722 /* TelphoneViewController.m */,
+			);
+			path = Telphone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,9 +374,11 @@
 			files = (
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				3763F9B01B7CC8C1008D6360 /* UIImageView+HighlightedWebCache.m in Sources */,
+				379B77B51B7CCD05006A8722 /* TelphoneViewController.m in Sources */,
 				3763F9B11B7CC8C1008D6360 /* UIImageView+WebCache.m in Sources */,
 				3763F9AF1B7CC8C1008D6360 /* UIImage+WebP.m in Sources */,
 				3763F9AB1B7CC8C1008D6360 /* SDWebImagePrefetcher.m in Sources */,
+				379B77B81B7CCD0F006A8722 /* DynamicViewController.m in Sources */,
 				3763F9801B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				3763F9A71B7CC8C1008D6360 /* SDWebImageDecoder.m in Sources */,
 				3763F9A81B7CC8C1008D6360 /* SDWebImageDownloader.m in Sources */,
@@ -345,6 +386,7 @@
 				3763F9AA1B7CC8C1008D6360 /* SDWebImageManager.m in Sources */,
 				3763F9B21B7CC8C1008D6360 /* UIView+WebCacheOperation.m in Sources */,
 				3763F9AC1B7CC8C1008D6360 /* UIButton+WebCache.m in Sources */,
+				379B77B21B7CCCF4006A8722 /* MessageViewController.m in Sources */,
 				3763F9AE1B7CC8C1008D6360 /* UIImage+MultiFormat.m in Sources */,
 				3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */,
 				3763F9A91B7CC8C1008D6360 /* SDWebImageDownloaderOperation.m in Sources */,
