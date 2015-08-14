@@ -15,10 +15,18 @@
 
 #define kHeightTableViewCell  (60)
 
+#define kSetTableView(tableView)   {\
+  [tableView registerClass:[WSRecentMsgTableViewCell class] forCellReuseIdentifier:kReusedID];\
+   tableView.rowHeight = kHeightTableViewCell;\
+   tableView.separatorStyle = UITableViewCellSeparatorStyleNone;}
 
 
-@interface WSRecentMsgTableViewController ()
+@interface WSRecentMsgTableViewController ()<UISearchDisplayDelegate>
+{
+    UISearchDisplayController *msearchDisplay;
+}
 
+@property(nonatomic,strong)NSMutableArray *DataSource;
 @end
 
 @implementation WSRecentMsgTableViewController
@@ -26,32 +34,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    [self.DataSource addObject:@"fdasfasf"];
    
     self.view.backgroundColor = [UIColor whiteColor];
    
-//    UISearchBar *searchBar = [[UISearchBar alloc]init];
-//    
-//    UISearchDisplayController *searchDisplay = [[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
-//    
+    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    searchBar.placeholder = @"搜索";
 
-    [self.tableView registerClass:[WSRecentMsgTableViewCell class] forCellReuseIdentifier:kReusedID];
+    self.tableView.tableHeaderView = searchBar;
     
-    self.tableView.rowHeight = kHeightTableViewCell;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+     msearchDisplay= [[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
+    msearchDisplay.delegate = self;
+    msearchDisplay.searchResultsDataSource = self;
+    msearchDisplay.searchResultsDelegate = self;
+   
+    kSetTableView(msearchDisplay.searchResultsTableView);
+
+    kSetTableView(self.tableView);
+    
    
 }
 
 
 #pragma mark --TableView Delegate
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.DataSource.count;
 }
 
 
@@ -63,6 +74,17 @@
     return cell;
 }
 
+
+-(NSMutableArray *)DataSource
+{
+    if (_DataSource) {
+        return _DataSource;
+    }
+    
+    _DataSource = @[].mutableCopy;
+    
+    return _DataSource;
+}
 
 
 - (void)didReceiveMemoryWarning {
