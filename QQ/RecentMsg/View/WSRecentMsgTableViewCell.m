@@ -74,14 +74,14 @@
     mTitle.text = @"张金磊";
     [self.contentView addSubview:mTitle];
     
-    [mTitle setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
     [mTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHeadView withOffset:4];
     [mTitle autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHeadView withOffset:10];
     
     
     mSubTitle = [UILabel newAutoLayoutView];
     mSubTitle.font = [UIFont systemFontOfSize:12];
-    mSubTitle.text = @"国庆不回家？？";
+    mSubTitle.text = @"国庆不回家？";
     mSubTitle.textColor = kTextColorSubTitle;
     [self.contentView addSubview:mSubTitle];
     
@@ -109,8 +109,8 @@
     
     [mTime autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mTitle];
     [mTime autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:10];
-    [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mTitle withOffset:10 relation:NSLayoutRelationGreaterThanOrEqual];
-    [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mSubTitle withOffset:0 relation:NSLayoutRelationGreaterThanOrEqual];
+    [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mTitle withOffset:4 relation:NSLayoutRelationGreaterThanOrEqual];
+    [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mSubTitle withOffset:4 relation:NSLayoutRelationGreaterThanOrEqual];
     
 }
 
