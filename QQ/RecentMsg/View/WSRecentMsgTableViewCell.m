@@ -106,6 +106,7 @@
     
     [mTime autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mTitle];
     [mTime autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:10];
+    [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mTitle withOffset:10 relation:NSLayoutRelationGreaterThanOrEqual];
     
 }
 
