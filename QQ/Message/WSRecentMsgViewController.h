@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WSMessageViewController : UIViewController
+@interface WSRecentMsgViewController : UIViewController
 
 @end

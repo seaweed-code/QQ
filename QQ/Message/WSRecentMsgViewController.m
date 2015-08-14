@@ -6,19 +6,21 @@
 //  Copyright (c) 2015年 weida. All rights reserved.
 //
 
-#import "WSMessageViewController.h"
+#import "WSRecentMsgViewController.h"
 
-@interface WSMessageViewController ()
+@interface WSRecentMsgViewController ()
 
 @end
 
-@implementation WSMessageViewController
+@implementation WSRecentMsgViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"消息";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.tabBarItem setTitle:@"消息"];
     // Do any additional setup after loading the view.
 }
 

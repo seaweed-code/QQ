@@ -19,6 +19,7 @@
     
     self.title = @"动态";
     self.view.backgroundColor = [UIColor redColor];
+    [self.tabBarItem setTitle:@"动态"];
     // Do any additional setup after loading the view.
 }
 

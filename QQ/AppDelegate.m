@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WSNavigationController.h"
-#import "WSMessageViewController.h"
+#import "WSRecentMsgViewController.h"
 #import "WSTelphoneViewController.h"
 #import "WSDynamicViewController.h"
 
@@ -43,7 +43,7 @@
     
     _mainTabBar = [[UITabBarController alloc]init];
     
-    WSMessageViewController *message = [[WSMessageViewController alloc]init];
+    WSRecentMsgViewController *message = [[WSRecentMsgViewController alloc]init];
     
     WSTelphoneViewController *tel = [[WSTelphoneViewController alloc]init];
 

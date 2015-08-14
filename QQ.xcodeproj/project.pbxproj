@@ -30,7 +30,7 @@
 		376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943E21B7CA34F004C85F3 /* AppDelegate.m */; };
 		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
 		376944071B7CA713004C85F3 /* ImageSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376944061B7CA713004C85F3 /* ImageSet.xcassets */; };
-		379B77B21B7CCCF4006A8722 /* WSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B11B7CCCF4006A8722 /* WSMessageViewController.m */; };
+		379B77B21B7CCCF4006A8722 /* WSRecentMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B11B7CCCF4006A8722 /* WSRecentMsgViewController.m */; };
 		379B77B51B7CCD05006A8722 /* WSTelphoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B41B7CCD05006A8722 /* WSTelphoneViewController.m */; };
 		379B77B81B7CCD0F006A8722 /* WSDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77B71B7CCD0F006A8722 /* WSDynamicViewController.m */; };
 		379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77BB1B7CD510006A8722 /* WSNavigationController.m */; };
@@ -98,8 +98,8 @@
 		376943FB1B7CA34F004C85F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376943FC1B7CA34F004C85F3 /* QQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTests.m; sourceTree = "<group>"; };
 		376944061B7CA713004C85F3 /* ImageSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageSet.xcassets; sourceTree = "<group>"; };
-		379B77B01B7CCCF4006A8722 /* WSMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMessageViewController.h; sourceTree = "<group>"; };
-		379B77B11B7CCCF4006A8722 /* WSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMessageViewController.m; sourceTree = "<group>"; };
+		379B77B01B7CCCF4006A8722 /* WSRecentMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRecentMsgViewController.h; sourceTree = "<group>"; };
+		379B77B11B7CCCF4006A8722 /* WSRecentMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSRecentMsgViewController.m; sourceTree = "<group>"; };
 		379B77B31B7CCD05006A8722 /* WSTelphoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSTelphoneViewController.h; sourceTree = "<group>"; };
 		379B77B41B7CCD05006A8722 /* WSTelphoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSTelphoneViewController.m; sourceTree = "<group>"; };
 		379B77B61B7CCD0F006A8722 /* WSDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDynamicViewController.h; sourceTree = "<group>"; };
@@ -263,8 +263,8 @@
 		379B77AE1B7CCCBE006A8722 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				379B77B01B7CCCF4006A8722 /* WSMessageViewController.h */,
-				379B77B11B7CCCF4006A8722 /* WSMessageViewController.m */,
+				379B77B01B7CCCF4006A8722 /* WSRecentMsgViewController.h */,
+				379B77B11B7CCCF4006A8722 /* WSRecentMsgViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -399,7 +399,7 @@
 				3763F9AA1B7CC8C1008D6360 /* SDWebImageManager.m in Sources */,
 				3763F9B21B7CC8C1008D6360 /* UIView+WebCacheOperation.m in Sources */,
 				3763F9AC1B7CC8C1008D6360 /* UIButton+WebCache.m in Sources */,
-				379B77B21B7CCCF4006A8722 /* WSMessageViewController.m in Sources */,
+				379B77B21B7CCCF4006A8722 /* WSRecentMsgViewController.m in Sources */,
 				3763F9AE1B7CC8C1008D6360 /* UIImage+MultiFormat.m in Sources */,
 				379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */,
 				3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */,

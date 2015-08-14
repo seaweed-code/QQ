@@ -7,6 +7,9 @@
 //
 
 #import "WSNavigationController.h"
+#import "WSRecentMsgViewController.h"
+#import "WSTelphoneViewController.h"
+#import "WSDynamicViewController.h"
 
 /**
  *  @brief  获取当前系统版本号
@@ -30,6 +33,48 @@
     
     [self SetupNavStyle];
     // Do any additional setup after loading the view.
+}
+
+
+-(instancetype)initWithRootViewController:(UIViewController *)rootViewController
+{
+    self = [super initWithRootViewController:rootViewController];
+    
+    if (self)
+    {
+        NSString *title         = nil;
+        NSString *image         = nil;
+        NSString *selectedImage = nil;
+        
+        if ([rootViewController isKindOfClass:[WSRecentMsgViewController class]])
+        {
+            title         = @"消息";
+            image         = @"tab_recent_nor";
+            selectedImage = @"tab_recent_press";
+        }else
+        {
+            if ([rootViewController isKindOfClass:[WSTelphoneViewController class]])
+            {
+                title         = @"联系人";
+                image         = @"tab_buddy_nor";
+                selectedImage = @"tab_buddy_press";
+            }else
+            {
+                if ([rootViewController isKindOfClass:[WSDynamicViewController class]])
+                {
+                    title         = @"动态";
+                    image         = @"tab_qworld_nor";
+                    selectedImage = @"tab_qworld_press";
+                }
+            }
+        }
+        
+        UITabBarItem *Item = [[UITabBarItem alloc]initWithTitle:title image:[UIImage imageNamed:image] selectedImage:[UIImage imageNamed:selectedImage]];
+        
+        self.tabBarItem = Item;
+    }
+    
+    return self;
 }
 
 
