@@ -71,18 +71,16 @@
     
     mTitle = [UILabel newAutoLayoutView];
     mTitle.font = [UIFont systemFontOfSize:14];
-   // mTitle.backgroundColor = [UIColor greenColor];
     mTitle.text = @"张金磊";
     [self.contentView addSubview:mTitle];
     
-    
+    [mTitle setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     [mTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHeadView withOffset:4];
     [mTitle autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHeadView withOffset:10];
     
     
     mSubTitle = [UILabel newAutoLayoutView];
     mSubTitle.font = [UIFont systemFontOfSize:12];
-    //mSubTitle.backgroundColor = [UIColor redColor];
     mSubTitle.text = @"国庆不回家？？";
     mSubTitle.textColor = kTextColorSubTitle;
     [self.contentView addSubview:mSubTitle];
@@ -101,7 +99,7 @@
     
     
     mTime = [UILabel newAutoLayoutView];
-    mTitle.textAlignment = NSTextAlignmentRight;
+    mTime.textAlignment = NSTextAlignmentRight;
     mTime.text = @"下午9:20";
     mTime.textColor = kTextColorTime;
     mTime.font = [UIFont systemFontOfSize:10];

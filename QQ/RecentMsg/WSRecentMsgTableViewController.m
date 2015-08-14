@@ -45,7 +45,6 @@
     self.tableView.tableHeaderView = searchBar;
     
      msearchDisplay= [[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
-    msearchDisplay.delegate = self;
     msearchDisplay.searchResultsDataSource = self;
     msearchDisplay.searchResultsDelegate = self;
    
@@ -72,6 +71,12 @@
 
 
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
