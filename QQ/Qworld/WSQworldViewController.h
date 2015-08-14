@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WSDynamicViewController : UIViewController
+@interface WSQworldViewController : UIViewController
 
 @end

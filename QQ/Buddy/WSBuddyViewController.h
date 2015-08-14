@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WSTelphoneViewController : UIViewController
+@interface WSBuddyViewController : UIViewController
 
 @end

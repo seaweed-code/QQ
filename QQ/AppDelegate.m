@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "WSNavigationController.h"
 #import "WSRecentMsgViewController.h"
-#import "WSTelphoneViewController.h"
-#import "WSDynamicViewController.h"
+#import "WSBuddyViewController.h"
+#import "WSQworldViewController.h"
 
 
 @interface AppDelegate ()
@@ -45,9 +45,9 @@
     
     WSRecentMsgViewController *message = [[WSRecentMsgViewController alloc]init];
     
-    WSTelphoneViewController *tel = [[WSTelphoneViewController alloc]init];
+    WSBuddyViewController *tel = [[WSBuddyViewController alloc]init];
 
-    WSDynamicViewController *dynamic = [[WSDynamicViewController alloc]init];
+    WSQworldViewController *dynamic = [[WSQworldViewController alloc]init];
     
     [_mainTabBar setViewControllers:@[[[WSNavigationController alloc]initWithRootViewController:message],[[WSNavigationController alloc]initWithRootViewController:tel],[[WSNavigationController alloc]initWithRootViewController:dynamic]]];
     

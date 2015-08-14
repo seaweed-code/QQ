@@ -8,8 +8,8 @@
 
 #import "WSNavigationController.h"
 #import "WSRecentMsgViewController.h"
-#import "WSTelphoneViewController.h"
-#import "WSDynamicViewController.h"
+#import "WSBuddyViewController.h"
+#import "WSQworldViewController.h"
 
 /**
  *  @brief  获取当前系统版本号
@@ -53,14 +53,14 @@
             selectedImage = @"tab_recent_press";
         }else
         {
-            if ([rootViewController isKindOfClass:[WSTelphoneViewController class]])
+            if ([rootViewController isKindOfClass:[WSBuddyViewController class]])
             {
                 title         = @"联系人";
                 image         = @"tab_buddy_nor";
                 selectedImage = @"tab_buddy_press";
             }else
             {
-                if ([rootViewController isKindOfClass:[WSDynamicViewController class]])
+                if ([rootViewController isKindOfClass:[WSQworldViewController class]])
                 {
                     title         = @"动态";
                     image         = @"tab_qworld_nor";

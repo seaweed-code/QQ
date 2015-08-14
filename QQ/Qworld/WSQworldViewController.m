@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 weida. All rights reserved.
 //
 
-#import "WSDynamicViewController.h"
+#import "WSQworldViewController.h"
 
-@interface WSDynamicViewController ()
+@interface WSQworldViewController ()
 
 @end
 
-@implementation WSDynamicViewController
+@implementation WSQworldViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

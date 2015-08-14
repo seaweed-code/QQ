@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 weida. All rights reserved.
 //
 
-#import "WSTelphoneViewController.h"
+#import "WSBuddyViewController.h"
 
-@interface WSTelphoneViewController ()
+@interface WSBuddyViewController ()
 
 @end
 
-@implementation WSTelphoneViewController
+@implementation WSBuddyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
