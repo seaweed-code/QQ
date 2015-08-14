@@ -71,7 +71,8 @@
     
     mTitle = [UILabel newAutoLayoutView];
     mTitle.font = [UIFont systemFontOfSize:14];
-    mTitle.text = @"快手技jlfasjlkfjlajlkfsjlkf;术部";
+   // mTitle.backgroundColor = [UIColor greenColor];
+    mTitle.text = @"张金磊";
     [self.contentView addSubview:mTitle];
     
     
@@ -81,7 +82,8 @@
     
     mSubTitle = [UILabel newAutoLayoutView];
     mSubTitle.font = [UIFont systemFontOfSize:12];
-    mSubTitle.text = @"肥的萨拉fjklasdjfklasjflasfjdasjfl;asjfl;ajflkasjdflkajsf;ljaslkdfja;sldfl;么";
+    //mSubTitle.backgroundColor = [UIColor redColor];
+    mSubTitle.text = @"国庆不回家？？";
     mSubTitle.textColor = kTextColorSubTitle;
     [self.contentView addSubview:mSubTitle];
     

@@ -29,6 +29,11 @@
    
     self.view.backgroundColor = [UIColor whiteColor];
    
+//    UISearchBar *searchBar = [[UISearchBar alloc]init];
+//    
+//    UISearchDisplayController *searchDisplay = [[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
+//    
+
     [self.tableView registerClass:[WSRecentMsgTableViewCell class] forCellReuseIdentifier:kReusedID];
     
     self.tableView.rowHeight = kHeightTableViewCell;
