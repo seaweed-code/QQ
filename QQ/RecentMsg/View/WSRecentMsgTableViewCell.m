@@ -71,30 +71,31 @@
     
     mTitle = [UILabel newAutoLayoutView];
     mTitle.font = [UIFont systemFontOfSize:14];
-    mTitle.text = @"快手技术部";
+    mTitle.text = @"快手技jlfasjlkfjlajlkfsjlkf;术部";
     [self.contentView addSubview:mTitle];
     
-    [mTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHeadView withOffset:5];
+    
+    [mTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHeadView withOffset:4];
     [mTitle autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHeadView withOffset:10];
     
     
     mSubTitle = [UILabel newAutoLayoutView];
     mSubTitle.font = [UIFont systemFontOfSize:12];
-    mSubTitle.text = @"吃饭了么";
+    mSubTitle.text = @"肥的萨拉fjklasdjfklasjflasfjdasjfl;asjfl;ajflkasjdflkajsf;ljaslkdfja;sldfl;么";
     mSubTitle.textColor = kTextColorSubTitle;
     [self.contentView addSubview:mSubTitle];
+    
+    [mSubTitle autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mTitle];
+    [mSubTitle  autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mHeadView withOffset:-4];
     
     UIView *line = [UIView newAutoLayoutView];
     line.backgroundColor= kBkColorLine;
     [self.contentView addSubview:line];
     [line autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mSubTitle];
     [line autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:self.contentView];
-    [line autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.contentView withOffset:-1];
+    [line autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.contentView withOffset:0];
     [line autoSetDimension:ALDimensionHeight toSize:1];
     
-    
-    [mSubTitle autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mTitle];
-    [mSubTitle  autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mHeadView withOffset:-5];
     
     
     mTime = [UILabel newAutoLayoutView];
@@ -104,9 +105,12 @@
     mTime.font = [UIFont systemFontOfSize:10];
     [self.contentView addSubview:mTime];
     
+    [mTime setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh+1 forAxis:UILayoutConstraintAxisHorizontal];
+    
     [mTime autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mTitle];
     [mTime autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:10];
     [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mTitle withOffset:10 relation:NSLayoutRelationGreaterThanOrEqual];
+    [mTime autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mSubTitle withOffset:0 relation:NSLayoutRelationGreaterThanOrEqual];
     
 }
 
