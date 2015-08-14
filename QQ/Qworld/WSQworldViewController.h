@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ *  @brief  我的动态
+ */
 @interface WSQworldViewController : UIViewController
 
 @end

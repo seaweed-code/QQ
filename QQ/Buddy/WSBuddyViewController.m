@@ -18,11 +18,9 @@
     [super viewDidLoad];
     
     self.title = @"联系人";
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
-    [self.tabBarItem setTitle:@"联系人"];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

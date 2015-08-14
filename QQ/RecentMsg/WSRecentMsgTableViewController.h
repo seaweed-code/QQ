@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WSRecentMsgViewController : UIViewController
+/**
+ *  @brief  最近消息
+ */
+@interface WSRecentMsgTableViewController : UITableViewController
 
 @end

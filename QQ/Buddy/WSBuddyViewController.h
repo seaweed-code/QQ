@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ *  @brief  我的好友列表
+ */
 @interface WSBuddyViewController : UIViewController
 
 @end

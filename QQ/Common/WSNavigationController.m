@@ -7,7 +7,7 @@
 //
 
 #import "WSNavigationController.h"
-#import "WSRecentMsgViewController.h"
+#import "WSRecentMsgTableViewController.h"
 #import "WSBuddyViewController.h"
 #import "WSQworldViewController.h"
 
@@ -46,7 +46,7 @@
         NSString *image         = nil;
         NSString *selectedImage = nil;
         
-        if ([rootViewController isKindOfClass:[WSRecentMsgViewController class]])
+        if ([rootViewController isKindOfClass:[WSRecentMsgTableViewController class]])
         {
             title         = @"消息";
             image         = @"tab_recent_nor";

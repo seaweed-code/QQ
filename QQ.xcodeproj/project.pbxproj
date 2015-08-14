@@ -27,8 +27,9 @@
 		3763F9B11B7CC8C1008D6360 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9A01B7CC8C1008D6360 /* UIImageView+WebCache.m */; };
 		3763F9B21B7CC8C1008D6360 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9A21B7CC8C1008D6360 /* UIView+WebCacheOperation.m */; };
 		3764137E1B7D8801007738CB /* WSBuddyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3764137D1B7D8801007738CB /* WSBuddyViewController.m */; };
-		376413821B7D881F007738CB /* WSRecentMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376413811B7D881F007738CB /* WSRecentMsgViewController.m */; };
+		376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376413811B7D881F007738CB /* WSRecentMsgTableViewController.m */; };
 		376413861B7D8852007738CB /* WSQworldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376413851B7D8852007738CB /* WSQworldViewController.m */; };
+		3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3764138A1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m */; };
 		376943E01B7CA34F004C85F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943DF1B7CA34F004C85F3 /* main.m */; };
 		376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943E21B7CA34F004C85F3 /* AppDelegate.m */; };
 		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
@@ -91,10 +92,12 @@
 		3763F9A21B7CC8C1008D6360 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		3764137C1B7D8801007738CB /* WSBuddyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSBuddyViewController.h; sourceTree = "<group>"; };
 		3764137D1B7D8801007738CB /* WSBuddyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyViewController.m; sourceTree = "<group>"; };
-		376413801B7D881F007738CB /* WSRecentMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRecentMsgViewController.h; sourceTree = "<group>"; };
-		376413811B7D881F007738CB /* WSRecentMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSRecentMsgViewController.m; sourceTree = "<group>"; };
+		376413801B7D881F007738CB /* WSRecentMsgTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRecentMsgTableViewController.h; sourceTree = "<group>"; };
+		376413811B7D881F007738CB /* WSRecentMsgTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSRecentMsgTableViewController.m; sourceTree = "<group>"; };
 		376413841B7D8852007738CB /* WSQworldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSQworldViewController.h; sourceTree = "<group>"; };
 		376413851B7D8852007738CB /* WSQworldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSQworldViewController.m; sourceTree = "<group>"; };
+		376413891B7D8DBC007738CB /* WSRecentMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSRecentMsgTableViewCell.h; sourceTree = "<group>"; };
+		3764138A1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSRecentMsgTableViewCell.m; sourceTree = "<group>"; };
 		376943DA1B7CA34F004C85F3 /* QQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		376943DE1B7CA34F004C85F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376943DF1B7CA34F004C85F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -203,8 +206,10 @@
 		3764137F1B7D881F007738CB /* RecentMsg */ = {
 			isa = PBXGroup;
 			children = (
-				376413801B7D881F007738CB /* WSRecentMsgViewController.h */,
-				376413811B7D881F007738CB /* WSRecentMsgViewController.m */,
+				376413801B7D881F007738CB /* WSRecentMsgTableViewController.h */,
+				376413811B7D881F007738CB /* WSRecentMsgTableViewController.m */,
+				376413881B7D8D57007738CB /* View */,
+				376413871B7D8D57007738CB /* Model */,
 			);
 			path = RecentMsg;
 			sourceTree = "<group>";
@@ -216,6 +221,22 @@
 				376413851B7D8852007738CB /* WSQworldViewController.m */,
 			);
 			path = Qworld;
+			sourceTree = "<group>";
+		};
+		376413871B7D8D57007738CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		376413881B7D8D57007738CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				376413891B7D8DBC007738CB /* WSRecentMsgTableViewCell.h */,
+				3764138A1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		376943D11B7CA34F004C85F3 = {
@@ -385,7 +406,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				376413821B7D881F007738CB /* WSRecentMsgViewController.m in Sources */,
+				3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */,
+				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				3764137E1B7D8801007738CB /* WSBuddyViewController.m in Sources */,
