@@ -27,6 +27,7 @@
 }
 
 @property(nonatomic,strong)NSMutableArray *DataSource;
+
 @end
 
 @implementation WSRecentMsgTableViewController
@@ -35,8 +36,12 @@
     [super viewDidLoad];
     
 
-    [self.DataSource addObject:@"fdasfasf"];
-   
+    for (int i=0; i<20; i++)
+    {
+        [self.DataSource addObject:@""];
+    }
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
    
     UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
