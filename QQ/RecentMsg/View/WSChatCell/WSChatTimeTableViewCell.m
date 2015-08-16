@@ -13,6 +13,10 @@
 
 #define kTextColorTime      ([UIColor colorWithRed:0.341 green:0.369 blue:0.357 alpha:1])
 
+#define kTopOffsetTime      (20)//Time Lable和父控件顶部间距
+#define kLeadingOffetTime   (20)//Time Lable和父控件右侧最小间距
+
+
 @interface WSChatTimeTableViewCell ()
 {
     UILabel *mTimeLable;
@@ -37,9 +41,11 @@
         mTimeLable.textColor = kTextColorTime;
         [self.contentView addSubview:mTimeLable];
         
-        [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20];
+        [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kTopOffsetTime];
         [mTimeLable autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
         [mTimeLable autoAlignAxisToSuperviewAxis:ALAxisVertical];
+        
+        [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLeadingOffetTime relation:NSLayoutRelationGreaterThanOrEqual];
         
     }
     
