@@ -36,7 +36,6 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         mTimeLable = [UILabel newAutoLayoutView];
-        mTimeLable.text = @"下午9:00";
         mTimeLable.font = [UIFont systemFontOfSize:10];
         mTimeLable.textColor = kTextColorTime;
         [self.contentView addSubview:mTimeLable];
