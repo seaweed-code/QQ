@@ -19,7 +19,7 @@
 
 #define kOffsetTopHeadToBubble  (5)  //头像和气泡顶部对其间距
 
-
+#define kOffsetBottomBubbleToSupview  (10)//气泡和父视图底部间距
 
 @implementation WSChatBaseTableViewCell
 
@@ -58,7 +58,7 @@
         [self.contentView addSubview:mBubbleImageView];
         
         [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
-        [mBubbleImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
+        [mBubbleImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kOffsetBottomBubbleToSupview];
         if (isSender)//是我自己发送的
         {
             [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];

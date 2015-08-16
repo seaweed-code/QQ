@@ -29,8 +29,7 @@
         [self.contentView addSubview:mTextLable];
         
         [mTextLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:kTop_OffsetTextWithHead];
-       // [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:40];
-        [mTextLable setContentHuggingPriority:UILayoutPriorityDefaultLow+1 forAxis:UILayoutConstraintAxisHorizontal];
+        //[mTextLable setContentHuggingPriority:UILayoutPriorityDefaultLow+1 forAxis:UILayoutConstraintAxisHorizontal];
         
         if (isSender)//是自己发送的消息
         {
