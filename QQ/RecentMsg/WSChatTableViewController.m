@@ -13,7 +13,7 @@
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
 @interface WSChatTableViewController ()
-
+@property(nonatomic,strong)NSMutableArray *DataSource;
 @end
 
 @implementation WSChatTableViewController
@@ -23,6 +23,8 @@
     
     self.title = @"张金磊";
 
+    [self SetData];
+    
     self.tableView.rowHeight = 100;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = kBkColorTableView;
@@ -33,6 +35,21 @@
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"0%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
     
 }
+
+-(void)SetData
+{
+    for (NSInteger i = 0; i<=20; i++)
+    {
+        WSChatModel *model = [[WSChatModel alloc]init];
+        
+        model.isSender = i%2;
+        model.content = @"你吃放放假了敬爱放暑假了飞洒的经济拉芳舍房间打扫考虑到家乐福见都洒了";
+        model.chatCellType = WSChatCellType_Text;
+        
+        [self.DataSource addObject:model];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,21 +62,31 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.DataSource.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WSChatModel *model = self.DataSource[indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%ld-1",indexPath.row%2] forIndexPath:indexPath];
+    
+    WSChatBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%d-1",model.isSender] forIndexPath:indexPath];
     
    
+    [cell setModel:model];
     
     return cell;
 }
 
-
+-(NSMutableArray *)DataSource
+{
+    if (_DataSource) {
+        return _DataSource;
+    }
+    
+    return _DataSource = @[].mutableCopy;
+}
 
 
 @end

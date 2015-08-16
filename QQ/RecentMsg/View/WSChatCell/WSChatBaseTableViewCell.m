@@ -55,19 +55,22 @@
         }
         
         mBubbleImageView = [UIImageView newAutoLayoutView];
-        [self addSubview:mBubbleImageView];
+        [self.contentView addSubview:mBubbleImageView];
         
         [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
         
         if (isSender)//是我自己发送的
         {
-            mBubbleImageView.image = [UIImage imageNamed:kImageNameChat_send_nor];
+            //mBubbleImageView.image = [UIImage imageNamed:kImageNameChat_send_nor];
             [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
         }else//别人发送的消息
         {
-            mBubbleImageView.image = [UIImage imageNamed:kImageNameChat_Recieve_nor];
+            //mBubbleImageView.image = [UIImage imageNamed:kImageNameChat_Recieve_nor];
             [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
         }
+        
+       mWidthConstraintBubbleImageView  = [mBubbleImageView autoSetDimension:ALDimensionWidth toSize:64];
+       mHeightConstraintBubbleImageView = [mBubbleImageView autoSetDimension:ALDimensionHeight toSize:56];
 
     }
     
