@@ -45,7 +45,7 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
 /**
  *  @brief  本消息类型？文本？图片？还是语音？
  */
-@property(nonatomic,assign)WSChatCellType *chatCellType;
+@property(nonatomic,assign)WSChatCellType chatCellType;
 
 /**
  *  @brief  消息内容

@@ -43,7 +43,7 @@
         WSChatModel *model = [[WSChatModel alloc]init];
         
         model.isSender = i%2;
-        model.content = @"你吃放放假了敬爱放暑假了飞洒的经济拉芳舍房间打扫考虑到家乐福见都洒了";
+        model.content = @"就发啦受打击了坚实的";
         model.chatCellType = WSChatCellType_Text;
         
         [self.DataSource addObject:model];
@@ -71,7 +71,7 @@
     WSChatModel *model = self.DataSource[indexPath.row];
     
     
-    WSChatBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%d-1",model.isSender] forIndexPath:indexPath];
+    WSChatBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType] forIndexPath:indexPath];
     
    
     [cell setModel:model];

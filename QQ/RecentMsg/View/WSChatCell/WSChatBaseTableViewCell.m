@@ -61,11 +61,9 @@
         
         if (isSender)//是我自己发送的
         {
-            //mBubbleImageView.image = [UIImage imageNamed:kImageNameChat_send_nor];
             [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
         }else//别人发送的消息
         {
-            //mBubbleImageView.image = [UIImage imageNamed:kImageNameChat_Recieve_nor];
             [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
         }
         

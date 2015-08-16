@@ -34,13 +34,11 @@
         if (isSender)//是自己发送的消息
         {
             [mTextLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kH_OffsetTextWithHead];
-           // mTextLable.textAlignment = NSTextAlignmentRight;
             [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kMaxOffsetText relation:NSLayoutRelationGreaterThanOrEqual];
             
         }else//是对方发送的消息
         {
             [mTextLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kH_OffsetTextWithHead];
-           // mTextLable.textAlignment = NSTextAlignmentLeft;
             [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kMaxOffsetText relation:NSLayoutRelationGreaterThanOrEqual];
         }
 
@@ -62,18 +60,16 @@
     CGRect rect = mTextLable.frame;
     
     mWidthConstraintBubbleImageView.constant = rect.size.width+40;
-    mHeightConstraintBubbleImageView.constant = rect.size.height +45;
+    mHeightConstraintBubbleImageView.constant = rect.size.height +40;
     
     if (model.isSender)
     {
-        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:35 topCapHeight:40];
+        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:35 topCapHeight:30];
         
     }else
     {
-         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:35 topCapHeight:40];
+         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:35 topCapHeight:30];
     }
-    
-   //  NSLog(@"---%@",NSStringFromCGRect(mTextLable.frame));
 }
 
 @end
