@@ -8,7 +8,7 @@
 
 #import "WSRecentMsgTableViewController.h"
 #import "WSRecentMsgTableViewCell.h"
-
+#import "WSChatTableViewController.h"
 
 
 #define kReusedID        (@"reused")
@@ -19,6 +19,8 @@
   [tableView registerClass:[WSRecentMsgTableViewCell class] forCellReuseIdentifier:kReusedID];\
    tableView.rowHeight = kHeightTableViewCell;\
    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;}
+
+#define kTintColorSegement     ([UIColor colorWithRed:0.831 green:0.941 blue:0.980 alpha:1])
 
 
 @interface WSRecentMsgTableViewController ()<UISearchDisplayDelegate>
@@ -42,8 +44,6 @@
     }
     
     
-    self.view.backgroundColor = [UIColor whiteColor];
-   
     UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
     searchBar.placeholder = @"搜索";
 
@@ -57,9 +57,22 @@
 
     kSetTableView(self.tableView);
     
-   
+    
+    UISegmentedControl *segement = [[UISegmentedControl alloc]initWithItems:@[@" 消息 ",@" 电话 "]];
+    segement.tintColor = kTintColorSegement;
+    [segement addTarget:self action:@selector(seggementValueChanged) forControlEvents:UIControlEventValueChanged];
+    segement.selectedSegmentIndex = 0;
+    self.navigationItem.titleView = segement;
+    
 }
 
+/**
+ *  @brief  Segement 变化
+ */
+-(void)seggementValueChanged
+{
+    
+}
 
 #pragma mark --TableView Delegate
 
@@ -80,6 +93,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WSChatTableViewController *chat = [[WSChatTableViewController alloc]init];
+    chat.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chat animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
