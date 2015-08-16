@@ -29,6 +29,7 @@
         [self.contentView addSubview:mTextLable];
         
         [mTextLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:kTop_OffsetTextWithHead];
+       // [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:40];
         [mTextLable setContentHuggingPriority:UILayoutPriorityDefaultLow+1 forAxis:UILayoutConstraintAxisHorizontal];
         
         if (isSender)//是自己发送的消息
@@ -64,11 +65,11 @@
     
     if (model.isSender)
     {
-        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:35 topCapHeight:30];
+        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
         
     }else
     {
-         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:35 topCapHeight:30];
+         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
     }
 }
 

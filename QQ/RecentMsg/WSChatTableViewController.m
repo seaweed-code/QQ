@@ -25,7 +25,7 @@
 
     [self SetData];
     
-    self.tableView.rowHeight = 100;
+    self.tableView.estimatedRowHeight = 150;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = kBkColorTableView;
     
@@ -43,7 +43,7 @@
         WSChatModel *model = [[WSChatModel alloc]init];
         
         model.isSender = i%2;
-        model.content = @"就发啦受打击了坚实的";
+        model.content = @"我fadssafj就发生的垃圾费拉斯加积分撒旦法空间撒冷咖啡就上课垃圾分类卡萨积分拉斯克奖发来撒娇的罚款了撒娇附近的萨拉飞机阿斯利康的爱你发的说法是飞洒发生的发生法撒旦飞洒发撒旦法师法师的发的萨芬撒交付时间按时间放假啊双方就撒了房间爱上了房间打扫了房间爱上了对方附近的萨拉经费就爱上飞机是打飞机的撒发生";
         model.chatCellType = WSChatCellType_Text;
         
         [self.DataSource addObject:model];

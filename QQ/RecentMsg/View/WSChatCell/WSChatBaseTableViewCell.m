@@ -58,7 +58,7 @@
         [self.contentView addSubview:mBubbleImageView];
         
         [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
-        
+        [mBubbleImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
         if (isSender)//是我自己发送的
         {
             [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
