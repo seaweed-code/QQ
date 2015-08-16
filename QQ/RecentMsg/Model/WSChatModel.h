@@ -31,7 +31,12 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
     /**
      *  @brief  视频消息
      */
-    WSChatCellType_Video = 4
+    WSChatCellType_Video = 4,
+    
+    /**
+     *  @brief  时间
+     */
+    WSChatCellType_Time  = 1000
 };
 
 

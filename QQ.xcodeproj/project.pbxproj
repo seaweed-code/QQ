@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
 		3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9781B7CC75E008D6360 /* NSArray+PureLayout.m */; };
 		3763F9801B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F97A1B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTimeTableViewCell.h; sourceTree = "<group>"; };
+		3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTimeTableViewCell.m; sourceTree = "<group>"; };
 		3763F9751B7CC75E008D6360 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
 		3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
 		3763F9771B7CC75E008D6360 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */,
 				37773F821B806A3000EEB9CB /* WSChatTextTableViewCell.h */,
 				37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */,
+				3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */,
+				3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */,
 			);
 			path = WSChatCell;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
+				3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */,
 				37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */,
 				3764137E1B7D8801007738CB /* WSBuddyViewController.m in Sources */,
 				3763F9B01B7CC8C1008D6360 /* UIImageView+HighlightedWebCache.m in Sources */,
