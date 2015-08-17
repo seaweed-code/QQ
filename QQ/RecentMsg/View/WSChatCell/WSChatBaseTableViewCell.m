@@ -101,7 +101,7 @@
 //        {
 //            UIImageView * imageView = (UIImageView*)mContentView;
 //            
-//            imageView.image = [self maskImage:imageView.image withMask:mBubbleImageView.image];//[self maskWithsourceImage:imageView.image maskImage:mBubbleImageView.image];
+//            imageView.image = mBubbleImageView.image;//[self maskImage:imageView.image withMask:mBubbleImageView.image];//[self maskWithsourceImage:imageView.image maskImage:mBubbleImageView.image];
 //            
 //        }
 //            break;
@@ -109,7 +109,7 @@
 //            
 //            break;
 //    }
-    
+//    
 }
 
 //- (UIImage*) maskImage:(UIImage *) image withMask:(UIImage *) mask

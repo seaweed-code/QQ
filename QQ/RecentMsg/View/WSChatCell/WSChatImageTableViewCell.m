@@ -27,6 +27,7 @@
     {
         mImageView = [UIImageView newAutoLayoutView];
         [self.contentView addSubview:mImageView];
+        mImageView.hidden = YES;
         mContentView = mImageView;
         
         

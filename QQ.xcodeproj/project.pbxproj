@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */; };
+		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
 		3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9781B7CC75E008D6360 /* NSArray+PureLayout.m */; };
 		3763F9801B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F97A1B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTimeTableViewCell.h; sourceTree = "<group>"; };
 		3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTimeTableViewCell.m; sourceTree = "<group>"; };
+		37330BF41B81ED17002A885B /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		37330BF51B81ED17002A885B /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		3763F9751B7CC75E008D6360 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
 		3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
 		3763F9771B7CC75E008D6360 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 		379B77B91B7CD489006A8722 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				37330BF41B81ED17002A885B /* UIImage+Utils.m */,
+				37330BF51B81ED17002A885B /* UIImage+Utils.h */,
 				379B77BA1B7CD510006A8722 /* WSNavigationController.h */,
 				379B77BB1B7CD510006A8722 /* WSNavigationController.m */,
 			);
@@ -462,6 +467,7 @@
 				3763F9A71B7CC8C1008D6360 /* SDWebImageDecoder.m in Sources */,
 				3763F9A81B7CC8C1008D6360 /* SDWebImageDownloader.m in Sources */,
 				376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */,
+				37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */,
 				3763F9AA1B7CC8C1008D6360 /* SDWebImageManager.m in Sources */,
 				3763F9B21B7CC8C1008D6360 /* UIView+WebCacheOperation.m in Sources */,
 				3763F9AC1B7CC8C1008D6360 /* UIButton+WebCache.m in Sources */,

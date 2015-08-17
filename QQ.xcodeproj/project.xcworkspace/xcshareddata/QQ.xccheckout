@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>14115F77-598A-4740-AD42-E2CDCE96F57D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>QQ</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>04DA2912F72D1822F570ECE0094098242D4118FB</key>
 		<string>https://github.com/weida-studio/QQ.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>QQ.xcodeproj/project.xcworkspace</string>
+	<string>QQ.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>04DA2912F72D1822F570ECE0094098242D4118FB</key>
