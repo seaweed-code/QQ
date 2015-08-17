@@ -30,17 +30,6 @@
         [self.contentView addSubview:mTextLable];
         
         
-        [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
-        
-        if (isSender)//是我自己发送的
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
-        }else//别人发送的消息
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
-        }
-        
-        
          [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         
         CGFloat top     = kTop_OffsetTextWithHead + kTopHead;

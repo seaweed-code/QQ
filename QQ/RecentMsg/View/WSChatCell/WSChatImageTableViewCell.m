@@ -17,6 +17,13 @@
 
 #define kMaxHeightImageView            (200)
 
+@interface WSChatImageTableViewCell ()
+{
+    NSLayoutConstraint *radio;
+}
+@end
+
+
 @implementation WSChatImageTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -27,20 +34,8 @@
     {
         mImageView = [UIImageView newAutoLayoutView];
         [self.contentView addSubview:mImageView];
-        mImageView.hidden = YES;
         mContentView = mImageView;
         
-        
-        [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mImageView];
-        
-        if (isSender)//是我自己发送的
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mImageView];
-        }else//别人发送的消息
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mImageView];
-        }
-
         
         [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         
@@ -78,7 +73,21 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    mImageView.image = [UIImage imageNamed:model.content];
+    UIImage *image = [UIImage imageNamed:model.content];
+    
+
+//    [mImageView removeConstraint:radio];
+//    
+//    if (image.size.height)
+//    {
+//        CGFloat multiplier = image.size.width/image.size.height;
+//        
+//        radio =   [mImageView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:mImageView withMultiplier:multiplier];
+//        
+//    }
+    
+
+    mImageView.image = image;
     
     [super setModel:model];
 }

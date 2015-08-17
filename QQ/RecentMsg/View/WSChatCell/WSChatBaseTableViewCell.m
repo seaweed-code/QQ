@@ -48,6 +48,16 @@
         mBubbleImageView = [UIImageView newAutoLayoutView];
         [self.contentView addSubview:mBubbleImageView];
         
+        [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
+        
+        if (isSender)//是我自己发送的
+        {
+            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
+        }else//别人发送的消息
+        {
+            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
+        }
+        
 
        mWidthConstraintBubbleImageView  = [mBubbleImageView autoSetDimension:ALDimensionWidth toSize:64];
        mHeightConstraintBubbleImageView = [mBubbleImageView autoSetDimension:ALDimensionHeight toSize:56];
@@ -66,23 +76,23 @@
 
 -(void)setBubbeView:(CGSize) size
 {
-    switch (self.model.chatCellType)
-    {
-        case WSChatCellType_Text:
-            
+//    switch (self.model.chatCellType)
+//    {
+//        case WSChatCellType_Text:
+//            
             mWidthConstraintBubbleImageView.constant = size.width  +40;
             mHeightConstraintBubbleImageView.constant = size.height +40;
             
-            break;
-        case WSChatCellType_Image:
-        case WSChatCellType_Video:
-            mWidthConstraintBubbleImageView.constant = size.width;
-            mHeightConstraintBubbleImageView.constant = size.height;
-            break;
-        default:
-            
-            break;
-    }
+//            break;
+//        case WSChatCellType_Image:
+//        case WSChatCellType_Video:
+//            mWidthConstraintBubbleImageView.constant = size.width;
+//            mHeightConstraintBubbleImageView.constant = size.height;
+//            break;
+//        default:
+//            
+//            break;
+//    }
 
     if (_model.isSender)
     {
@@ -112,29 +122,6 @@
 //    
 }
 
-//- (UIImage*) maskImage:(UIImage *) image withMask:(UIImage *) mask
-//{
-//    CGImageRef imageReference = image.CGImage;
-//    CGImageRef maskReference = mask.CGImage;
-//    
-//    CGImageRef imageMask = CGImageMaskCreate(CGImageGetWidth(maskReference),
-//                                             CGImageGetHeight(maskReference),
-//                                             CGImageGetBitsPerComponent(maskReference),
-//                                             CGImageGetBitsPerPixel(maskReference),
-//                                             CGImageGetBytesPerRow(maskReference),
-//                                             CGImageGetDataProvider(maskReference),
-//                                             NULL, // Decode is null
-//                                             YES // Should interpolate
-//                                             );
-//    
-//    CGImageRef maskedReference = CGImageCreateWithMask(imageReference, imageMask);
-//    CGImageRelease(imageMask);
-//    
-//    UIImage *maskedImage = [UIImage imageWithCGImage:maskedReference];
-//    CGImageRelease(maskedReference);
-//    
-//    return maskedImage;
-//}
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
