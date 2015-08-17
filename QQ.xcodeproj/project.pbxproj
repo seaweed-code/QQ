@@ -36,6 +36,7 @@
 		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
 		376944071B7CA713004C85F3 /* ImageSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376944061B7CA713004C85F3 /* ImageSet.xcassets */; };
 		37773F841B806A3000EEB9CB /* WSChatTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */; };
+		379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */; };
 		379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77BB1B7CD510006A8722 /* WSNavigationController.m */; };
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
@@ -116,6 +117,8 @@
 		376944061B7CA713004C85F3 /* ImageSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageSet.xcassets; sourceTree = "<group>"; };
 		37773F821B806A3000EEB9CB /* WSChatTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTextTableViewCell.h; sourceTree = "<group>"; };
 		37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTextTableViewCell.m; sourceTree = "<group>"; };
+		379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatImageTableViewCell.m; sourceTree = "<group>"; };
+		379A50031B81D24D0089F59E /* WSChatImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatImageTableViewCell.h; sourceTree = "<group>"; };
 		379B77BA1B7CD510006A8722 /* WSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSNavigationController.h; sourceTree = "<group>"; };
 		379B77BB1B7CD510006A8722 /* WSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSNavigationController.m; sourceTree = "<group>"; };
 		37DD27AD1B7F81AF0088FA59 /* WSChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTableViewController.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */,
 				37773F821B806A3000EEB9CB /* WSChatTextTableViewCell.h */,
 				37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */,
+				379A50031B81D24D0089F59E /* WSChatImageTableViewCell.h */,
+				379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */,
 				3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */,
 				3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */,
 			);
@@ -444,6 +449,7 @@
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
+				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */,
 				37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */,

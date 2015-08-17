@@ -7,8 +7,9 @@
 //
 
 #import "WSChatTableViewController.h"
-#import "WSChatTextTableViewCell.h"
 #import "WSChatModel.h"
+#import "WSChatTextTableViewCell.h"
+#import "WSChatImageTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
@@ -33,6 +34,9 @@
    
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"1%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"0%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
+    
+    [self.tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"1%@%ld",kReuseIDSeparate,(long)WSChatCellType_Image]];
+    [self.tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"0%@%ld",kReuseIDSeparate,(long)WSChatCellType_Image]];
     
     [self.tableView registerClass:[WSChatTimeTableViewCell class] forCellReuseIdentifier:kTimeCellReusedID];
     
@@ -93,12 +97,20 @@
                       @"史鲁泽说，事故核心区危险减弱了以后，及时组织防化专业力量，先后9次进入爆炸现场，采集了土壤样品、检测沾染的数据，获得第一手资料。主要查明有害物质的种类、位置和危险程度，为现场指挥、决策和组织救援提供可靠的依据。16日上午，北京卫戍区防化团在爆炸现场附近的前方指挥部，军事医学科学院毒物药物研究所研究小组介绍，截至11时左右，从现场搜救的官兵等人员身上还没有发现化学沾染病例。",
                       @"dfsafdafdsafdsa"];
     
+    
+    
     for (NSInteger i = 0; i<200; i++)
     {
         WSChatModel *model = [[WSChatModel alloc]init];
         
         switch (i%3) {
             case 0:
+                
+                model.chatCellType = WSChatCellType_Image;
+                
+                model.content = [NSString stringWithFormat:@"app%ld",i%10+1];
+                
+                break;
             case 1:
                 
                  model.chatCellType = WSChatCellType_Text;

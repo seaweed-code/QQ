@@ -1,12 +1,12 @@
 //
-//  WSChatTextTableViewCell.m
+//  WSChatImageTableViewCell.m
 //  QQ
 //
-//  Created by weida on 15/8/16.
+//  Created by weida on 15/8/17.
 //  Copyright (c) 2015年 weida. All rights reserved.
 //
 
-#import "WSChatTextTableViewCell.h"
+#import "WSChatImageTableViewCell.h"
 #import "PureLayout.h"
 
 //文本
@@ -15,33 +15,33 @@
 #define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
 #define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
 
-@implementation WSChatTextTableViewCell
+#define kMaxHeightImageView            (200)
+
+@implementation WSChatImageTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
     if (self)
     {
-        mTextLable = [UILabel newAutoLayoutView];
-        mContentView = mTextLable;
-        mTextLable.numberOfLines = 0;
-        mTextLable.backgroundColor = [UIColor clearColor];
-        mTextLable.font = [UIFont systemFontOfSize:14];
-        [self.contentView addSubview:mTextLable];
+        mImageView = [UIImageView newAutoLayoutView];
+        [self.contentView addSubview:mImageView];
+        mContentView = mImageView;
         
         
-        [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
+        [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mImageView];
         
         if (isSender)//是我自己发送的
         {
-            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
+            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mImageView];
         }else//别人发送的消息
         {
-            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
+            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mImageView];
         }
+
         
-        
-         [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         
         CGFloat top     = kTop_OffsetTextWithHead + kTopHead;
         CGFloat bottom  = kBottom_OffsetTextWithSupView;
@@ -49,38 +49,37 @@
         CGFloat leading = kH_OffsetTextWithHead + kWidthHead + kLeadingHead;
         CGFloat traing  = kMaxOffsetText;
         
+        [mImageView autoSetDimension:ALDimensionHeight toSize:kMaxHeightImageView relation:NSLayoutRelationLessThanOrEqual];
+        
         UIEdgeInsets inset;
         if (isSender)//是自己发送的消息
         {
             inset = UIEdgeInsetsMake(top, traing, bottom, leading);
             
-            [mTextLable autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeLeading];
+            [mImageView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeLeading];
             
-            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
+            [mImageView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
             
         }else//是对方发送的消息
         {
             inset = UIEdgeInsetsMake(top, leading, bottom, traing);
             
-            [mTextLable autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTrailing];
+            [mImageView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTrailing];
             
-            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
+            [mImageView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
         }
 
+        
     }
+    
     return self;
 }
 
-
-
 -(void)setModel:(WSChatModel *)model
 {
-    mTextLable.text = model.content;
-    
+    mImageView.image = [UIImage imageNamed:model.content];
     
     [super setModel:model];
 }
-
-
 
 @end
