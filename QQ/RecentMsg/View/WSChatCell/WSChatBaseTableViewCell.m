@@ -9,17 +9,7 @@
 #import "WSChatBaseTableViewCell.h"
 
 
-#define kWidthHead                    (40)  //头像宽度
-#define kHeightHead                   (kWidthHead) //头像高度
-#define kTopHead                      (10)  //头像离父视图顶部距离
-#define kLeadingHead                  (10) //对方发送的消息时，头像距离父视图的leading(头像在左边)
-#define kTraingHead                   (kLeadingHead) //自己发送的消息时，头像距离父视图的traing(头像在右边)
 
-#define kOffsetHHeadToBubble          (0) //头像和气泡水平距离
-
-#define kOffsetTopHeadToBubble        (5)  //头像和气泡顶部对其间距
-
-#define kOffsetBottomBubbleToSupview  (10)//气泡和父视图底部间距
 
 @implementation WSChatBaseTableViewCell
 
@@ -32,6 +22,7 @@
         self.backgroundColor = [UIColor clearColor];
         self.contentView.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         
         mHead = [UIImageView newAutoLayoutView];
         mHead.image = [UIImage imageNamed:@"user_avatar_default"];
@@ -58,7 +49,7 @@
         [self.contentView addSubview:mBubbleImageView];
         
         [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
-        [mBubbleImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kOffsetBottomBubbleToSupview];
+
         if (isSender)//是我自己发送的
         {
             [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
@@ -75,18 +66,21 @@
     return self;
 }
 
+
 -(void)setModel:(WSChatModel *)model
 {
     _model = model;
     
-    [self layoutIfNeeded];
+    [self setBubbeView:mContentView.bounds.size];
     
-    CGRect rect = mContentView.frame;
+}
+
+-(void)setBubbeView:(CGSize) size
+{
+    mWidthConstraintBubbleImageView.constant = size.width  +40;
+    mHeightConstraintBubbleImageView.constant = size.height +40;
     
-    mWidthConstraintBubbleImageView.constant = rect.size.width+40;
-    mHeightConstraintBubbleImageView.constant = rect.size.height +40;
-    
-    if (model.isSender)
+    if (_model.isSender)
     {
         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
         
@@ -95,6 +89,20 @@
         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
     }
 
+    
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    CGRect newRect = [change[@"new"] CGRectValue];
+    
+    [self setBubbeView:newRect.size];
+    
+    NSLog(@"change:%@",NSStringFromCGRect(newRect));
+}
+-(void)dealloc
+{
+    [mContentView removeObserver:self forKeyPath:@"bounds"];
 }
 
 

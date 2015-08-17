@@ -70,7 +70,8 @@
         reuseID = [NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType];
     }
     
-   cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
+   
+    cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
     
    
     [cell setModel:model];
@@ -85,9 +86,14 @@
         return _DataSource;
     }
     
-    _DataSource = [NSMutableArray arrayWithCapacity:20];
+    _DataSource = [NSMutableArray arrayWithCapacity:200];
     
-    for (NSInteger i = 0; i<20; i++)
+    NSArray *strs = @[@"fdasfdsafdfsa",
+                      @"454446545656656",
+                      @"史鲁泽说，事故核心区危险减弱了以后，及时组织防化专业力量，先后9次进入爆炸现场，采集了土壤样品、检测沾染的数据，获得第一手资料。主要查明有害物质的种类、位置和危险程度，为现场指挥、决策和组织救援提供可靠的依据。16日上午，北京卫戍区防化团在爆炸现场附近的前方指挥部，军事医学科学院毒物药物研究所研究小组介绍，截至11时左右，从现场搜救的官兵等人员身上还没有发现化学沾染病例。",
+                      @"dfsafdafdsafdsa"];
+    
+    for (NSInteger i = 0; i<200; i++)
     {
         WSChatModel *model = [[WSChatModel alloc]init];
         
@@ -97,7 +103,9 @@
                 
                  model.chatCellType = WSChatCellType_Text;
                 
-                model.content = @"史鲁泽说，事故核心区危险减弱了以后，及时组织防化专业力量，先后9次进入爆炸现场，采集了土壤样品、检测沾染的数据，获得第一手资料。主要查明有害物质的种类、位置和危险程度，为现场指挥、决策和组织救援提供可靠的依据。16日上午，北京卫戍区防化团在爆炸现场附近的前方指挥部，军事医学科学院毒物药物研究所研究小组介绍，截至11时左右，从现场搜救的官兵等人员身上还没有发现化学沾染病例。";
+                model.content = strs[i%4];
+                
+                
                 
                 break;
             default:

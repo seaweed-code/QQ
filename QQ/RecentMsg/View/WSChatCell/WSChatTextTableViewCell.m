@@ -13,7 +13,7 @@
 #define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
 #define kMaxOffsetText               (45)//文本最长时，为了不让文本分行显示，需要和屏幕对面保持一定距离
 #define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
-
+#define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
 
 @implementation WSChatTextTableViewCell
 
@@ -28,22 +28,33 @@
         mTextLable.backgroundColor = [UIColor clearColor];
         mTextLable.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:mTextLable];
+    
+         [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         
-        [mTextLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:kTop_OffsetTextWithHead];
-        //[mTextLable setContentHuggingPriority:UILayoutPriorityDefaultLow+1 forAxis:UILayoutConstraintAxisHorizontal];
+        CGFloat top     = kTop_OffsetTextWithHead + kTopHead;
+        CGFloat bottom  = kBottom_OffsetTextWithSupView;
         
+        CGFloat leading = kH_OffsetTextWithHead + kWidthHead + kLeadingHead;
+        CGFloat traing  = kMaxOffsetText;
+        
+        UIEdgeInsets inset;
         if (isSender)//是自己发送的消息
         {
-            [mTextLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kH_OffsetTextWithHead];
-            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kMaxOffsetText relation:NSLayoutRelationGreaterThanOrEqual];
+            inset = UIEdgeInsetsMake(top, traing, bottom, leading);
+            
+            [mTextLable autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeLeading];
+            
+            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
             
         }else//是对方发送的消息
         {
-            [mTextLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kH_OffsetTextWithHead];
-            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kMaxOffsetText relation:NSLayoutRelationGreaterThanOrEqual];
+            inset = UIEdgeInsetsMake(top, leading, bottom, traing);
+            
+            [mTextLable autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTrailing];
+            
+            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
         }
 
-        
     }
     return self;
 }
@@ -54,7 +65,10 @@
 {
     mTextLable.text = model.content;
     
+    
     [super setModel:model];
 }
+
+
 
 @end

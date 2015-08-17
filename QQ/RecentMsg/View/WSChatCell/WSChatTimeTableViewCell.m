@@ -36,6 +36,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         mTimeLable = [UILabel newAutoLayoutView];
+        mTimeLable.backgroundColor =[UIColor clearColor];
         mTimeLable.font = [UIFont systemFontOfSize:10];
         mTimeLable.textColor = kTextColorTime;
         [self.contentView addSubview:mTimeLable];
