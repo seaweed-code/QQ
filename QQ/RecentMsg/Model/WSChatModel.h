@@ -60,6 +60,6 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
 /**
  *  @brief  信息发送者头像
  */
-@property(nonatomic,strong)NSString *ImageURL_Owner;
+@property(nonatomic,strong)NSString *headImageURL_sender;
 
 @end
