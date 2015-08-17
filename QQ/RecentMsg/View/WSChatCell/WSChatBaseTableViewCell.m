@@ -71,8 +71,6 @@
 {
     _model = model;
     
-    [self setBubbeView:mContentView.bounds.size];
-    
 }
 
 -(void)setBubbeView:(CGSize) size
@@ -94,11 +92,16 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    if (![keyPath isEqualToString:@"bounds"])
+        return;
+    
     CGRect newRect = [change[@"new"] CGRectValue];
+    
+    //NSLog(@"change:%@",NSStringFromCGRect(newRect));
     
     [self setBubbeView:newRect.size];
     
-    NSLog(@"change:%@",NSStringFromCGRect(newRect));
+    
 }
 -(void)dealloc
 {
