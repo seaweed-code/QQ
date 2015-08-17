@@ -75,16 +75,14 @@
 {
     UIImage *image = [UIImage imageNamed:model.content];
     
-
-//    [mImageView removeConstraint:radio];
-//    
-//    if (image.size.height)
-//    {
-//        CGFloat multiplier = image.size.width/image.size.height;
-//        
-//        radio =   [mImageView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:mImageView withMultiplier:multiplier];
-//        
-//    }
+    [mImageView removeConstraint:radio];
+    if (image.size.height)
+    {
+        CGFloat multiplier = image.size.width/image.size.height;
+        
+        radio =   [mImageView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:mImageView withMultiplier:multiplier];
+        
+    }
     
 
     mImageView.image = image;
