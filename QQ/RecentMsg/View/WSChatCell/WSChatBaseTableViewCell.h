@@ -47,6 +47,11 @@
      *  @brief  本消息是否是本人发送的？
      */
     BOOL isSender;
+    
+    /**
+     *  @brief  主要内容视图
+     */
+    UIView *mContentView;
 }
 /**
  *  @brief  聊天消息中单条消息模型

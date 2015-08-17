@@ -10,9 +10,9 @@
 #import "PureLayout.h"
 
 //文本
-#define kH_OffsetTextWithHead    (20)//水平方向文本和头像的距离
-#define kMaxOffsetText           (45)//文本最长时，为了不让文本分行显示，需要和屏幕对面保持一定距离
-#define kTop_OffsetTextWithHead  (15) //文本和头像顶部对其间距
+#define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
+#define kMaxOffsetText               (45)//文本最长时，为了不让文本分行显示，需要和屏幕对面保持一定距离
+#define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
 
 
 @implementation WSChatTextTableViewCell
@@ -23,6 +23,7 @@
     if (self)
     {
         mTextLable = [UILabel newAutoLayoutView];
+        mContentView = mTextLable;
         mTextLable.numberOfLines = 0;
         mTextLable.backgroundColor = [UIColor clearColor];
         mTextLable.font = [UIFont systemFontOfSize:14];
@@ -51,25 +52,9 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    [super setModel:model];
-   
     mTextLable.text = model.content;
     
-    [self layoutIfNeeded];
-    
-    CGRect rect = mTextLable.frame;
-    
-    mWidthConstraintBubbleImageView.constant = rect.size.width+40;
-    mHeightConstraintBubbleImageView.constant = rect.size.height +40;
-    
-    if (model.isSender)
-    {
-        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-        
-    }else
-    {
-         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-    }
+    [super setModel:model];
 }
 
 @end

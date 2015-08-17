@@ -43,7 +43,6 @@
         [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kTopOffsetTime];
         [mTimeLable autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
         [mTimeLable autoAlignAxisToSuperviewAxis:ALAxisVertical];
-        
         [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLeadingOffetTime relation:NSLayoutRelationGreaterThanOrEqual];
         
     }

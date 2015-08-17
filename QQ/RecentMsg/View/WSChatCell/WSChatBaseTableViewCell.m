@@ -9,15 +9,15 @@
 #import "WSChatBaseTableViewCell.h"
 
 
-#define kWidthHead             (40)  //头像宽度
-#define kHeightHead            (kWidthHead) //头像高度
-#define kTopHead               (10)  //头像离父视图顶部距离
-#define kLeadingHead           (10) //对方发送的消息时，头像距离父视图的leading(头像在左边)
-#define kTraingHead            (kLeadingHead) //自己发送的消息时，头像距离父视图的traing(头像在右边)
+#define kWidthHead                    (40)  //头像宽度
+#define kHeightHead                   (kWidthHead) //头像高度
+#define kTopHead                      (10)  //头像离父视图顶部距离
+#define kLeadingHead                  (10) //对方发送的消息时，头像距离父视图的leading(头像在左边)
+#define kTraingHead                   (kLeadingHead) //自己发送的消息时，头像距离父视图的traing(头像在右边)
 
-#define kOffsetHHeadToBubble    (0) //头像和气泡水平距离
+#define kOffsetHHeadToBubble          (0) //头像和气泡水平距离
 
-#define kOffsetTopHeadToBubble  (5)  //头像和气泡顶部对其间距
+#define kOffsetTopHeadToBubble        (5)  //头像和气泡顶部对其间距
 
 #define kOffsetBottomBubbleToSupview  (10)//气泡和父视图底部间距
 
@@ -75,7 +75,27 @@
     return self;
 }
 
+-(void)setModel:(WSChatModel *)model
+{
+    _model = model;
+    
+    [self layoutIfNeeded];
+    
+    CGRect rect = mContentView.frame;
+    
+    mWidthConstraintBubbleImageView.constant = rect.size.width+40;
+    mHeightConstraintBubbleImageView.constant = rect.size.height +40;
+    
+    if (model.isSender)
+    {
+        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+        
+    }else
+    {
+        mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+    }
 
+}
 
 
 @end
