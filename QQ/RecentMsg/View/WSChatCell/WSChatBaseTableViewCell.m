@@ -127,7 +127,7 @@
     
     CGRect newRect = [change[@"new"] CGRectValue];
     
-   // NSLog(@"change:%@",NSStringFromCGRect(newRect));
+    NSLog(@"change:%@",NSStringFromCGRect(newRect));
     
     [self setBubbeView:newRect.size];
     
