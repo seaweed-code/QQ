@@ -9,6 +9,7 @@
 #import "WSRecentMsgTableViewController.h"
 #import "WSRecentMsgTableViewCell.h"
 #import "WSChatTableViewController.h"
+#import "ODRefreshControl.h"
 
 
 #define kReusedID        (@"reused")
@@ -26,6 +27,11 @@
 @interface WSRecentMsgTableViewController ()<UISearchDisplayDelegate>
 {
     UISearchDisplayController *msearchDisplay;
+    
+    /**
+     *  @brief  下拉刷新控件
+     */
+    ODRefreshControl *mRefreshControl;
 }
 
 @property(nonatomic,strong)NSMutableArray *DataSource;
@@ -43,6 +49,10 @@
         [self.DataSource addObject:@""];
     }
     
+    
+    mRefreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+    
+    [mRefreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     
     UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
     searchBar.placeholder = @"搜索";
@@ -64,6 +74,17 @@
     segement.selectedSegmentIndex = 0;
     self.navigationItem.titleView = segement;
     
+}
+
+-(void)dropViewDidBeginRefreshing:(ODRefreshControl*)refresh
+{
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+    {
+    
+        [mRefreshControl endRefreshing];
+
+    });
 }
 
 /**

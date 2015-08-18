@@ -39,6 +39,7 @@
 		379799A81B8227D300A5775C /* Imageset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379799A71B8227D300A5775C /* Imageset.xcassets */; };
 		379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */; };
 		379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77BB1B7CD510006A8722 /* WSNavigationController.m */; };
+		37B830071B833E160091E384 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B830061B833E160091E384 /* ODRefreshControl.m */; };
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
 		37DD27B71B7F862A0088FA59 /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B61B7F862A0088FA59 /* WSChatModel.m */; };
@@ -124,6 +125,8 @@
 		379A50031B81D24D0089F59E /* WSChatImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatImageTableViewCell.h; sourceTree = "<group>"; };
 		379B77BA1B7CD510006A8722 /* WSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSNavigationController.h; sourceTree = "<group>"; };
 		379B77BB1B7CD510006A8722 /* WSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSNavigationController.m; sourceTree = "<group>"; };
+		37B830051B833E160091E384 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		37B830061B833E160091E384 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		37DD27AD1B7F81AF0088FA59 /* WSChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTableViewController.h; sourceTree = "<group>"; };
 		37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTableViewController.m; sourceTree = "<group>"; };
 		37DD27B11B7F83D80088FA59 /* WSChatBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		3763F9731B7CC75E008D6360 /* Third Part Library */ = {
 			isa = PBXGroup;
 			children = (
+				37B830041B833E160091E384 /* ODRefreshControl */,
 				3763F9811B7CC8C1008D6360 /* SDWebImage */,
 				3763F9741B7CC75E008D6360 /* PureLayout */,
 			);
@@ -327,6 +331,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		37B830041B833E160091E384 /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				37B830051B833E160091E384 /* ODRefreshControl.h */,
+				37B830061B833E160091E384 /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
 		37DD27B01B7F83A90088FA59 /* WSChatCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +474,7 @@
 				3764137E1B7D8801007738CB /* WSBuddyViewController.m in Sources */,
 				3763F9B01B7CC8C1008D6360 /* UIImageView+HighlightedWebCache.m in Sources */,
 				3763F9B11B7CC8C1008D6360 /* UIImageView+WebCache.m in Sources */,
+				37B830071B833E160091E384 /* ODRefreshControl.m in Sources */,
 				3763F9AF1B7CC8C1008D6360 /* UIImage+WebP.m in Sources */,
 				3763F9AB1B7CC8C1008D6360 /* SDWebImagePrefetcher.m in Sources */,
 				3763F9801B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m in Sources */,
