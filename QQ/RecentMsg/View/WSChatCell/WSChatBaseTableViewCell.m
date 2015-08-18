@@ -7,6 +7,7 @@
 //
 
 #import "WSChatBaseTableViewCell.h"
+#import "UIImage+Utils.h"
 
 
 
@@ -76,24 +77,6 @@
 
 -(void)setBubbeView:(CGSize) size
 {
-//    switch (self.model.chatCellType)
-//    {
-//        case WSChatCellType_Text:
-//            
-            mWidthConstraintBubbleImageView.constant = size.width  +40;
-            mHeightConstraintBubbleImageView.constant = size.height +40;
-            
-//            break;
-//        case WSChatCellType_Image:
-//        case WSChatCellType_Video:
-//            mWidthConstraintBubbleImageView.constant = size.width;
-//            mHeightConstraintBubbleImageView.constant = size.height;
-//            break;
-//        default:
-//            
-//            break;
-//    }
-
     if (_model.isSender)
     {
         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
@@ -102,24 +85,38 @@
     {
         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
     }
-
     
-//    switch (self.model.chatCellType)
-//    {
-//        case WSChatCellType_Image:
-//        case WSChatCellType_Video:
-//        {
-//            UIImageView * imageView = (UIImageView*)mContentView;
-//            
-//            imageView.image = mBubbleImageView.image;//[self maskImage:imageView.image withMask:mBubbleImageView.image];//[self maskWithsourceImage:imageView.image maskImage:mBubbleImageView.image];
-//            
-//        }
-//            break;
-//        default:
-//            
-//            break;
-//    }
-//    
+    
+    switch (self.model.chatCellType)
+    {
+        case WSChatCellType_Text:
+            
+            mWidthConstraintBubbleImageView.constant = size.width  +40;
+            mHeightConstraintBubbleImageView.constant = size.height +40;
+
+            break;
+        case WSChatCellType_Image:
+        case WSChatCellType_Video:
+        {
+            mWidthConstraintBubbleImageView.constant = size.width;
+            mHeightConstraintBubbleImageView.constant = size.height;
+         
+         
+            UIImageView *imageView = (UIImageView*)mContentView;
+
+            
+            const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:size];
+            
+            imageView.image = [[UIImage imageNamed:self.model.content] maskWithImage:maskImageDrawnToSize];
+            
+        }
+            break;
+        default:
+            
+            break;
+    }
+
+
 }
 
 
@@ -130,7 +127,7 @@
     
     CGRect newRect = [change[@"new"] CGRectValue];
     
-    //NSLog(@"change:%@",NSStringFromCGRect(newRect));
+   // NSLog(@"change:%@",NSStringFromCGRect(newRect));
     
     [self setBubbeView:newRect.size];
     

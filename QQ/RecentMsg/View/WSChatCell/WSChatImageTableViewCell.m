@@ -8,6 +8,7 @@
 
 #import "WSChatImageTableViewCell.h"
 #import "PureLayout.h"
+#import "UIImage+Utils.h"
 
 //文本
 #define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
@@ -39,10 +40,11 @@
         
         [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         
-        CGFloat top     = kTop_OffsetTextWithHead + kTopHead;
+        CGFloat top     =  kTopHead - kOffsetTopHeadToBubble;
+        
         CGFloat bottom  = kBottom_OffsetTextWithSupView;
         
-        CGFloat leading = kH_OffsetTextWithHead + kWidthHead + kLeadingHead;
+        CGFloat leading = kOffsetHHeadToBubble + kWidthHead + kLeadingHead;
         CGFloat traing  = kMaxOffsetText;
         
         [mImageView autoSetDimension:ALDimensionHeight toSize:kMaxHeightImageView relation:NSLayoutRelationLessThanOrEqual];
@@ -75,17 +77,28 @@
 {
     UIImage *image = [UIImage imageNamed:model.content];
     
-    [mImageView removeConstraint:radio];
-    if (image.size.height)
-    {
-        CGFloat multiplier = image.size.width/image.size.height;
-        
-        radio =   [mImageView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:mImageView withMultiplier:multiplier];
-        
-    }
     
+    
+//    [mImageView removeConstraint:radio];
+//    if (image.size.height)
+//    {
+//        CGFloat multiplier = image.size.width/image.size.height;
+//        
+//        radio =   [mImageView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:mImageView withMultiplier:multiplier];
+//        
+//    }
+//    
 
     mImageView.image = image;
+    
+    if (!CGSizeEqualToSize(mImageView.frame.size, CGSizeZero))
+    {
+        const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
+        
+        mImageView.image = [image maskWithImage:maskImageDrawnToSize];
+    }
+    
+   
     
     [super setModel:model];
 }

@@ -108,7 +108,7 @@
                 
                 model.chatCellType = WSChatCellType_Image;
                 
-                model.content = [NSString stringWithFormat:@"app%ld",i%10+1];
+                model.content = [NSString stringWithFormat:@"app%ld",i%6+1];
                 
                 
                 break;
