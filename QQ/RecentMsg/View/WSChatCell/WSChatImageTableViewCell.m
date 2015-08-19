@@ -91,11 +91,32 @@
     {
         [self becomeFirstResponder];
         
+        UIMenuItem *copy = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(menuCopy:)];
+        UIMenuItem *remove = [[UIMenuItem alloc]initWithTitle:@"删除" action:@selector(menuRemove:)];
+        
         UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:@[copy,remove]];
         [menu setTargetRect:mBubbleImageView.frame inView:self];
         [menu setMenuVisible:YES animated:YES];
         
     }
+}
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return  ((action == @selector(menuCopy:))  || (action == @selector(menuRemove:)));
+}
+
+
+#pragma mark --复制、删除处理
+-(void)menuCopy:(id)sender
+{
+    [UIPasteboard generalPasteboard].image = mImageView.image;
+}
+
+-(void)menuRemove:(id)sender
+{
+    
 }
 
 @end

@@ -72,10 +72,6 @@
 }
 
 
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender
-{
-    return YES;
-}
 
 -(BOOL)canBecomeFirstResponder
 {
