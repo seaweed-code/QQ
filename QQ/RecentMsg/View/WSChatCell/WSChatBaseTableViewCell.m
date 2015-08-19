@@ -77,7 +77,8 @@
 
 -(void)setBubbeView:(CGSize) size
 {
-    if (_model.isSender)
+    
+    if (isSender)
     {
         mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
         

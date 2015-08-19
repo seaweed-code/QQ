@@ -18,12 +18,6 @@
 
 #define kMaxHeightImageView            (200)
 
-@interface WSChatImageTableViewCell ()
-{
-    NSLayoutConstraint *radio;
-}
-@end
-
 
 @implementation WSChatImageTableViewCell
 
@@ -76,22 +70,10 @@
 -(void)setModel:(WSChatModel *)model
 {
     UIImage *image = [UIImage imageNamed:model.content];
-    
-    
-    
-//    [mImageView removeConstraint:radio];
-//    if (image.size.height)
-//    {
-//        CGFloat multiplier = image.size.width/image.size.height;
-//        
-//        radio =   [mImageView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:mImageView withMultiplier:multiplier];
-//        
-//    }
-//    
-
+  
     mImageView.image = image;
     
-    if (!CGSizeEqualToSize(mImageView.frame.size, CGSizeZero))
+    if (mImageView.frame.size.height && mImageView.frame.size.width)
     {
         const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
         

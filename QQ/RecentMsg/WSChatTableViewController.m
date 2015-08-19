@@ -98,7 +98,7 @@
                       @"dfsafdafdsafdsa"];
     
     
-    
+    NSInteger num = 0;
     for (NSInteger i = 0; i<200; i++)
     {
         WSChatModel *model = [[WSChatModel alloc]init];
@@ -108,7 +108,7 @@
                 
                 model.chatCellType = WSChatCellType_Image;
                 
-                model.content = [NSString stringWithFormat:@"app%ld",i%8+1];
+                model.content = [NSString stringWithFormat:@"app%ld",++num%8+1];
                 
                 
                 break;
