@@ -71,7 +71,10 @@ NSString *const  kRouterEventChatCellRemoveEventName = @"kRouterEventChatCellRem
     return self;
 }
 
-
+-(void)longPress:(UILongPressGestureRecognizer *)Press
+{
+    
+}
 
 -(BOOL)canBecomeFirstResponder
 {
@@ -137,7 +140,7 @@ NSString *const  kRouterEventChatCellRemoveEventName = @"kRouterEventChatCellRem
     
     CGRect newRect = [change[@"new"] CGRectValue];
     
-    NSLog(@"change:%@",NSStringFromCGRect(newRect));
+    //NSLog(@"change:%@",NSStringFromCGRect(newRect));
     
     [self setBubbeView:newRect.size];
     

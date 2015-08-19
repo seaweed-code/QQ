@@ -49,6 +49,7 @@
         [self.DataSource addObject:@""];
     }
     
+    self.title = @"消息";
     
     mRefreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     

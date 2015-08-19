@@ -78,4 +78,6 @@ extern NSString *const  kRouterEventChatCellRemoveEventName;
  *  @param Press 长按手势
  */
 -(void)longPress:(UILongPressGestureRecognizer *)Press;
+
+
 @end
