@@ -71,5 +71,18 @@
 }
 
 
+-(void)longPress:(UILongPressGestureRecognizer *)Press
+{
+    if (Press.state == UIGestureRecognizerStateBegan)
+    {
+        [self becomeFirstResponder];
+        
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setTargetRect:mBubbleImageView.frame inView:self];
+        [menu setMenuVisible:YES animated:YES];
+        
+    }
+}
+
 
 @end

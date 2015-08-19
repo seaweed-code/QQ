@@ -47,6 +47,9 @@
         }
         
         mBubbleImageView = [UIImageView newAutoLayoutView];
+        mBubbleImageView.userInteractionEnabled = YES;
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
+        [mBubbleImageView addGestureRecognizer:longPress];
         [self.contentView addSubview:mBubbleImageView];
         
         [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
@@ -68,6 +71,16 @@
     return self;
 }
 
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return YES;
+}
+
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
 
 -(void)setModel:(WSChatModel *)model
 {

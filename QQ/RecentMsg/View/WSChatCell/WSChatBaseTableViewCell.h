@@ -69,4 +69,10 @@
 @property(nonatomic,strong) WSChatModel *model;
 
 
+/**
+ *  @brief  气泡被长按后通知，子类必须实现此方法
+ *
+ *  @param Press 长按手势
+ */
+-(void)longPress:(UILongPressGestureRecognizer *)Press;
 @end

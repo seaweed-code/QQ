@@ -11,10 +11,11 @@
 #import "WSChatTextTableViewCell.h"
 #import "WSChatImageTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
+#import "UIViewControllerEx.h"
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
-@interface WSChatTableViewController ()
+@interface WSChatTableViewController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)NSMutableArray *DataSource;
 @end
 
@@ -30,8 +31,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = kBkColorTableView;
     
-   
-   
+    //[self setPanGesture];
+
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"1%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"0%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
     
@@ -41,6 +42,7 @@
     [self.tableView registerClass:[WSChatTimeTableViewCell class] forCellReuseIdentifier:kTimeCellReusedID];
     
 }
+
 
 
 - (void)didReceiveMemoryWarning {
