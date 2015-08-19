@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WSChatModel.h"
 #import "PureLayout.h"
+#import "UIResponder+Router.h"
 
 #define kWidthHead                    (40)  //头像宽度
 #define kHeightHead                   (kWidthHead) //头像高度
@@ -26,7 +27,9 @@
 #define kImageNameChat_Recieve_nor  (@"chat_recive_nor")
 
 
+#define kModelKey      (@"model")
 
+extern NSString *const  kRouterEventChatCellRemoveEventName; 
 
 
 @interface WSChatBaseTableViewCell : UITableViewCell

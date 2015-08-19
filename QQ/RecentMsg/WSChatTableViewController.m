@@ -11,7 +11,6 @@
 #import "WSChatTextTableViewCell.h"
 #import "WSChatImageTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
-#import "UIViewControllerEx.h"
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
@@ -31,7 +30,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = kBkColorTableView;
     
-    //[self setPanGesture];
 
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"1%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
     [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"0%@%ld",kReuseIDSeparate,(long)WSChatCellType_Text]];
@@ -83,6 +81,28 @@
     [cell setModel:model];
     
     return cell;
+}
+
+
+#pragma mark - UIResponder actions
+
+- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo
+{
+    WSChatModel *model = [userInfo objectForKey:kModelKey];
+    
+    if ([eventName isEqualToString:kRouterEventChatCellRemoveEventName])
+    {//删除消息
+        
+        NSIndexPath *index = [NSIndexPath indexPathForRow:[self.DataSource indexOfObject:model] inSection:0];
+        
+        [self.DataSource removeObject:model];
+        
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+
+    }
+   
 }
 
 

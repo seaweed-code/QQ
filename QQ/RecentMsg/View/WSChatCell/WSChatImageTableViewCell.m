@@ -80,8 +80,6 @@
         mImageView.image = [image maskWithImage:maskImageDrawnToSize];
     }
     
-   
-    
     [super setModel:model];
 }
 
@@ -116,7 +114,7 @@
 
 -(void)menuRemove:(id)sender
 {
-    
+    [self routerEventWithName:kRouterEventChatCellRemoveEventName userInfo:@{kModelKey:self.model}];
 }
 
 @end

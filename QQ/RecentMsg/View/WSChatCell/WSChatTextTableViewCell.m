@@ -87,6 +87,7 @@
     }
 }
 
+
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     return  ((action == @selector(menuCopy:))  || (action == @selector(menuRemove:)));
@@ -101,7 +102,7 @@
 
 -(void)menuRemove:(id)sender
 {
-    
+    [self routerEventWithName:kRouterEventChatCellRemoveEventName userInfo:@{kModelKey:self.model}];
 }
 
 

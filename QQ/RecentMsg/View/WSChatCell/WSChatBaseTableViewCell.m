@@ -9,7 +9,7 @@
 #import "WSChatBaseTableViewCell.h"
 #import "UIImage+Utils.h"
 
-
+NSString *const  kRouterEventChatCellRemoveEventName = @"kRouterEventChatCellRemoveEventName";
 
 
 @implementation WSChatBaseTableViewCell

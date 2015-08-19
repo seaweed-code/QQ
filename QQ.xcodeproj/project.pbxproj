@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 370584171B846E3C00E254D8 /* UIResponder+Router.m */; };
 		3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		370584161B846E3C00E254D8 /* UIResponder+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Router.h"; sourceTree = "<group>"; };
+		370584171B846E3C00E254D8 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
 		3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTimeTableViewCell.h; sourceTree = "<group>"; };
 		3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTimeTableViewCell.m; sourceTree = "<group>"; };
 		37330BF41B81ED17002A885B /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				379B77BB1B7CD510006A8722 /* WSNavigationController.m */,
 				377DAA4C1B844AAF00164D23 /* UIViewControllerEx.h */,
 				377DAA4D1B844AAF00164D23 /* UIViewControllerEx.m */,
+				370584161B846E3C00E254D8 /* UIResponder+Router.h */,
+				370584171B846E3C00E254D8 /* UIResponder+Router.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */,
 				377DAA4E1B844AAF00164D23 /* UIViewControllerEx.m in Sources */,
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
+				370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
