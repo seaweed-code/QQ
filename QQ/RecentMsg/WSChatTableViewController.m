@@ -95,10 +95,25 @@
         
         NSIndexPath *index = [NSIndexPath indexPathForRow:[self.DataSource indexOfObject:model] inSection:0];
         
-        [self.DataSource removeObject:model];
+        NSMutableArray *indexs = @[index].mutableCopy;
+        
+        NSMutableIndexSet *indexSets = [NSMutableIndexSet indexSetWithIndex:index.row];
+       
+
+        if ((index.row > 0) && ((WSChatModel*)(self.DataSource[index.row-1])).chatCellType == WSChatCellType_Time)
+        {
+            if((index.row == self.DataSource.count-1) || (((WSChatModel*)(self.DataSource[index.row+1])).chatCellType == WSChatCellType_Time))
+            {//删除上一个
+             
+                [indexSets addIndex:index.row-1];
+                [indexs addObject:[NSIndexPath indexPathForRow:index.row-1 inSection:0]];
+            }
+        }
+        
+        [self.DataSource removeObjectsAtIndexes:indexSets];
         
         [self.tableView beginUpdates];
-        [self.tableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView deleteRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
 
     }
