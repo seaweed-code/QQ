@@ -81,6 +81,11 @@ NSString *const  kRouterEventChatCellRemoveEventName = @"kRouterEventChatCellRem
     return YES;
 }
 
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return NO;
+}
+
 -(void)setModel:(WSChatModel *)model
 {
     _model = model;
