@@ -79,10 +79,12 @@
         [self becomeFirstResponder];
         
         UIMenuItem *copy = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(menuCopy:)];
+        UIMenuItem *retweet = [[UIMenuItem alloc]initWithTitle:@"转发" action:@selector(menuRetweet:)];
+        UIMenuItem *retweetMultile = [[UIMenuItem alloc]initWithTitle:@"转发多条" action:@selector(menuRetweetMultile:)];
         UIMenuItem *remove = [[UIMenuItem alloc]initWithTitle:@"删除" action:@selector(menuRemove:)];
         
         UIMenuController *menu = [UIMenuController sharedMenuController];
-        [menu setMenuItems:@[copy,remove]];
+        [menu setMenuItems:@[copy,retweet,retweetMultile,remove]];
         [menu setTargetRect:mBubbleImageView.frame inView:self];
         [menu setMenuVisible:YES animated:YES];
         
@@ -92,14 +94,26 @@
 
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
-    return  ((action == @selector(menuCopy:))  || (action == @selector(menuRemove:)));
+    return  ((action == @selector(menuCopy:))   || (action == @selector(menuRemove:))  ||
+            (action == @selector(menuRetweet:)) || (action == @selector(menuRetweetMultile:)));
 }
 
 
-#pragma mark --复制、删除处理
+#pragma mark --复制、删除、转发、转发多条
 -(void)menuCopy:(id)sender
 {
     [UIPasteboard generalPasteboard].string = mTextLable.text;
+}
+
+
+-(void)menuRetweet:(id)sender
+{
+    
+}
+
+-(void)menuRetweetMultile:(id)sender
+{
+    
 }
 
 -(void)menuRemove:(id)sender
