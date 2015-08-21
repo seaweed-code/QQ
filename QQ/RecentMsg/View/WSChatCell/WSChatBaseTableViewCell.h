@@ -27,10 +27,6 @@
 #define kImageNameChat_Recieve_nor  (@"chat_recive_nor")
 
 
-#define kModelKey      (@"model")
-
-extern NSString *const  kRouterEventChatCellRemoveEventName; 
-
 
 @interface WSChatBaseTableViewCell : UITableViewCell
 {

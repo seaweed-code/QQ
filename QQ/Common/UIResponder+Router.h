@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef NS_OPTIONS(NSInteger, EventChatCellType)
+{
+    EventChatCellRemoveEvent
+};
+
+#define kModelKey      (@"model")
+
+
 @interface UIResponder (Router)
 
 /**
@@ -17,6 +26,6 @@
  *  @param userInfo  传递消息时, 携带的数据, 数据传递过程中, 会有新的数据添加
  *
  */
-- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo;
+- (void)routerEventWithType:(EventChatCellType)eventType userInfo:(NSDictionary *)userInfo;
 
 @end

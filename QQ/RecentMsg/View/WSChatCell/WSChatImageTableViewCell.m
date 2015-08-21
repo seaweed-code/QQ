@@ -115,7 +115,7 @@
 
 -(void)menuRemove:(id)sender
 {
-    [self routerEventWithName:kRouterEventChatCellRemoveEventName userInfo:@{kModelKey:self.model}];
+    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:self.model}];
 }
 
 @end

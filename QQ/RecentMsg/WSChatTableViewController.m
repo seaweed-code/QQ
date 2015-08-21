@@ -85,39 +85,54 @@
 
 
 #pragma mark - UIResponder actions
-
-- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo
+-(void)routerEventWithType:(EventChatCellType)eventType userInfo:(NSDictionary *)userInfo
 {
     WSChatModel *model = [userInfo objectForKey:kModelKey];
     
-    if ([eventName isEqualToString:kRouterEventChatCellRemoveEventName])
-    {//删除消息
+    switch (eventType)
+    {
+        case EventChatCellRemoveEvent:
         
-        NSIndexPath *index = [NSIndexPath indexPathForRow:[self.DataSource indexOfObject:model] inSection:0];
-        
-        NSMutableArray *indexs = @[index].mutableCopy;
-        
-        NSMutableIndexSet *indexSets = [NSMutableIndexSet indexSetWithIndex:index.row];
-       
-
-        if ((index.row > 0) && ((WSChatModel*)(self.DataSource[index.row-1])).chatCellType == WSChatCellType_Time)
-        {
-            if((index.row == self.DataSource.count-1) || (((WSChatModel*)(self.DataSource[index.row+1])).chatCellType == WSChatCellType_Time))
-            {//删除上一个
-             
-                [indexSets addIndex:index.row-1];
-                [indexs addObject:[NSIndexPath indexPathForRow:index.row-1 inSection:0]];
-            }
-        }
-        
-        [self.DataSource removeObjectsAtIndexes:indexSets];
-        
-        [self.tableView beginUpdates];
-        [self.tableView deleteRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationFade];
-        [self.tableView endUpdates];
-
+            [self RemoveModel:model];
+            
+            break;
+            
+        default:
+            break;
     }
-   
+
+}
+
+/**
+ *  @brief  删除模型
+ *
+ *  @param model 模型
+ */
+-(void)RemoveModel:(WSChatModel *)model
+{
+    NSIndexPath *index = [NSIndexPath indexPathForRow:[self.DataSource indexOfObject:model] inSection:0];
+    
+    NSMutableArray *indexs = @[index].mutableCopy;
+    
+    NSMutableIndexSet *indexSets = [NSMutableIndexSet indexSetWithIndex:index.row];
+    
+    
+    if ((index.row > 0) && ((WSChatModel*)(self.DataSource[index.row-1])).chatCellType == WSChatCellType_Time)
+    {
+        if((index.row == self.DataSource.count-1) || (((WSChatModel*)(self.DataSource[index.row+1])).chatCellType == WSChatCellType_Time))
+        {//删除上一个
+            
+            [indexSets addIndex:index.row-1];
+            [indexs addObject:[NSIndexPath indexPathForRow:index.row-1 inSection:0]];
+        }
+    }
+    
+    [self.DataSource removeObjectsAtIndexes:indexSets];
+    
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+
 }
 
 
