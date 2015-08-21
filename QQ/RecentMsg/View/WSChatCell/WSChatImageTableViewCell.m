@@ -28,6 +28,11 @@
     if (self)
     {
         mImageView = [UIImageView newAutoLayoutView];
+        mImageView.userInteractionEnabled = NO;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageBeenTaped:)];
+        [mBubbleImageView addGestureRecognizer:tap];
+        
         [self.contentView addSubview:mImageView];
         mContentView = mImageView;
         
@@ -83,6 +88,11 @@
     [super setModel:model];
 }
 
+
+-(void)imageBeenTaped:(UITapGestureRecognizer*)tap
+{
+    [self routerEventWithType:EventChatCellImageTapedEvent userInfo:@{kModelKey:self.model}];
+}
 
 -(void)longPress:(UILongPressGestureRecognizer *)Press
 {

@@ -24,6 +24,14 @@
         
         
         mHead = [UIImageView newAutoLayoutView];
+        mHead.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headBeenTaped:)];
+        [mHead addGestureRecognizer:tap];
+        
+        UILongPressGestureRecognizer *headlongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(headBeenLongPress:)];
+        [mHead addGestureRecognizer:headlongPress];
+        
         mHead.image = [UIImage imageNamed:@"user_avatar_default"];
         [self.contentView addSubview:mHead];
       
@@ -46,8 +54,8 @@
         
         mBubbleImageView = [UIImageView newAutoLayoutView];
         mBubbleImageView.userInteractionEnabled = YES;
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
-        [mBubbleImageView addGestureRecognizer:longPress];
+        UILongPressGestureRecognizer *bubblelongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
+        [mBubbleImageView addGestureRecognizer:bubblelongPress];
         [self.contentView addSubview:mBubbleImageView];
         
         [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
@@ -67,6 +75,20 @@
     }
     
     return self;
+}
+
+-(void)headBeenTaped:(UITapGestureRecognizer *)tap
+{
+    [self routerEventWithType:EventChatCellHeadTapedEvent userInfo:@{kModelKey:self.model}];
+}
+
+-(void)headBeenLongPress:(UILongPressGestureRecognizer *)longPress
+{
+    if (longPress.state == UIGestureRecognizerStateBegan)
+    {
+        [self routerEventWithType:EventChatCellHeadLongPressEvent userInfo:@{kModelKey:self.model}];
+    }
+   
 }
 
 -(void)longPress:(UILongPressGestureRecognizer *)Press

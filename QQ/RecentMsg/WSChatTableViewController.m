@@ -96,7 +96,16 @@
             [self RemoveModel:model];
             
             break;
+        case EventChatCellImageTapedEvent:
+            NSLog(@"点击了图片了。。");
             
+            break;
+        case EventChatCellHeadTapedEvent:
+            NSLog(@"头像被点击了。。。");
+            break;
+        case EventChatCellHeadLongPressEvent:
+            NSLog(@"头像被长按了。。。。");
+            break;
         default:
             break;
     }

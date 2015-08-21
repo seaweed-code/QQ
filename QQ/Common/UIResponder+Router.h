@@ -8,10 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
-
+/**
+ *  @brief  聊天界面各种点击事件
+ */
 typedef NS_OPTIONS(NSInteger, EventChatCellType)
 {
-    EventChatCellRemoveEvent
+    /**
+     *  删除事件
+     */
+    EventChatCellRemoveEvent,
+    
+    /**
+     *  @brief  图片点击事件
+     */
+    EventChatCellImageTapedEvent,
+    
+    /**
+     *  @brief  头像点击事件
+     */
+    EventChatCellHeadTapedEvent,
+    
+    /**
+     *  @brief  头像长按事件
+     */
+    EventChatCellHeadLongPressEvent,
 };
 
 #define kModelKey      (@"model")
