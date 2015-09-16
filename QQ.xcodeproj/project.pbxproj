@@ -42,6 +42,10 @@
 		379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */; };
 		379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77BB1B7CD510006A8722 /* WSNavigationController.m */; };
 		37B830071B833E160091E384 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B830061B833E160091E384 /* ODRefreshControl.m */; };
+		37CACD041BA94EEE00C54610 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACCFF1BA94EEE00C54610 /* RECommonFunctions.m */; };
+		37CACD051BA94EEE00C54610 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD011BA94EEE00C54610 /* RESideMenu.m */; };
+		37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD031BA94EEE00C54610 /* UIViewController+RESideMenu.m */; };
+		37CACD091BA9515800C54610 /* WSLeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD081BA9515800C54610 /* WSLeftMenuController.m */; };
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
 		37DD27B71B7F862A0088FA59 /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B61B7F862A0088FA59 /* WSChatModel.m */; };
@@ -133,6 +137,14 @@
 		379B77BB1B7CD510006A8722 /* WSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSNavigationController.m; sourceTree = "<group>"; };
 		37B830051B833E160091E384 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		37B830061B833E160091E384 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		37CACCFE1BA94EEE00C54610 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		37CACCFF1BA94EEE00C54610 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		37CACD001BA94EEE00C54610 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		37CACD011BA94EEE00C54610 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		37CACD021BA94EEE00C54610 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		37CACD031BA94EEE00C54610 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		37CACD071BA9515800C54610 /* WSLeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLeftMenuController.h; sourceTree = "<group>"; };
+		37CACD081BA9515800C54610 /* WSLeftMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLeftMenuController.m; sourceTree = "<group>"; };
 		37DD27AD1B7F81AF0088FA59 /* WSChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTableViewController.h; sourceTree = "<group>"; };
 		37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTableViewController.m; sourceTree = "<group>"; };
 		37DD27B11B7F83D80088FA59 /* WSChatBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -237,6 +249,8 @@
 		3764137F1B7D881F007738CB /* RecentMsg */ = {
 			isa = PBXGroup;
 			children = (
+				37CACD071BA9515800C54610 /* WSLeftMenuController.h */,
+				37CACD081BA9515800C54610 /* WSLeftMenuController.m */,
 				376413801B7D881F007738CB /* WSRecentMsgTableViewController.h */,
 				376413811B7D881F007738CB /* WSRecentMsgTableViewController.m */,
 				37DD27AD1B7F81AF0088FA59 /* WSChatTableViewController.h */,
@@ -329,6 +343,7 @@
 		379B77B91B7CD489006A8722 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				37CACCFD1BA94EEE00C54610 /* RESideMenu */,
 				37330BF41B81ED17002A885B /* UIImage+Utils.m */,
 				37330BF51B81ED17002A885B /* UIImage+Utils.h */,
 				379B77BA1B7CD510006A8722 /* WSNavigationController.h */,
@@ -348,6 +363,19 @@
 				37B830061B833E160091E384 /* ODRefreshControl.m */,
 			);
 			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
+		37CACCFD1BA94EEE00C54610 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				37CACCFE1BA94EEE00C54610 /* RECommonFunctions.h */,
+				37CACCFF1BA94EEE00C54610 /* RECommonFunctions.m */,
+				37CACD001BA94EEE00C54610 /* RESideMenu.h */,
+				37CACD011BA94EEE00C54610 /* RESideMenu.m */,
+				37CACD021BA94EEE00C54610 /* UIViewController+RESideMenu.h */,
+				37CACD031BA94EEE00C54610 /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
 			sourceTree = "<group>";
 		};
 		37DD27B01B7F83A90088FA59 /* WSChatCell */ = {
@@ -477,6 +505,7 @@
 				377DAA4E1B844AAF00164D23 /* UIViewControllerEx.m in Sources */,
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
 				370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */,
+				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
@@ -501,7 +530,10 @@
 				379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */,
 				3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */,
 				3763F9A91B7CC8C1008D6360 /* SDWebImageDownloaderOperation.m in Sources */,
+				37CACD051BA94EEE00C54610 /* RESideMenu.m in Sources */,
+				37CACD091BA9515800C54610 /* WSLeftMenuController.m in Sources */,
 				3763F9AD1B7CC8C1008D6360 /* UIImage+GIF.m in Sources */,
+				37CACD041BA94EEE00C54610 /* RECommonFunctions.m in Sources */,
 				37773F841B806A3000EEB9CB /* WSChatTextTableViewCell.m in Sources */,
 				3763F9A61B7CC8C1008D6360 /* SDWebImageCompat.m in Sources */,
 				3763F9A41B7CC8C1008D6360 /* NSData+ImageContentType.m in Sources */,

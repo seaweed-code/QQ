@@ -11,6 +11,8 @@
 #import "WSRecentMsgTableViewController.h"
 #import "WSBuddyViewController.h"
 #import "WSQworldViewController.h"
+#import "RESideMenu.h"
+#import "WSLeftMenuController.h"
 
 
 @interface AppDelegate ()
@@ -28,7 +30,19 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = self.mainTabBar;
+    
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.mainTabBar leftMenuViewController:[[WSLeftMenuController alloc] init] rightMenuViewController:nil];
+    
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"leftMenuBk"];
+    sideMenuViewController.menuPreferredStatusBarStyle = 1;
+    sideMenuViewController.delegate = nil;
+    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    sideMenuViewController.contentViewShadowOpacity = 0.6;
+    sideMenuViewController.contentViewShadowRadius = 12;
+    sideMenuViewController.contentViewShadowEnabled = YES;
+    
+    self.window.rootViewController = sideMenuViewController;
     
     [self.window makeKeyAndVisible];
    
@@ -42,6 +56,8 @@
     }
     
     _mainTabBar = [[UITabBarController alloc]init];
+    
+    
     
     WSRecentMsgTableViewController *message = [[WSRecentMsgTableViewController alloc]init];
     
