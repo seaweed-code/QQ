@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+//根据模型得到可重用Cell的 重用ID
+#define kCellReuseID(model)      ((model.chatCellType == WSChatCellType_Time)?kTimeCellReusedID:([NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType]))
+
+
 /**
  *  @brief  消息类型
  */
@@ -63,3 +67,7 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
 @property(nonatomic,strong)NSString *headImageURL_sender;
 
 @end
+
+
+
+

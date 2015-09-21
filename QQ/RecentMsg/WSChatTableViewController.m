@@ -44,28 +44,12 @@
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WSChatModel *model = self.DataSource[indexPath.row];
     
-    NSString *reuseID = nil;
-    
-    if (model.chatCellType == WSChatCellType_Time)
-    {
-        reuseID = kTimeCellReusedID;
-    }else
-    {
-        reuseID = [NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType];
-    }
-   
-    return [tableView fd_heightForCellWithIdentifier:reuseID cacheByIndexPath:indexPath configuration:^(WSChatBaseTableViewCell* cell)
+    return [tableView fd_heightForCellWithIdentifier:kCellReuseID(model) cacheByIndexPath:indexPath configuration:^(WSChatBaseTableViewCell* cell)
     {
          [cell setModel:model];
     }];
@@ -82,22 +66,8 @@
 {
     WSChatModel *model = self.DataSource[indexPath.row];
     
-    WSChatBaseTableViewCell *cell;
+    WSChatBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseID(model) forIndexPath:indexPath];
     
-    NSString *reuseID = nil;
-    
-    if (model.chatCellType == WSChatCellType_Time)
-    {
-        reuseID = kTimeCellReusedID;
-    }else
-    {
-        reuseID = [NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType];
-    }
-    
-   
-    cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
-    
-   
     [cell setModel:model];
     
     return cell;
@@ -219,6 +189,13 @@
     
     
     return _DataSource;
+}
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

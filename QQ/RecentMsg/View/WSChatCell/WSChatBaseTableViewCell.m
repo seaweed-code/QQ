@@ -103,9 +103,4 @@
     return NO;
 }
 
--(void)setModel:(WSChatModel *)model
-{
-    _model = model;
-    
-}
 @end
