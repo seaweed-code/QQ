@@ -23,14 +23,20 @@
     if (self)
     {
         mTextLable = [UILabel newAutoLayoutView];
-        mContentView = mTextLable;
         mTextLable.numberOfLines = 0;
         mTextLable.backgroundColor = [UIColor clearColor];
         mTextLable.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:mTextLable];
         
+        if (isSender)//是我自己发送的
+        {
+           [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mTextLable withOffset:-20];
+        }else//别人发送的消息
+        {
+            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mTextLable withOffset:20];
+        }
         
-         [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        [mBubbleImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mTextLable withOffset:20];
         
         CGFloat top     = kTop_OffsetTextWithHead + kTopHead;
         CGFloat bottom  = kBottom_OffsetTextWithSupView;
@@ -65,7 +71,6 @@
 -(void)setModel:(WSChatModel *)model
 {
     mTextLable.text = model.content;
-    
     
     [super setModel:model];
 }

@@ -34,10 +34,16 @@
         [mBubbleImageView addGestureRecognizer:tap];
         
         [self.contentView addSubview:mImageView];
-        mContentView = mImageView;
+
+        if (isSender)//是我自己发送的
+        {
+            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mImageView withOffset:0];
+        }else//别人发送的消息
+        {
+            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mImageView withOffset:0];
+        }
         
-        
-        [mContentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        [mBubbleImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mImageView withOffset:0];
         
         CGFloat top     =  kTopHead - kOffsetTopHeadToBubble;
         

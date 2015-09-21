@@ -11,10 +11,12 @@
 #import "WSChatTextTableViewCell.h"
 #import "WSChatImageTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
-@interface WSChatTableViewController ()<UIGestureRecognizerDelegate>
+@interface WSChatTableViewController ()
 @property(nonatomic,strong)NSMutableArray *DataSource;
 @end
 
@@ -25,8 +27,8 @@
     
     self.title = @"张金磊";
 
-    
-    self.tableView.estimatedRowHeight = 150;
+    self.tableView.fd_debugLogEnabled = NO;
+    self.tableView.estimatedRowHeight = 50;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = kBkColorTableView;
     
@@ -49,11 +51,29 @@
 }
 
 #pragma mark - Table view data source
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WSChatModel *model = self.DataSource[indexPath.row];
+    
+    NSString *reuseID = nil;
+    
+    if (model.chatCellType == WSChatCellType_Time)
+    {
+        reuseID = kTimeCellReusedID;
+    }else
+    {
+        reuseID = [NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType];
+    }
+   
+    return [tableView fd_heightForCellWithIdentifier:reuseID cacheByIndexPath:indexPath configuration:^(WSChatBaseTableViewCell* cell)
+    {
+         [cell setModel:model];
+    }];
+}
 
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.DataSource.count;
 }
 
