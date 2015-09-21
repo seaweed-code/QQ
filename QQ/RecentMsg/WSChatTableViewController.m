@@ -49,10 +49,18 @@
 {
     WSChatModel *model = self.DataSource[indexPath.row];
     
-    return [tableView fd_heightForCellWithIdentifier:kCellReuseID(model) cacheByIndexPath:indexPath configuration:^(WSChatBaseTableViewCell* cell)
+    NSInteger height = model.height;
+    
+    if (!height)
     {
-         [cell setModel:model];
-    }];
+       height = [tableView fd_heightForCellWithIdentifier:kCellReuseID(model) configuration:^(WSChatBaseTableViewCell* cell)
+         {
+             [cell setModel:model];
+         }];
+
+    }
+    
+    return height;
 }
 
 

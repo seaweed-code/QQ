@@ -68,6 +68,10 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
  */
 @property(nonatomic,strong)NSString *headImageURL_sender;
 
+/**
+ *  @brief  Cell的高度,默认是0
+ */
+@property(nonatomic,assign)NSInteger  height;
 @end
 
 
