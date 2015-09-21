@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#define kCellReuseIDWithSenderAndType(isSender,chatCellType)    ([NSString stringWithFormat:@"%d-%ld",isSender,chatCellType])
+
 //根据模型得到可重用Cell的 重用ID
-#define kCellReuseID(model)      ((model.chatCellType == WSChatCellType_Time)?kTimeCellReusedID:([NSString stringWithFormat:@"%d-%ld",model.isSender,(long)model.chatCellType]))
+#define kCellReuseID(model)      ((model.chatCellType == WSChatCellType_Time)?kTimeCellReusedID:(kCellReuseIDWithSenderAndType(model.isSender,(long)model.chatCellType)))
 
 
 /**
