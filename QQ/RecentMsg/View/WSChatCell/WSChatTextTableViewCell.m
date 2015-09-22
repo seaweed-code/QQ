@@ -15,6 +15,15 @@
 #define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
 #define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
 
+@interface WSChatTextTableViewCell ()
+{
+    /**
+     *  @brief  文本Lable
+     */
+    UILabel *mTextLable;
+}
+@end
+
 @implementation WSChatTextTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

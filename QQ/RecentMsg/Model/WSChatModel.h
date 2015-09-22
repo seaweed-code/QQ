@@ -42,7 +42,7 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
     /**
      *  @brief  时间
      */
-    WSChatCellType_Time  = 1000
+    WSChatCellType_Time  = 0
 };
 
 

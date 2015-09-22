@@ -9,12 +9,5 @@
 #import "WSChatBaseTableViewCell.h"
 
 @interface WSChatImageTableViewCell : WSChatBaseTableViewCell
-{
-    @protected
-    
-    /**
-     *  @brief  图片所在ImageView
-     */
-    UIImageView *mImageView;
-}
+
 @end

@@ -18,6 +18,15 @@
 
 #define kMaxHeightImageView            (200)
 
+@interface WSChatImageTableViewCell ()
+{
+    /**
+     *  @brief  图片所在ImageView
+     */
+    UIImageView *mImageView;
+}
+@end
+
 
 @implementation WSChatImageTableViewCell
 

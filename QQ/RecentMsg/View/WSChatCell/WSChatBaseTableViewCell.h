@@ -47,6 +47,8 @@
      */
     BOOL isSender;
 }
+
+
 /**
  *  @brief  聊天消息中单条消息模型
  */

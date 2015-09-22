@@ -49,6 +49,7 @@
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
 		37DD27B71B7F862A0088FA59 /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B61B7F862A0088FA59 /* WSChatModel.m */; };
+		37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,8 @@
 		37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatBaseTableViewCell.m; sourceTree = "<group>"; };
 		37DD27B51B7F862A0088FA59 /* WSChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatModel.h; sourceTree = "<group>"; };
 		37DD27B61B7F862A0088FA59 /* WSChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatModel.m; sourceTree = "<group>"; };
+		37E784A61BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatVoiceTableViewCell.h; sourceTree = "<group>"; };
+		37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatVoiceTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +400,8 @@
 				379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */,
 				3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */,
 				3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */,
+				37E784A61BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.h */,
+				37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */,
 			);
 			path = WSChatCell;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */,
 				3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */,
 				37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */,
 				3764137E1B7D8801007738CB /* WSBuddyViewController.m in Sources */,

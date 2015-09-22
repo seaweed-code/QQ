@@ -9,12 +9,6 @@
 #import "WSChatBaseTableViewCell.h"
 
 @interface WSChatTextTableViewCell : WSChatBaseTableViewCell
-{
-    @protected
-    
-    /**
-     *  @brief  文本Lable
-     */
-    UILabel *mTextLable;
-}
+
+
 @end
