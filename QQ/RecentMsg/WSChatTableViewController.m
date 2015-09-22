@@ -28,7 +28,6 @@
     self.title = @"张金磊";
 
     self.tableView.fd_debugLogEnabled = NO;
-    self.tableView.estimatedRowHeight = 50;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = kBkColorTableView;
     
@@ -45,6 +44,12 @@
 
 
 #pragma mark - Table view data source
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WSChatModel *model = self.DataSource[indexPath.row];

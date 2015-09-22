@@ -71,12 +71,11 @@
             
             [mImageView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
         }
-
-        
     }
     
     return self;
 }
+
 
 -(void)setModel:(WSChatModel *)model
 {
@@ -89,6 +88,18 @@
         const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
         
         mImageView.image = [image maskWithImage:maskImageDrawnToSize];
+    }else
+    {
+        [self layoutIfNeeded];
+      
+        if (mImageView.frame.size.height && mImageView.frame.size.width)
+        {
+            const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
+            
+            mImageView.image = [image maskWithImage:maskImageDrawnToSize];
+        }
+        
+       // NSLog(@"-----------------------%@",NSStringFromCGRect(mImageView.bounds));
     }
     
     [super setModel:model];
