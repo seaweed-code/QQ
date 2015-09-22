@@ -1,4 +1,4 @@
-# QQ
+# QQ  IOS版本  >= IOS6.0
 <img src="https://github.com/weida-studio/QQ/blob/master/Sceenshots/screenShots1.png" width="640">
 
 ## Overview
