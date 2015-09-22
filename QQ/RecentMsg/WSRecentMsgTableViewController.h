@@ -1,5 +1,5 @@
 //
-//  MessageViewController.h
+//  WSRecentMsgTableViewController.h
 //  QQ
 //
 //  Created by weida on 15/8/13.

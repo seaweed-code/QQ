@@ -99,7 +99,7 @@
             mImageView.image = [image maskWithImage:maskImageDrawnToSize];
         }
         
-       // NSLog(@"-----------------------%@",NSStringFromCGRect(mImageView.bounds));
+        //NSLog(@"-----------------------%@",NSStringFromCGRect(mImageView.bounds));
     }
     
     [super setModel:model];
