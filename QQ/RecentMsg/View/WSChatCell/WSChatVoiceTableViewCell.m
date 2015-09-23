@@ -9,10 +9,15 @@
 #import "WSChatVoiceTableViewCell.h"
 
 
-#define kMinOffsetSecondLable_supView            (40)  //秒数Lable和父控件之间的最小间隙
-#define kOffsetSecondLable_voiceImageView        (10)  //秒数Lable和喇叭ImageVIew之间的间隙
-#define kOffsetSecondLable_BubbleView            (20)  //秒数Lable和气泡之间的间隙
+#define kHMinOffsetSecondLable_supView            (40)  //水平方向上，秒数Lable和父控件之间最小间隙
+#define kHOffsetSecondLable_voiceImageView        (10)  //水平方向上，秒数Lable和喇叭ImageVIew之间的间隙
+#define kHOffsetSecondLable_BubbleView            (20)  //水平方向上，秒数Lable和气泡之间的间隙
+#define kHOffsetVoiceImage_BubbleView             (25)  //水平方向上，喇叭和气泡之间的间隔
+#define kVOffsetSecondLable_BubbleView            (20)   //垂直方向上，秒数Lable和气泡顶部间隔
 
+//对方秒数Lable 字体颜色
+#define kTextColorSecondLable_Receive             ([UIColor blackColor])
+#define kTextColorSecondLable_Sender              ([UIColor whiteColor])
 
 
 @interface WSChatVoiceTableViewCell ()
@@ -37,7 +42,7 @@
     
     if (self)
     {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageBeenTaped:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(voiceBeenTaped:)];
         [mBubbleImageView addGestureRecognizer:tap];
         
         mSecondLable = [UILabel newAutoLayoutView];
@@ -56,16 +61,17 @@
         if (isSender)
         {
             mSecondLable.textAlignment = NSTextAlignmentRight;
-            [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mVoiceImageView withOffset:-kOffsetSecondLable_voiceImageView];
-            [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kOffsetSecondLable_BubbleView];
+            mSecondLable.textColor = kTextColorSecondLable_Sender;
+            [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mVoiceImageView withOffset:-kHOffsetSecondLable_voiceImageView];
+            [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetSecondLable_BubbleView];
 
-            [mSecondLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
+            [mSecondLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
             
             mVoiceImageView.image = [UIImage imageNamed:@"chat_voice_sender3"];
             mVoiceImageView.animationImages = @[[UIImage imageNamed:@"chat_voice_sender1"],
                                                 [UIImage imageNamed:@"chat_voice_sender2"],
                                                 [UIImage imageNamed:@"chat_voice_sender3"]];
-            [mVoiceImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-20];
+            [mVoiceImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetVoiceImage_BubbleView];
             
             
         }else
@@ -74,19 +80,21 @@
             mVoiceImageView.animationImages = @[[UIImage imageNamed:@"chat_voice_receive1"],
                                                 [UIImage imageNamed:@"chat_voice_receive2"],
                                                 [UIImage imageNamed:@"chat_voice_receive3"]];
-            [mVoiceImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:20];
+            [mVoiceImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetVoiceImage_BubbleView];
             
             
-            [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mVoiceImageView withOffset:kOffsetSecondLable_voiceImageView];
-            [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kOffsetSecondLable_BubbleView];
-            [mSecondLable  autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
+            mSecondLable.textColor = kTextColorSecondLable_Receive;
+            mSecondLable.textAlignment = NSTextAlignmentLeft;
+            [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mVoiceImageView withOffset:kHOffsetSecondLable_voiceImageView];
+            [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetSecondLable_BubbleView];
+            [mSecondLable  autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
         }
         
         
         [mVoiceImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:mSecondLable];
-        [mSecondLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mBubbleImageView withOffset:20];
+        [mSecondLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mBubbleImageView withOffset:kVOffsetSecondLable_BubbleView];
         [mVoiceImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:mBubbleImageView];
-        [mBubbleImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView withOffset:0];
+        [mBubbleImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView];
         
     }
     
@@ -102,7 +110,7 @@
 }
 
 
--(void)imageBeenTaped:(UITapGestureRecognizer*)tap
+-(void)voiceBeenTaped:(UITapGestureRecognizer*)tap
 {
     mVoiceImageView.isAnimating?[mVoiceImageView stopAnimating]:[mVoiceImageView startAnimating];
 }
