@@ -37,6 +37,7 @@
     if (self)
     {
         mImageView = [UIImageView newAutoLayoutView];
+        mImageView.backgroundColor = [UIColor clearColor];
         mImageView.userInteractionEnabled = NO;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageBeenTaped:)];

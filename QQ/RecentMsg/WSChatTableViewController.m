@@ -10,6 +10,7 @@
 #import "WSChatModel.h"
 #import "WSChatTextTableViewCell.h"
 #import "WSChatImageTableViewCell.h"
+#import "WSChatVoiceTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 
@@ -37,6 +38,9 @@
     
     [self.tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Image)];
     [self.tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Image)];
+    
+    [self.tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Audio)];
+    [self.tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Audio)];
     
     [self.tableView registerClass:[WSChatTimeTableViewCell class] forCellReuseIdentifier:kTimeCellReusedID];
     
@@ -170,7 +174,7 @@
     {
         WSChatModel *model = [[WSChatModel alloc]init];
         
-        switch (i%3) {
+        switch (i%4) {
             case 0:
                 
                 model.chatCellType = WSChatCellType_Image;
@@ -186,6 +190,13 @@
                 model.content = strs[num%5];
                 
                 
+                
+                break;
+            case 2:
+                
+                model.chatCellType = WSChatCellType_Audio;
+                
+                model.secondVoice = num;
                 
                 break;
             default:

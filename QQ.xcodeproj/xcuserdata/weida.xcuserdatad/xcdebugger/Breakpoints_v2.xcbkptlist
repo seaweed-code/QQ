@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/WSChatTableViewController.m"
-            timestampString = "464579970.671829"
+            timestampString = "464669081.846027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/WSChatTableViewController.m"
-            timestampString = "464583178.064081"
+            timestampString = "464669081.846027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-DataSource"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSChatCell/WSChatImageTableViewCell.m"
-            timestampString = "464602447.832501"
+            timestampString = "464677653.463568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "@implementation WSChatImageTableViewCell"
             landmarkType = "3">
          </BreakpointContent>

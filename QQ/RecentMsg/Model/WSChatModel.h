@@ -69,6 +69,11 @@ typedef NS_OPTIONS(NSInteger,WSChatCellType)
 @property(nonatomic,strong)NSString *headImageURL_sender;
 
 /**
+ *  @brief  声音秒数
+ */
+@property(nonatomic,assign)NSInteger  secondVoice;
+
+/**
  *  @brief  Cell的高度,默认是0
  */
 @property(nonatomic,assign)NSInteger  height;
