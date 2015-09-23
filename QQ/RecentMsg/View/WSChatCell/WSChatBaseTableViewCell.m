@@ -7,7 +7,6 @@
 //
 
 #import "WSChatBaseTableViewCell.h"
-#import "UIImage+Utils.h"
 
 
 @implementation WSChatBaseTableViewCell

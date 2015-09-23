@@ -104,9 +104,39 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    mSecondLable.text = [NSString stringWithFormat:@"%d'        ",model.secondVoice];
+    mSecondLable.text = [NSString stringWithFormat:@"%ld'        ",(long)model.secondVoice];
     
     [super setModel:model];
+}
+
+
+-(void)longPress:(UILongPressGestureRecognizer *)Press
+{
+    if (Press.state == UIGestureRecognizerStateBegan)
+    {
+        [self becomeFirstResponder];
+        
+        UIMenuItem *remove = [[UIMenuItem alloc]initWithTitle:@"删除" action:@selector(menuRemove:)];
+        
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:@[remove]];
+        [menu setTargetRect:mBubbleImageView.frame inView:self];
+        [menu setMenuVisible:YES animated:YES];
+        
+    }
+}
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return  (action == @selector(menuRemove:));
+}
+
+
+#pragma mark --删除处理
+
+-(void)menuRemove:(id)sender
+{
+    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:self.model}];
 }
 
 
