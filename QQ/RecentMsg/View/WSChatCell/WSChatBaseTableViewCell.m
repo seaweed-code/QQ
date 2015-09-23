@@ -22,6 +22,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         mHead = [UIImageView newAutoLayoutView];
+        mHead.backgroundColor = [UIColor clearColor];
         mHead.userInteractionEnabled = YES;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headBeenTaped:)];
@@ -51,6 +52,7 @@
         }
         
         mBubbleImageView = [UIImageView newAutoLayoutView];
+        mBubbleImageView.backgroundColor = [UIColor clearColor];
         mBubbleImageView.userInteractionEnabled = YES;
         UILongPressGestureRecognizer *bubblelongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
         [mBubbleImageView addGestureRecognizer:bubblelongPress];

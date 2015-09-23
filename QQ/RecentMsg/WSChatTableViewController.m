@@ -12,37 +12,87 @@
 #import "WSChatImageTableViewCell.h"
 #import "WSChatVoiceTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
+#import "WSChatMessageInputBar.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
-@interface WSChatTableViewController ()
+@interface WSChatTableViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    /**
+     *  @brief  底部输入框 与父控件底部约束
+     */
+    NSLayoutConstraint *mBottomConstraint_InputBar;
+}
 @property(nonatomic,strong)NSMutableArray *DataSource;
+
+
+@property(nonatomic,strong)UITableView *tableView;
+
+@property(nonatomic,strong)WSChatMessageInputBar *inputBar;
+
 @end
 
 @implementation WSChatTableViewController
 
-- (void)viewDidLoad {
+
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.title = @"张金磊";
+    
+    [self.view addSubview:self.tableView];
+    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeBottom];
 
-    self.tableView.fd_debugLogEnabled = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = kBkColorTableView;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillHideNotification object:nil];
+
+    
+    [self.view addSubview:self.inputBar];
+    [self.inputBar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
+    [self.inputBar autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+    [self.inputBar autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+    mBottomConstraint_InputBar = [self.inputBar autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)keyboardChange:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+
+    
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardEndFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
     
 
-    [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Text)];
-    [self.tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Text)];
+    if (notification.name == UIKeyboardWillShowNotification)
+    {
+        mBottomConstraint_InputBar.constant = -(keyboardEndFrame.size.height);
+    }else{
+        mBottomConstraint_InputBar.constant = 0;
+    }
     
-    [self.tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Image)];
-    [self.tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Image)];
+    [self.view layoutIfNeeded];
+
     
-    [self.tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Audio)];
-    [self.tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Audio)];
-    
-    [self.tableView registerClass:[WSChatTimeTableViewCell class] forCellReuseIdentifier:kTimeCellReusedID];
+    [UIView commitAnimations];
     
 }
 
@@ -90,6 +140,10 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.view endEditing:YES];
+}
 
 #pragma mark - UIResponder actions
 -(void)routerEventWithType:(EventChatCellType)eventType userInfo:(NSDictionary *)userInfo
@@ -152,13 +206,56 @@
 }
 
 
+#pragma mark - Getter Method
+
+-(WSChatMessageInputBar *)inputBar
+{
+    if (_inputBar) {
+        return _inputBar;
+    }
+    
+    _inputBar = [[WSChatMessageInputBar alloc]init];
+    _inputBar.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    return _inputBar;
+}
+
+-(UITableView *)tableView
+{
+    if (_tableView) {
+        return _tableView;
+    }
+    
+    _tableView                      =   [UITableView newAutoLayoutView];
+    _tableView.fd_debugLogEnabled   =   NO;
+    _tableView.separatorStyle       =   UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor      =   kBkColorTableView;
+    _tableView.delegate             =   self;
+    _tableView.dataSource           =   self;
+    _tableView.keyboardDismissMode  =   UIScrollViewKeyboardDismissModeOnDrag;
+    
+    [_tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Text)];
+    [_tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Text)];
+
+    [_tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Image)];
+    [_tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Image)];
+    
+    [_tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(0, (long)WSChatCellType_Audio)];
+    [_tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(1, (long)WSChatCellType_Audio)];
+    
+    [_tableView registerClass:[WSChatTimeTableViewCell class] forCellReuseIdentifier:kTimeCellReusedID];
+    
+    
+    return _tableView;
+}
+
 -(NSMutableArray *)DataSource
 {
     if (_DataSource) {
         return _DataSource;
     }
     
-    NSInteger capacity = 200;
+    NSInteger capacity = 20;
     
     _DataSource = [NSMutableArray arrayWithCapacity:capacity];
     

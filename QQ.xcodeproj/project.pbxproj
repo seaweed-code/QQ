@@ -38,6 +38,7 @@
 		376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943E21B7CA34F004C85F3 /* AppDelegate.m */; };
 		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
 		37773F841B806A3000EEB9CB /* WSChatTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */; };
+		3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */; };
 		379799A81B8227D300A5775C /* Imageset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379799A71B8227D300A5775C /* Imageset.xcassets */; };
 		379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */; };
 		379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77BB1B7CD510006A8722 /* WSNavigationController.m */; };
@@ -131,6 +132,8 @@
 		376943FC1B7CA34F004C85F3 /* QQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTests.m; sourceTree = "<group>"; };
 		37773F821B806A3000EEB9CB /* WSChatTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTextTableViewCell.h; sourceTree = "<group>"; };
 		37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTextTableViewCell.m; sourceTree = "<group>"; };
+		3791A2441BB2933B00CEF694 /* WSChatMessageInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageInputBar.h; sourceTree = "<group>"; };
+		3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageInputBar.m; sourceTree = "<group>"; };
 		379799A71B8227D300A5775C /* Imageset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Imageset.xcassets; sourceTree = "<group>"; };
 		379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatImageTableViewCell.m; sourceTree = "<group>"; };
 		379A50031B81D24D0089F59E /* WSChatImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatImageTableViewCell.h; sourceTree = "<group>"; };
@@ -287,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				37DD27B01B7F83A90088FA59 /* WSChatCell */,
+				3791A2431BB2933B00CEF694 /* WSMessageInputBar */,
 				376413891B7D8DBC007738CB /* WSRecentMsgTableViewCell.h */,
 				3764138A1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m */,
 			);
@@ -351,6 +355,15 @@
 				376943FB1B7CA34F004C85F3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3791A2431BB2933B00CEF694 /* WSMessageInputBar */ = {
+			isa = PBXGroup;
+			children = (
+				3791A2441BB2933B00CEF694 /* WSChatMessageInputBar.h */,
+				3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */,
+			);
+			path = WSMessageInputBar;
 			sourceTree = "<group>";
 		};
 		379B77B91B7CD489006A8722 /* Common */ = {
@@ -517,6 +530,7 @@
 				3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */,
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
 				370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */,
+				3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */,
 				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,

@@ -31,18 +31,18 @@
 
     self.window.backgroundColor = [UIColor whiteColor];
     
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.mainTabBar leftMenuViewController:[[WSLeftMenuController alloc] init] rightMenuViewController:nil];
+//    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.mainTabBar leftMenuViewController:[[WSLeftMenuController alloc] init] rightMenuViewController:nil];
+//    
+//    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"leftMenuBk"];
+//    sideMenuViewController.menuPreferredStatusBarStyle = 1;
+//    sideMenuViewController.delegate = nil;
+//    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+//    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+//    sideMenuViewController.contentViewShadowOpacity = 0.6;
+//    sideMenuViewController.contentViewShadowRadius = 12;
+//    sideMenuViewController.contentViewShadowEnabled = YES;
     
-    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"leftMenuBk"];
-    sideMenuViewController.menuPreferredStatusBarStyle = 1;
-    sideMenuViewController.delegate = nil;
-    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-    sideMenuViewController.contentViewShadowOpacity = 0.6;
-    sideMenuViewController.contentViewShadowRadius = 12;
-    sideMenuViewController.contentViewShadowEnabled = YES;
-    
-    self.window.rootViewController = sideMenuViewController;
+    self.window.rootViewController = self.mainTabBar;
     
     [self.window makeKeyAndVisible];
    

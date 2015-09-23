@@ -11,6 +11,6 @@
 /**
  *  @brief  聊天窗口
  */
-@interface WSChatTableViewController : UITableViewController
+@interface WSChatTableViewController : UIViewController
 
 @end
