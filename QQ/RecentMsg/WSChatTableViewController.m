@@ -152,24 +152,10 @@
     switch (eventType)
     {
         case EventChatCellTypeSendMsgEvent:
-        {
+       
             [self.view endEditing:YES];
+            [self SendMessage:userInfo];
             
-            WSChatModel *newModel = [[WSChatModel alloc]init];
-            newModel.chatCellType = [userInfo[@"type"]integerValue];
-            newModel.content      = userInfo[@"text"];
-            newModel.isSender     = YES;
-            
-           
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.DataSource.count inSection:0];
-            [self.DataSource addObject:newModel];
-            
-            [self.tableView beginUpdates];
-            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView endUpdates];
-            
-            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-        }
             break;
         case EventChatCellRemoveEvent:
         
@@ -190,6 +176,36 @@
             break;
     }
 
+}
+
+
+-(void)SendMessage:(NSDictionary*)userInfo
+{
+    WSChatModel *newModel = [[WSChatModel alloc]init];
+    newModel.chatCellType = [userInfo[@"type"]integerValue];
+    newModel.isSender     = YES;
+    
+    switch (newModel.chatCellType)
+    {
+        case WSChatCellType_Text:
+            
+             newModel.content      = userInfo[@"text"];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.DataSource.count inSection:0];
+    [self.DataSource addObject:newModel];
+    
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
 
 

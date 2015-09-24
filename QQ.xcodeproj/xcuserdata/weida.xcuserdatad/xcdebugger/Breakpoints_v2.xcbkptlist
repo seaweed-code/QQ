@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/WSChatTableViewController.m"
-            timestampString = "464756943.047737"
+            timestampString = "464759923.323784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "-DataSource"
             landmarkType = "5">
          </BreakpointContent>
