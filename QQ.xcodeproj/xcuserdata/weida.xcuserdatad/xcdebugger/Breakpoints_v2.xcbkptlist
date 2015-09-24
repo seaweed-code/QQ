@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769635.02832"
+            timestampString = "464777236.40059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-moreBtnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769635.02832"
+            timestampString = "464777236.40059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-moreBtnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769635.02832"
+            timestampString = "464777236.40059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-moreBtnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769635.02832"
+            timestampString = "464777236.40059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-moreBtnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769228.487821"
+            timestampString = "464777236.40059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-intrinsicContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,27 +186,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769263.704015"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "-intrinsicContentSize"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
-            timestampString = "464769273.585366"
+            timestampString = "464777236.40059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
+            landmarkName = "-intrinsicContentSize"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QQ/RecentMsg/View/WSMessageInputBar/WSChatMessageInputBar.m"
+            timestampString = "464777236.40059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-intrinsicContentSize"
             landmarkType = "5">
          </BreakpointContent>

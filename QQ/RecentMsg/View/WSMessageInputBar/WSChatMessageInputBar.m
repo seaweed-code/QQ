@@ -127,11 +127,7 @@
 {
     CGFloat height = mHeightTextView+kDefaultBottomTextView_SupView +4;
     
-    if (mMoreView)
-    {//如果更多视图当前正在显示，需要加上更多视图的高度
-        height += [mMoreView intrinsicContentSize].height;
-    
-    }
+    height += [mMoreView intrinsicContentSize].height; //如果更多视图当前正在显示，需要加上更多视图的高度
     
     return CGSizeMake(UIViewNoIntrinsicMetric, height);
 }
@@ -183,9 +179,6 @@
     
     sender.selected = !sender.selected;
 
-    
-    
-    
 }
 
 

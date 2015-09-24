@@ -11,7 +11,7 @@
 #import "WSChatMessageMoreCollectionCell.h"
 
 //自己的高度
-#define kHeightMoreView      (180)
+#define kHeightMoreView      (160)
 
 //可重用ID
 #define kReuseID             (@"unique")
@@ -47,7 +47,7 @@
         
         [layout setItemSize:CGSizeMake([UIScreen mainScreen].bounds.size.width/4-10, (kHeightMoreView-kBottomCollectionView)/2.-10)];
         [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        layout.sectionInset = UIEdgeInsetsMake(0, 5,5, 5);
+        layout.sectionInset = UIEdgeInsetsMake(0, 5,10, 5);
         
         mCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
         mCollectionView.pagingEnabled = YES;
@@ -66,6 +66,7 @@
         
         mPageControl = [[UIPageControl alloc]initForAutoLayout];
         mPageControl.numberOfPages = 2;
+        mPageControl.userInteractionEnabled = NO;
         mPageControl.backgroundColor = [UIColor clearColor];
         mPageControl.currentPage  = 0;
         mPageControl.currentPageIndicatorTintColor = kSelectedColorPageControl;
@@ -74,13 +75,16 @@
         [self addSubview:mPageControl];
         
         [mPageControl autoAlignAxisToSuperviewAxis:ALAxisVertical];
-        [mPageControl  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kBottomCollectionView/2.];
+        [mPageControl  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-2];
         
     }
     return self;
 }
 
+
 #pragma mark -Collection Delegate
+
+
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -96,7 +100,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@",indexPath);
+    NSLog(@"选中了：%ld",(long)indexPath.row);
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
