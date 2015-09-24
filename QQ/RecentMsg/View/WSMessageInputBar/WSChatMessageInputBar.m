@@ -272,6 +272,14 @@
 
 #pragma mark -TextView Delegate
 
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if (mMoreView)
+    {
+        [self moreBtnClick:self.mMoreBtn];
+    }
+}
+
 //判断用户是否点击了键盘发送按钮
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {

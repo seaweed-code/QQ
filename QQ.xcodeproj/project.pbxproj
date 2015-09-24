@@ -371,6 +371,7 @@
 				3791A2441BB2933B00CEF694 /* WSChatMessageInputBar.h */,
 				3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */,
 				37A4EF1B1BB3F0F200AFC2C0 /* More */,
+				37A4EF241BB3F5DC00AFC2C0 /* Face */,
 			);
 			path = WSMessageInputBar;
 			sourceTree = "<group>";
@@ -399,6 +400,13 @@
 				37A4EF201BB3F0F200AFC2C0 /* WSMoreImageTitles.plist */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		37A4EF241BB3F5DC00AFC2C0 /* Face */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Face;
 			sourceTree = "<group>";
 		};
 		37B830041B833E160091E384 /* ODRefreshControl */ = {
