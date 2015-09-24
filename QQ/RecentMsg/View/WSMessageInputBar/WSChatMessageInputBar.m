@@ -12,17 +12,21 @@
 //背景颜色
 #define kBkColor               ([UIColor colorWithRed:0.922 green:0.925 blue:0.929 alpha:1])
 
-//每个btn之间间隔
-//#define kHOffsetBtn            (4)
+//自身默认高度
+#define kDefaultHeight          (40)
 
-@interface WSChatMessageInputBar ()
+//输入框最大高度
+#define kMaxHeightInputTextView   (88)
+//按钮大小
+#define kSizeBtn                 (CGSizeMake(34, 34))
+
+@interface WSChatMessageInputBar ()<UITextViewDelegate>
 {
     
-
     /**
-     *  @brief  自己高度的约束
+     *  @brief  自己高度,每次重新设置了必须刷新自己的 固有内容尺寸
      */
-    NSLayoutConstraint *mHeightConstraint;
+    CGFloat mHeight;
 }
 
 
@@ -41,7 +45,8 @@
     if (self)
     {
         self.backgroundColor = kBkColor;
-        mHeightConstraint = [self autoSetDimension:ALDimensionHeight toSize:40];
+        
+        mHeight = kDefaultHeight;
         
         UIButton *voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         voiceBtn.translatesAutoresizingMaskIntoConstraints = NO;
@@ -54,6 +59,7 @@
         
         [voiceBtn autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
         [voiceBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:4];
+        [voiceBtn autoSetDimensionsToSize:kSizeBtn];
         
 
         
@@ -75,6 +81,7 @@
         
         [faceBtn autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mInputTextView withOffset:0];
         [faceBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:voiceBtn];
+        [faceBtn  autoSetDimensionsToSize:kSizeBtn];
         
       
         UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -88,10 +95,17 @@
         
         [moreBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:voiceBtn];
         [moreBtn autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
+        [moreBtn autoSetDimensionsToSize:kSizeBtn];
         [moreBtn  autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:faceBtn withOffset:0];
         
     }
     return self;
+}
+
+
+-(CGSize)intrinsicContentSize
+{
+    return CGSizeMake(UIViewNoIntrinsicMetric, mHeight);
 }
 
 -(void)voiceBtnClick:(UIButton*)sender
@@ -118,14 +132,14 @@
     
     _mInputTextView = [[UITextView alloc]initForAutoLayout];
 
+    _mInputTextView.delegate = self;
     _mInputTextView.layer.cornerRadius = 4;
     _mInputTextView.layer.masksToBounds = YES;
     _mInputTextView.layer.borderWidth = 1;
     _mInputTextView.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.4] CGColor];
-    
     _mInputTextView.scrollIndicatorInsets = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 8.0f);
     _mInputTextView.contentInset = UIEdgeInsetsZero;
-    _mInputTextView.scrollEnabled = YES;
+    _mInputTextView.scrollEnabled = NO;
     _mInputTextView.scrollsToTop = NO;
     _mInputTextView.userInteractionEnabled = YES;
     _mInputTextView.font = [UIFont systemFontOfSize:12];
@@ -133,10 +147,46 @@
     _mInputTextView.backgroundColor = [UIColor whiteColor];
     _mInputTextView.keyboardAppearance = UIKeyboardAppearanceDefault;
     _mInputTextView.keyboardType = UIKeyboardTypeDefault;
-    _mInputTextView.returnKeyType = UIReturnKeyDefault;
+    _mInputTextView.returnKeyType = UIReturnKeySend;
     _mInputTextView.textAlignment = NSTextAlignmentLeft;
     
     return _mInputTextView;
+}
+
+#pragma mark -TextView Delegate
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+   // NSLog(@"range:%@----replaceText:%@",NSStringFromRange(range),text);
+    
+    if ([text isEqualToString:@"\n"])
+    {
+        return NO;
+    }
+    
+    
+    
+    return YES;
+}
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    CGSize size =  [textView sizeThatFits:CGSizeMake(textView.contentSize.width, 0)];
+    
+    CGFloat contentHeight;
+
+    if (size.height > kMaxHeightInputTextView)
+    {
+        contentHeight = kMaxHeightInputTextView;
+        textView.scrollEnabled = YES;
+    }else
+    {
+        contentHeight = size.height;
+        textView.scrollEnabled = NO;
+    }
+    
+    mHeight = contentHeight + 11;
+    [self invalidateIntrinsicContentSize];
 }
 
 
