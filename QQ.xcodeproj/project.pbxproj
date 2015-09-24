@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 370584171B846E3C00E254D8 /* UIResponder+Router.m */; };
 		3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */; };
+		372DDB731BB3FF6E00717FB2 /* WSChatMessageFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
 		374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
@@ -71,6 +72,8 @@
 		370584171B846E3C00E254D8 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
 		3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTimeTableViewCell.h; sourceTree = "<group>"; };
 		3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTimeTableViewCell.m; sourceTree = "<group>"; };
+		372DDB711BB3FF6E00717FB2 /* WSChatMessageFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageFaceView.h; sourceTree = "<group>"; };
+		372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageFaceView.m; sourceTree = "<group>"; };
 		37330BF41B81ED17002A885B /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		37330BF51B81ED17002A885B /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		374A8BE41BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 		37A4EF241BB3F5DC00AFC2C0 /* Face */ = {
 			isa = PBXGroup;
 			children = (
+				372DDB711BB3FF6E00717FB2 /* WSChatMessageFaceView.h */,
+				372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */,
 			);
 			path = Face;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
+				372DDB731BB3FF6E00717FB2 /* WSChatMessageFaceView.m in Sources */,
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */,

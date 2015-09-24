@@ -11,6 +11,7 @@
 #import "UIResponder+Router.h"
 #import "WSChatModel.h"
 #import "WSChatMessageMoreView.h"
+#import "WSChatMessageFaceView.h"
 
 //背景颜色
 #define kBkColor               ([UIColor colorWithRed:0.922 green:0.925 blue:0.929 alpha:1])
@@ -45,7 +46,12 @@
     /**
      *  @brief  更多视图
      */
-    WSChatMessageMoreView *mMoreView;
+    WSChatMessageMoreView  *mMoreView;
+    
+    /**
+     *  @brief  表情视图
+     */
+    WSChatMessageFaceView  *mFaceView;
 }
 
 
@@ -129,6 +135,8 @@
     
     height += [mMoreView intrinsicContentSize].height; //如果更多视图当前正在显示，需要加上更多视图的高度
     
+    height += [mFaceView intrinsicContentSize].height; //如果表情视图当前正在显示，需要加上他的的高度
+    
     return CGSizeMake(UIViewNoIntrinsicMetric, height);
 }
 
@@ -145,9 +153,52 @@
     sender.selected = !sender.selected;
 }
 
+-(void)faceBtnClick:(UIButton*)sender
+{
+    if (mMoreView)
+    {//如果当前还在显示更多视图，则隐藏他先
+        [self moreBtnClick:self.mMoreBtn];
+    }
+    
+    if (sender.selected)
+    {
+        [mFaceView removeFromSuperview];
+        mFaceView = nil;
+        
+        mBottomConstraintTextView.constant = -kDefaultBottomTextView_SupView;
+        
+        [self.mInputTextView becomeFirstResponder];
+    }else
+    {
+        mFaceView = [[WSChatMessageFaceView alloc]init];
+        mFaceView.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [self addSubview:mFaceView];
+        
+        
+        [mFaceView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+        [mFaceView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+        [mFaceView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mInputTextView withOffset:6];
+        
+        mBottomConstraintTextView.constant = -(kDefaultBottomTextView_SupView+[mFaceView intrinsicContentSize].height);
+
+        
+        [self.mInputTextView resignFirstResponder];
+    }
+
+    [self invalidateIntrinsicContentSize];
+    
+    sender.selected = !sender.selected;
+}
+
 
 -(void)moreBtnClick:(UIButton*)sender
 {
+    if (mFaceView)
+    {//如果当前还在显示表情视图，则隐藏他先
+        [self faceBtnClick:self.mFaceBtn];
+    }
+    
     if (sender.selected)
     {//隐藏更多界面，显示键盘输入
         
@@ -230,7 +281,7 @@
     
     _mFaceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _mFaceBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    [_mFaceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_mFaceBtn addTarget:self action:@selector(faceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _mFaceBtn.backgroundColor = [UIColor clearColor];
     [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
     [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_press"] forState:UIControlStateHighlighted];
@@ -275,8 +326,13 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     if (mMoreView)
-    {
+    {//如果当前还在显示更多视图，则隐藏先
         [self moreBtnClick:self.mMoreBtn];
+    }
+    
+    if (mFaceView)
+    {
+        [self faceBtnClick:self.mFaceBtn];
     }
 }
 

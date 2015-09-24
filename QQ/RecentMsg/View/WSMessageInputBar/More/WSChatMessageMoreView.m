@@ -11,7 +11,7 @@
 #import "WSChatMessageMoreCollectionCell.h"
 
 //自己的高度
-#define kHeightMoreView      (160)
+#define kHeightMoreView      (170)
 
 //可重用ID
 #define kReuseID             (@"unique")
