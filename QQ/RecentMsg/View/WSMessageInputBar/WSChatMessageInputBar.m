@@ -10,25 +10,42 @@
 #import "PureLayout.h"
 #import "UIResponder+Router.h"
 #import "WSChatModel.h"
+#import "WSChatMessageMoreView.h"
 
 //背景颜色
 #define kBkColor               ([UIColor colorWithRed:0.922 green:0.925 blue:0.929 alpha:1])
 
-//自身默认高度
-#define kDefaultHeight          (40)
+//输入框最小高度
+#define kMinHeightTextView          (34)
 
 //输入框最大高度
-#define kMaxHeightInputTextView   (88)
+#define kMaxHeightTextView   (88)
+
+//默认输入框和父控件底部间隔
+#define kDefaultBottomTextView_SupView  (6)
+
 //按钮大小
 #define kSizeBtn                 (CGSizeMake(34, 34))
 
 @interface WSChatMessageInputBar ()<UITextViewDelegate>
 {
+    /**
+     *  @brief  TextView和父控件底部约束，会被动态增加、删除
+     */
+    NSLayoutConstraint *mBottomConstraintTextView;
+    
+    
     
     /**
-     *  @brief  自己高度,每次重新设置了必须刷新自己的 固有内容尺寸
+     *  @brief  TextView的高度
      */
-    CGFloat mHeight;
+    CGFloat mHeightTextView;
+    
+    
+    /**
+     *  @brief  更多视图
+     */
+    WSChatMessageMoreView *mMoreView;
 }
 
 
@@ -64,31 +81,35 @@
     if (self)
     {
         self.backgroundColor = kBkColor;
-        mHeight = kDefaultHeight;
+        mHeightTextView = kMinHeightTextView; //默认设置输入框最小高度
         
+        /**
+         *  @brief  增加录音按钮
+         */
         [self addSubview:self.mVoiceBtn];
-    
         [self.mVoiceBtn autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
         [self.mVoiceBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:4];
         
 
-        
+        /**
+         *  @brief  增加输入框
+         */
         [self addSubview:self.mInputTextView];
-       
         [self.mInputTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.mVoiceBtn withOffset:4];
         [self.mInputTextView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mVoiceBtn withOffset:0];
-        [self.mInputTextView  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5];
+        mBottomConstraintTextView = [self.mInputTextView  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kDefaultBottomTextView_SupView];
         
-        
-       
+        /**
+         *  @brief  增加表情按钮
+         */
         [self addSubview:self.mFaceBtn];
-        
         [self.mFaceBtn autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mInputTextView withOffset:0];
         [self.mFaceBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.mVoiceBtn];
        
-        
+        /**
+         *  @brief  增加更多按钮
+         */
         [self addSubview:self.mMoreBtn];
-        
         [_mMoreBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.mVoiceBtn];
         [_mMoreBtn autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
         [_mMoreBtn  autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mFaceBtn withOffset:0];
@@ -104,7 +125,15 @@
  */
 -(CGSize)intrinsicContentSize
 {
-    return CGSizeMake(UIViewNoIntrinsicMetric, mHeight);
+    CGFloat height = mHeightTextView+kDefaultBottomTextView_SupView +4;
+    
+    if (mMoreView)
+    {//如果更多视图当前正在显示，需要加上更多视图的高度
+        height += [mMoreView intrinsicContentSize].height;
+    
+    }
+    
+    return CGSizeMake(UIViewNoIntrinsicMetric, height);
 }
 
 -(void)voiceBtnClick:(UIButton*)sender
@@ -121,6 +150,44 @@
 }
 
 
+-(void)moreBtnClick:(UIButton*)sender
+{
+    if (sender.selected)
+    {//隐藏更多界面，显示键盘输入
+        
+        [mMoreView removeFromSuperview];
+        mMoreView = nil;
+    
+        mBottomConstraintTextView.constant = -kDefaultBottomTextView_SupView;
+    
+        [self.mInputTextView becomeFirstResponder];
+    }else
+    {//隐藏键盘，显示更多界面
+        
+        mMoreView = [[WSChatMessageMoreView alloc]init];
+        mMoreView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+        [self addSubview:mMoreView];
+    
+        
+        [mMoreView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+        [mMoreView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+        [mMoreView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mInputTextView withOffset:6];
+        
+        mBottomConstraintTextView.constant = -(kDefaultBottomTextView_SupView+[mMoreView intrinsicContentSize].height);
+        
+        [self.mInputTextView resignFirstResponder];
+    }
+    
+    [self invalidateIntrinsicContentSize];
+    
+    sender.selected = !sender.selected;
+
+    
+    
+    
+}
+
 
 #pragma mark - Getter Method
 
@@ -132,7 +199,7 @@
     
     _mMoreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _mMoreBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    [_mMoreBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_mMoreBtn addTarget:self action:@selector(moreBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _mMoreBtn.backgroundColor = [UIColor clearColor];
     [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor"] forState:UIControlStateNormal];
     [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_press"] forState:UIControlStateHighlighted];
@@ -241,9 +308,9 @@
     CGFloat contentHeight;
 
     //输入框的高度不能超过最大高度
-    if (size.height > kMaxHeightInputTextView)
+    if (size.height > kMaxHeightTextView)
     {
-        contentHeight = kMaxHeightInputTextView;
+        contentHeight = kMaxHeightTextView;
         textView.scrollEnabled = YES;
     }else
     {
@@ -252,9 +319,9 @@
     }
     
     
-    if (mHeight != contentHeight+11)
+    if (mHeightTextView != contentHeight)
     {//如果当前高度需要调整，就调整，避免多做无用功
-        mHeight = contentHeight + 11;//重新设置自己的高度
+        mHeightTextView = contentHeight ;//重新设置自己的高度
         [self invalidateIntrinsicContentSize];
     }
 }
