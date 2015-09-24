@@ -37,9 +37,26 @@
  */
 @property(nonatomic,strong)UITextView *mInputTextView;
 
+/**
+ *  @brief  录制语音按钮
+ */
+@property(nonatomic,strong)UIButton   *mVoiceBtn;
+
+/**
+ *  @brief  表情按钮
+ */
+@property(nonatomic,strong)UIButton   *mFaceBtn;
+
+/**
+ *  @brief  更多按钮
+ */
+@property(nonatomic,strong)UIButton   *mMoreBtn;
+
 @end
 
 @implementation WSChatMessageInputBar
+
+
 
 -(instancetype)init
 {
@@ -47,64 +64,44 @@
     if (self)
     {
         self.backgroundColor = kBkColor;
-        
         mHeight = kDefaultHeight;
         
-        UIButton *voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        voiceBtn.translatesAutoresizingMaskIntoConstraints = NO;
-        [voiceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        voiceBtn.backgroundColor = [UIColor clearColor];
-        [voiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_nor"] forState:UIControlStateNormal];
-        [voiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_press"] forState:UIControlStateHighlighted];
-        [voiceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
-        [self addSubview:voiceBtn];
-        
-        [voiceBtn autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
-        [voiceBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:4];
-        [voiceBtn autoSetDimensionsToSize:kSizeBtn];
+        [self addSubview:self.mVoiceBtn];
+    
+        [self.mVoiceBtn autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
+        [self.mVoiceBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:4];
         
 
         
         [self addSubview:self.mInputTextView];
        
-        [self.mInputTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:voiceBtn withOffset:4];
-        [self.mInputTextView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:voiceBtn withOffset:0];
+        [self.mInputTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.mVoiceBtn withOffset:4];
+        [self.mInputTextView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mVoiceBtn withOffset:0];
         [self.mInputTextView  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5];
         
         
-        UIButton *faceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        faceBtn.translatesAutoresizingMaskIntoConstraints = NO;
-        [faceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        faceBtn.backgroundColor = [UIColor clearColor];
-        [faceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
-        [faceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_press"] forState:UIControlStateHighlighted];
-        [faceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
-        [self addSubview:faceBtn];
+       
+        [self addSubview:self.mFaceBtn];
         
-        [faceBtn autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mInputTextView withOffset:0];
-        [faceBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:voiceBtn];
-        [faceBtn  autoSetDimensionsToSize:kSizeBtn];
+        [self.mFaceBtn autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mInputTextView withOffset:0];
+        [self.mFaceBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.mVoiceBtn];
+       
         
-      
-        UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        moreBtn.translatesAutoresizingMaskIntoConstraints = NO;
-        [moreBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        moreBtn.backgroundColor = [UIColor clearColor];
-        [moreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor"] forState:UIControlStateNormal];
-        [moreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_press"] forState:UIControlStateHighlighted];
-        [moreBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
-        [self addSubview:moreBtn];
+        [self addSubview:self.mMoreBtn];
         
-        [moreBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:voiceBtn];
-        [moreBtn autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
-        [moreBtn autoSetDimensionsToSize:kSizeBtn];
-        [moreBtn  autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:faceBtn withOffset:0];
+        [_mMoreBtn autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.mVoiceBtn];
+        [_mMoreBtn autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
+        [_mMoreBtn  autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mFaceBtn withOffset:0];
         
     }
     return self;
 }
 
-
+/**
+ *  @brief  返回自己的固有内容尺寸，刷新固有内容尺寸将会重新调用此方法
+ *
+ *  @return 宽度不设置固有内容尺寸，只设置高度
+ */
 -(CGSize)intrinsicContentSize
 {
     return CGSizeMake(UIViewNoIntrinsicMetric, mHeight);
@@ -126,6 +123,63 @@
 
 
 #pragma mark - Getter Method
+
+-(UIButton *)mMoreBtn
+{
+    if (_mMoreBtn) {
+        return _mMoreBtn;
+    }
+    
+    _mMoreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _mMoreBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_mMoreBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _mMoreBtn.backgroundColor = [UIColor clearColor];
+    [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor"] forState:UIControlStateNormal];
+    [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_press"] forState:UIControlStateHighlighted];
+    [_mMoreBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
+    [_mMoreBtn autoSetDimensionsToSize:kSizeBtn];
+    
+    
+    return _mMoreBtn;
+}
+
+-(UIButton *)mVoiceBtn
+{
+    if (_mVoiceBtn) {
+        return _mVoiceBtn;
+    }
+    
+    _mVoiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _mVoiceBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_mVoiceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _mVoiceBtn.backgroundColor = [UIColor clearColor];
+    [_mVoiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_nor"] forState:UIControlStateNormal];
+    [_mVoiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_press"] forState:UIControlStateHighlighted];
+    [_mVoiceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
+    [_mVoiceBtn autoSetDimensionsToSize:kSizeBtn];
+    
+    
+    return _mVoiceBtn;
+}
+
+-(UIButton *)mFaceBtn
+{
+    if (_mFaceBtn) {
+        return _mFaceBtn;
+    }
+    
+    _mFaceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _mFaceBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_mFaceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _mFaceBtn.backgroundColor = [UIColor clearColor];
+    [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
+    [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_press"] forState:UIControlStateHighlighted];
+    [_mFaceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
+    [_mFaceBtn autoSetDimensionsToSize:kSizeBtn];
+    
+    
+    return _mFaceBtn;
+}
 
 -(UITextView *)mInputTextView
 {
@@ -158,6 +212,7 @@
 
 #pragma mark -TextView Delegate
 
+//判断用户是否点击了键盘发送按钮
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"])
@@ -177,6 +232,7 @@
     return YES;
 }
 
+//根据输入文字多少，自动调整输入框的高度
 -(void)textViewDidChange:(UITextView *)textView
 {
     //计算输入框最小高度

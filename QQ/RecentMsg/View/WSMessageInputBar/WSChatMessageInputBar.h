@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-
+/**
+ *  @brief  聊天界面底部输入界面
+ */
 @interface WSChatMessageInputBar : UIView
 
 @end

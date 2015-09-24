@@ -82,7 +82,9 @@
     mTextLable.text = model.content;
     
     [super setModel:model];
+    
 }
+
 
 
 
