@@ -93,7 +93,6 @@
 
     
     [UIView commitAnimations];
-    
 }
 
 
@@ -152,6 +151,26 @@
     
     switch (eventType)
     {
+        case EventChatCellTypeSendMsgEvent:
+        {
+            [self.view endEditing:YES];
+            
+            WSChatModel *newModel = [[WSChatModel alloc]init];
+            newModel.chatCellType = [userInfo[@"type"]integerValue];
+            newModel.content      = userInfo[@"text"];
+            newModel.isSender     = YES;
+            
+           
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.DataSource.count inSection:0];
+            [self.DataSource addObject:newModel];
+            
+            [self.tableView beginUpdates];
+            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+            
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
+            break;
         case EventChatCellRemoveEvent:
         
             [self RemoveModel:model];
@@ -172,6 +191,7 @@
     }
 
 }
+
 
 /**
  *  @brief  删除模型

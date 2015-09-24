@@ -32,6 +32,11 @@ typedef NS_OPTIONS(NSInteger, EventChatCellType)
      *  @brief  头像长按事件
      */
     EventChatCellHeadLongPressEvent,
+
+    /**
+     *  @brief  输入框点击发送消息事件
+     */
+    EventChatCellTypeSendMsgEvent
 };
 
 #define kModelKey      (@"model")

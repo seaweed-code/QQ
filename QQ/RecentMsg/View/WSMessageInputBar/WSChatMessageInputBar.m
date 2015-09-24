@@ -8,6 +8,8 @@
 
 #import "WSChatMessageInputBar.h"
 #import "PureLayout.h"
+#import "UIResponder+Router.h"
+#import "WSChatModel.h"
 
 //背景颜色
 #define kBkColor               ([UIColor colorWithRed:0.922 green:0.925 blue:0.929 alpha:1])
@@ -122,6 +124,7 @@
 }
 
 
+
 #pragma mark - Getter Method
 
 -(UITextView *)mInputTextView
@@ -157,24 +160,31 @@
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-   // NSLog(@"range:%@----replaceText:%@",NSStringFromRange(range),text);
-    
     if ([text isEqualToString:@"\n"])
-    {
+    {//点击了发送按钮
+       
+        if (![textView.text isEqualToString:@""])
+        {//输入框当前有数据才需要发送
+           
+            [self routerEventWithType:EventChatCellTypeSendMsgEvent userInfo:@{@"type":@(WSChatCellType_Text),@"text":textView.text}];
+            
+            textView.text = @"";//清空输入框
+            [self textViewDidChange:textView];
+        }
         return NO;
     }
-    
-    
     
     return YES;
 }
 
 -(void)textViewDidChange:(UITextView *)textView
 {
+    //计算输入框最小高度
     CGSize size =  [textView sizeThatFits:CGSizeMake(textView.contentSize.width, 0)];
     
     CGFloat contentHeight;
 
+    //输入框的高度不能超过最大高度
     if (size.height > kMaxHeightInputTextView)
     {
         contentHeight = kMaxHeightInputTextView;
@@ -185,8 +195,12 @@
         textView.scrollEnabled = NO;
     }
     
-    mHeight = contentHeight + 11;
-    [self invalidateIntrinsicContentSize];
+    
+    if (mHeight != contentHeight+11)
+    {//如果当前高度需要调整，就调整，避免多做无用功
+        mHeight = contentHeight + 11;//重新设置自己的高度
+        [self invalidateIntrinsicContentSize];
+    }
 }
 
 
