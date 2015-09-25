@@ -54,6 +54,7 @@
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
 		37DD27B71B7F862A0088FA59 /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B61B7F862A0088FA59 /* WSChatModel.m */; };
+		37DEFB761BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DEFB751BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m */; };
 		37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,8 @@
 		37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatBaseTableViewCell.m; sourceTree = "<group>"; };
 		37DD27B51B7F862A0088FA59 /* WSChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatModel.h; sourceTree = "<group>"; };
 		37DD27B61B7F862A0088FA59 /* WSChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatModel.m; sourceTree = "<group>"; };
+		37DEFB741BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageFaceCollectionCell.h; sourceTree = "<group>"; };
+		37DEFB751BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageFaceCollectionCell.m; sourceTree = "<group>"; };
 		37E784A61BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatVoiceTableViewCell.h; sourceTree = "<group>"; };
 		37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatVoiceTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -410,6 +413,8 @@
 			children = (
 				372DDB711BB3FF6E00717FB2 /* WSChatMessageFaceView.h */,
 				372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */,
+				37DEFB741BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.h */,
+				37DEFB751BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m */,
 			);
 			path = Face;
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */,
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
 				370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */,
+				37DEFB761BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m in Sources */,
 				3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */,
 				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
