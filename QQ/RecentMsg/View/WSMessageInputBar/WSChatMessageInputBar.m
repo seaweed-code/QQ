@@ -20,7 +20,7 @@
 #define kMinHeightTextView          (34)
 
 //输入框最大高度
-#define kMaxHeightTextView   (88)
+#define kMaxHeightTextView   (84)
 
 //默认输入框和父控件底部间隔
 #define kDefaultBottomTextView_SupView  (6)
@@ -384,12 +384,12 @@
     _mInputTextView.layer.masksToBounds = YES;
     _mInputTextView.layer.borderWidth = 1;
     _mInputTextView.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.4] CGColor];
-    _mInputTextView.scrollIndicatorInsets = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 8.0f);
+    _mInputTextView.scrollIndicatorInsets = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 4.0f);
     _mInputTextView.contentInset = UIEdgeInsetsZero;
     _mInputTextView.scrollEnabled = NO;
     _mInputTextView.scrollsToTop = NO;
     _mInputTextView.userInteractionEnabled = YES;
-    _mInputTextView.font = [UIFont systemFontOfSize:12];
+    _mInputTextView.font = [UIFont systemFontOfSize:14];
     _mInputTextView.textColor = [UIColor blackColor];
     _mInputTextView.backgroundColor = [UIColor whiteColor];
     _mInputTextView.keyboardAppearance = UIKeyboardAppearanceDefault;
@@ -402,6 +402,7 @@
 
 #pragma mark -TextView Delegate
 
+//输入框获取输入焦点后，隐藏其他视图
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     if (mMoreView)
