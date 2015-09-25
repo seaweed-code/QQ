@@ -324,9 +324,12 @@
     _mMoreBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [_mMoreBtn addTarget:self action:@selector(moreBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _mMoreBtn.backgroundColor = [UIColor clearColor];
-    [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor"] forState:UIControlStateNormal];
-    [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_press"] forState:UIControlStateHighlighted];
-    [_mMoreBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
+    
+   
+    
+    [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor@3x"] forState:UIControlStateNormal];
+    [_mMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_press@3x"] forState:UIControlStateHighlighted];
+    [_mMoreBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor@3x"] forState:UIControlStateSelected];
     [_mMoreBtn autoSetDimensionsToSize:kSizeBtn];
     
     
@@ -343,9 +346,9 @@
     _mVoiceBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [_mVoiceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _mVoiceBtn.backgroundColor = [UIColor clearColor];
-    [_mVoiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_nor"] forState:UIControlStateNormal];
-    [_mVoiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_press"] forState:UIControlStateHighlighted];
-    [_mVoiceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
+    [_mVoiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_nor@3x"] forState:UIControlStateNormal];
+    [_mVoiceBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_press@3x"] forState:UIControlStateHighlighted];
+    [_mVoiceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor@3x"] forState:UIControlStateSelected];
     [_mVoiceBtn autoSetDimensionsToSize:kSizeBtn];
     
     
@@ -362,9 +365,9 @@
     _mFaceBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [_mFaceBtn addTarget:self action:@selector(faceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _mFaceBtn.backgroundColor = [UIColor clearColor];
-    [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
-    [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_press"] forState:UIControlStateHighlighted];
-    [_mFaceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor"] forState:UIControlStateSelected];
+    [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor@3x"] forState:UIControlStateNormal];
+    [_mFaceBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_press@3x"] forState:UIControlStateHighlighted];
+    [_mFaceBtn  setImage:[UIImage imageNamed:@"chat_bottom_keyboard_nor@3x"] forState:UIControlStateSelected];
     [_mFaceBtn autoSetDimensionsToSize:kSizeBtn];
     
     
