@@ -20,10 +20,7 @@
 
 @interface WSChatTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    /**
-     *  @brief  底部输入框 与父控件底部约束
-     */
-    NSLayoutConstraint *mBottomConstraint_InputBar;
+   
 }
 @property(nonatomic,strong)NSMutableArray *DataSource;
 
@@ -44,55 +41,15 @@
     
     self.title = @"张金磊";
     
+    UIEdgeInsets inset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
     [self.view addSubview:self.tableView];
-    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeBottom];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillHideNotification object:nil];
+    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeBottom];
 
     
     [self.view addSubview:self.inputBar];
+    [self.inputBar autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTop];
     [self.inputBar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
-    [self.inputBar autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-    [self.inputBar autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-    mBottomConstraint_InputBar = [self.inputBar autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-    
-}
-
--(void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
--(void)keyboardChange:(NSNotification *)notification
-{
-    NSDictionary *userInfo = [notification userInfo];
-
-    
-    NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
-    CGRect keyboardEndFrame;
-    
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-    
-
-    if (notification.name == UIKeyboardWillShowNotification)
-    {
-        mBottomConstraint_InputBar.constant = -(keyboardEndFrame.size.height);
-    }else{
-        mBottomConstraint_InputBar.constant = 0;
-    }
-    
-    [self.view layoutIfNeeded];
-
-    
-    [UIView commitAnimations];
 }
 
 

@@ -31,11 +31,15 @@
 @interface WSChatMessageInputBar ()<UITextViewDelegate>
 {
     /**
-     *  @brief  TextView和父控件底部约束，会被动态增加、删除
+     *  @brief  TextView和自己底部约束，会被动态增加、删除
      */
     NSLayoutConstraint *mBottomConstraintTextView;
     
     
+    /**
+     *  @brief  自己和父控件 底部约束，使用这个约束让自己伴随键盘移动
+     */
+    NSLayoutConstraint *mBottomConstraintWithSupView;
     
     /**
      *  @brief  TextView的高度
@@ -79,7 +83,7 @@
 
 @implementation WSChatMessageInputBar
 
-
+#pragma mark - Override System Method
 
 -(instancetype)init
 {
@@ -120,8 +124,47 @@
         [_mMoreBtn autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
         [_mMoreBtn  autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mFaceBtn withOffset:0];
         
+
+        /**
+         *  @brief  监听键盘显示、隐藏变化，让自己伴随键盘移动
+         */
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillHideNotification object:nil];
+        
     }
     return self;
+}
+
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+//获取自己和父控件底部约束，控制该约束可以让自己伴随键盘移动
+-(void)updateConstraints
+{
+    [super updateConstraints];
+
+    
+    if (!mBottomConstraintWithSupView)
+    {
+         NSArray *constraints = self.superview.constraints;
+        
+        for (int index= (int)constraints.count-1; index>0; index--)
+        {//从末尾开始查找
+            NSLayoutConstraint *constraint = constraints[index];
+            
+            if (constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeBottom && constraint.secondAttribute == NSLayoutAttributeBottom)
+            {//获取自己和父控件底部约束
+                mBottomConstraintWithSupView = constraint;
+                
+                break;
+            }
+        }
+    }
+    
 }
 
 /**
@@ -139,6 +182,42 @@
     
     return CGSizeMake(UIViewNoIntrinsicMetric, height);
 }
+
+#pragma mark - 伴随键盘移动
+
+-(void)keyboardChange:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    
+    
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardEndFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    
+    if (notification.name == UIKeyboardWillShowNotification)
+    {
+        mBottomConstraintWithSupView.constant = -(keyboardEndFrame.size.height);
+    }else
+    {
+        mBottomConstraintWithSupView.constant = 0;
+    }
+    
+    [self.superview layoutIfNeeded];
+    
+    
+    [UIView commitAnimations];
+}
+
+#pragma mark - 点击事件处理
 
 -(void)voiceBtnClick:(UIButton*)sender
 {

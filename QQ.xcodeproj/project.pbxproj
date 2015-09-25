@@ -376,8 +376,9 @@
 			children = (
 				3791A2441BB2933B00CEF694 /* WSChatMessageInputBar.h */,
 				3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */,
-				37A4EF1B1BB3F0F200AFC2C0 /* More */,
+				37DEFB771BB4F24C0069DDE6 /* Record */,
 				37A4EF241BB3F5DC00AFC2C0 /* Face */,
+				37A4EF1B1BB3F0F200AFC2C0 /* More */,
 			);
 			path = WSMessageInputBar;
 			sourceTree = "<group>";
@@ -465,6 +466,13 @@
 				37DD27B61B7F862A0088FA59 /* WSChatModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		37DEFB771BB4F24C0069DDE6 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
