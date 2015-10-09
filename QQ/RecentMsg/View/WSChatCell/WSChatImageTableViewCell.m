@@ -8,7 +8,6 @@
 
 #import "WSChatImageTableViewCell.h"
 #import "PureLayout.h"
-#import "UIImage+Utils.h"
 
 //文本
 #define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
@@ -101,25 +100,6 @@
     UIImage *image = [UIImage imageNamed:model.content];
   
     mImageView.image = image;
-    
-//    if (mImageView.frame.size.height && mImageView.frame.size.width)
-//    {
-//        const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
-//        
-//        mImageView.image = [image maskWithImage:maskImageDrawnToSize];
-//    }else
-//    {
-//        [self layoutIfNeeded];
-//      
-//        if (mImageView.frame.size.height && mImageView.frame.size.width)
-//        {
-//            const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
-//            
-//            mImageView.image = [image maskWithImage:maskImageDrawnToSize];
-//        }
-//        
-//        //NSLog(@"-----------------------%@",NSStringFromCGRect(mImageView.bounds));
-//    }
     
     [super setModel:model];
 }
