@@ -23,7 +23,9 @@
 #define kMaxHeightTextView   (84)
 
 //默认输入框和父控件底部间隔
-#define kDefaultBottomTextView_SupView  (6)
+#define kDefaultBottomTextView_SupView  (5)
+
+#define kDefaultTopTextView_SupView  (5)
 
 //按钮大小
 #define kSizeBtn                 (CGSizeMake(34, 34))
@@ -105,7 +107,7 @@
          *  @brief  增加输入框
          */
         [self addSubview:self.mInputTextView];
-        [self.mInputTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.mVoiceBtn withOffset:4];
+        [self.mInputTextView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kDefaultTopTextView_SupView];
         [self.mInputTextView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.mVoiceBtn withOffset:0];
         mBottomConstraintTextView = [self.mInputTextView  autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kDefaultBottomTextView_SupView];
         
@@ -174,7 +176,7 @@
  */
 -(CGSize)intrinsicContentSize
 {
-    CGFloat height = mHeightTextView+kDefaultBottomTextView_SupView +4;
+    CGFloat height = mHeightTextView+kDefaultBottomTextView_SupView +kDefaultTopTextView_SupView;
     
     height += [mMoreView intrinsicContentSize].height; //如果更多视图当前正在显示，需要加上更多视图的高度
     
