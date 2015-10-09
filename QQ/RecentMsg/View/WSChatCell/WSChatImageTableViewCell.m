@@ -36,6 +36,15 @@
     
     if (self)
     {
+        if (isSender)//是我自己发送的
+        {
+            mBubbleImageView.image = [[UIImage imageNamed:@"chat_send_imagemask@2x"] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+            
+        }else//别人发送的消息
+        {
+            mBubbleImageView.image = [[UIImage imageNamed:@"chat_recive_imagemask@2x"]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+        }
+        
         mImageView = [UIImageView newAutoLayoutView];
         mImageView.backgroundColor = [UIColor clearColor];
         mImageView.userInteractionEnabled = NO;
@@ -43,7 +52,7 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageBeenTaped:)];
         [mBubbleImageView addGestureRecognizer:tap];
         
-        [self.contentView addSubview:mImageView];
+        [self.contentView insertSubview:mImageView atIndex:0];
 
         if (isSender)//是我自己发送的
         {
@@ -93,24 +102,24 @@
   
     mImageView.image = image;
     
-    if (mImageView.frame.size.height && mImageView.frame.size.width)
-    {
-        const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
-        
-        mImageView.image = [image maskWithImage:maskImageDrawnToSize];
-    }else
-    {
-        [self layoutIfNeeded];
-      
-        if (mImageView.frame.size.height && mImageView.frame.size.width)
-        {
-            const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
-            
-            mImageView.image = [image maskWithImage:maskImageDrawnToSize];
-        }
-        
-        //NSLog(@"-----------------------%@",NSStringFromCGRect(mImageView.bounds));
-    }
+//    if (mImageView.frame.size.height && mImageView.frame.size.width)
+//    {
+//        const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
+//        
+//        mImageView.image = [image maskWithImage:maskImageDrawnToSize];
+//    }else
+//    {
+//        [self layoutIfNeeded];
+//      
+//        if (mImageView.frame.size.height && mImageView.frame.size.width)
+//        {
+//            const UIImage *maskImageDrawnToSize = [mBubbleImageView.image renderAtSize:mImageView.frame.size];
+//            
+//            mImageView.image = [image maskWithImage:maskImageDrawnToSize];
+//        }
+//        
+//        //NSLog(@"-----------------------%@",NSStringFromCGRect(mImageView.bounds));
+//    }
     
     [super setModel:model];
 }

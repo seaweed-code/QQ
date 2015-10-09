@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSChatCell/WSChatImageTableViewCell.m"
-            timestampString = "464677653.463568"
+            timestampString = "466053718.294007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "@implementation WSChatImageTableViewCell"
-            landmarkType = "3">
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-longPress:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

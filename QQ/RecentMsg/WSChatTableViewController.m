@@ -248,7 +248,7 @@
         return _DataSource;
     }
     
-    NSInteger capacity = 20;
+    NSInteger capacity = 200;
     
     _DataSource = [NSMutableArray arrayWithCapacity:capacity];
     
