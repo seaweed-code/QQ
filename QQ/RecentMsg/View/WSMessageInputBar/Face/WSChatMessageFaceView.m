@@ -52,7 +52,7 @@
         
         [layout setItemSize:CGSizeMake([UIScreen mainScreen].bounds.size.width/7-10, (kHeightFaceView - kHeightBtn)/3.-20)];
         [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-       // layout.sectionInset = UIEdgeInsetsMake(0, 0,0, 0);
+        layout.sectionInset = UIEdgeInsetsMake(6,6,6, 6);
         
         mCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
         mCollectionView.pagingEnabled = YES;

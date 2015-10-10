@@ -16,7 +16,7 @@
 //可重用ID
 #define kReuseID             (@"unique")
 
-#define kBottomCollectionView (5)
+#define kBottomCollectionView (24)
 
 #define kUnSelectedColorPageControl   ([UIColor colorWithRed:0.604 green:0.608 blue:0.616 alpha:1])
 #define kSelectedColorPageControl     ([UIColor colorWithRed:0.380 green:0.416 blue:0.463 alpha:1])
@@ -45,9 +45,9 @@
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         
-        [layout setItemSize:CGSizeMake([UIScreen mainScreen].bounds.size.width/4-10, (kHeightMoreView-kBottomCollectionView)/2.-10)];
+        [layout setItemSize:CGSizeMake([UIScreen mainScreen].bounds.size.width/4-10, (kHeightMoreView-kBottomCollectionView)/2-14)];
         [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        layout.sectionInset = UIEdgeInsetsMake(0, 5,10, 5);
+        layout.sectionInset = UIEdgeInsetsMake(4, 5,4, 5);
         
         mCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
         mCollectionView.pagingEnabled = YES;

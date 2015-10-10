@@ -32,7 +32,7 @@
         [self.contentView addSubview:mImageView];
         
         [mImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
-        [mImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView withOffset:-12];
+        [mImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView withOffset:-8];
         [mImageView autoSetDimensionsToSize:CGSizeMake(40, 40)];
         
         mTitle = [[UILabel alloc]initForAutoLayout];
