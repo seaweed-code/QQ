@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QQ/RecentMsg/View/WSMessageInputBar/Face/WSChatMessageFaceView.m"
-            timestampString = "464842539.982321"
+            timestampString = "466138941.454406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "-DataSource"
             landmarkType = "5">
          </BreakpointContent>
