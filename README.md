@@ -7,14 +7,10 @@ QQ Code For IOS  >=IOS 6.0
 
 Third Part Library:
 
-PureLayout（非常灵活的自动布局第三方框架）: https://github.com/smileyborg/PureLayout
-
-SDWebImage（网络加载图片）:https://github.com/rs/SDWebImage 
-
-FDTemplateLayoutCell (TableViewCell 动态计算高度):https://github.com/forkingdog
-
-ODRefreshControl(高仿QQ的下拉刷新控件):https://github.com/Sephiroth87/ODRefreshControl
-
+- [PureLayout（非常灵活的自动布局第三方框架）](https://github.com/smileyborg/PureLayout)
+- [SDWebImage（网络加载图片）](https://github.com/rs/SDWebImage)
+- [FDTemplateLayoutCell (TableViewCell 动态计算高度)](https://github.com/forkingdog)
+- [ODRefreshControl(高仿QQ的下拉刷新控件)](https://github.com/Sephiroth87/ODRefreshControl)
 
 
 
