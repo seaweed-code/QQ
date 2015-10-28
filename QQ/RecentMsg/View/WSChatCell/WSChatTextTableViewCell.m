@@ -96,8 +96,7 @@
         
         mBubbleImageView.highlighted = YES;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerWillHideMenu) name:UIMenuControllerWillHideMenuNotification object:nil];
-        
+    
         UIMenuItem *copy = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(menuCopy:)];
         UIMenuItem *retweet = [[UIMenuItem alloc]initWithTitle:@"转发" action:@selector(menuRetweet:)];
         UIMenuItem *retweetMultiple = [[UIMenuItem alloc]initWithTitle:@"转发多条" action:@selector(menuRetweetMultiple:)];
@@ -107,6 +106,9 @@
         [menu setMenuItems:@[copy,retweet,retweetMultiple,remove]];
         [menu setTargetRect:mBubbleImageView.frame inView:self];
         [menu setMenuVisible:YES animated:YES];
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerWillHideMenu) name:UIMenuControllerWillHideMenuNotification object:nil];
         
     }
 }
