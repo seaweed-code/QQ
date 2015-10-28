@@ -96,6 +96,8 @@
         
         mBubbleImageView.highlighted = YES;
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerWillHideMenu) name:UIMenuControllerWillHideMenuNotification object:nil];
+        
         UIMenuItem *copy = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(menuCopy:)];
         UIMenuItem *retweet = [[UIMenuItem alloc]initWithTitle:@"转发" action:@selector(menuRetweet:)];
         UIMenuItem *retweetMultiple = [[UIMenuItem alloc]initWithTitle:@"转发多条" action:@selector(menuRetweetMultiple:)];
@@ -107,6 +109,16 @@
         [menu setMenuVisible:YES animated:YES];
         
     }
+}
+
+/**
+ *  @brief  菜单隐藏时调用此方法
+ */
+-(void)UIMenuControllerWillHideMenu
+{
+    mBubbleImageView.highlighted = NO;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -122,25 +134,21 @@
 {
     [UIPasteboard generalPasteboard].string = mTextLable.text;
     
-    
-    mBubbleImageView.highlighted = NO;
 }
 
 
 -(void)menuRetweet:(id)sender
 {
-    mBubbleImageView.highlighted = NO;
+    
 }
 
 -(void)menuRetweetMultiple:(id)sender
 {
-    mBubbleImageView.highlighted = NO;
+   
 }
 
 -(void)menuRemove:(id)sender
 {
-    mBubbleImageView.highlighted = NO;
-    
     [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:self.model}];
 }
 
