@@ -219,7 +219,8 @@
         return _tableView;
     }
     
-    _tableView                      =   [UITableView newAutoLayoutView];
+   // _tableView  = [UITableView newAutoLayoutView]; 这句话导致了很多布局警告，换成下面的方式就OK
+    _tableView                      =   [[UITableView alloc]initWithFrame:self.view.bounds];
     _tableView.fd_debugLogEnabled   =   NO;
     _tableView.separatorStyle       =   UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor      =   kBkColorTableView;
