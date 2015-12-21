@@ -7,6 +7,7 @@
 //  https://github.com/weida-studio/QQ
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 /**
  *  @brief  聊天窗口
