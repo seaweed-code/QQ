@@ -104,7 +104,7 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    mSecondLable.text = [NSString stringWithFormat:@"%ld'        ",(long)model.secondVoice];
+    mSecondLable.text = [NSString stringWithFormat:@"  %@'  ",model.secondVoice];
     
     [super setModel:model];
 }

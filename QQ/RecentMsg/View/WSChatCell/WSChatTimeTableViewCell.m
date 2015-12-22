@@ -55,7 +55,7 @@
 {
     _model = model;
     
-    mTimeLable.text = model.content;
+    mTimeLable.text = model.timeStamp.description;
 }
 
 @end

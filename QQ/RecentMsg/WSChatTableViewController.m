@@ -22,7 +22,7 @@
 {
    
 }
-@property(nonatomic,strong)NSMutableArray *DataSource;
+//@property(nonatomic,strong)NSMutableArray *DataSource;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property(nonatomic,strong)UITableView *tableView;
 
@@ -232,7 +232,6 @@
         return _tableView;
     }
     
-   // _tableView  = [UITableView newAutoLayoutView]; 这句话导致了很多布局警告，换成下面的方式就OK
     _tableView                      =   [[UITableView alloc]initWithFrame:self.view.bounds];
     _tableView.fd_debugLogEnabled   =   NO;
     _tableView.separatorStyle       =   UITableViewCellSeparatorStyleNone;
@@ -308,19 +307,8 @@
     }
     
     model.isSender = @(i%2);
-
+    model.timeStamp = [NSDate date];
     
-   
-    [model setValue:[NSDate date] forKey:@"timeStamp"];
-//    [model setValue:@(i++%2) forKey:@"isSender"];
-//    [model  setValue:@1 forKey:@"chatCellType"];
-//    [model  setValue:@"fjsadlfja;slfjl;sajflsadjf;alsdjflksadjflasjdfl;kasjdfl;kjas;dlfjasl;dfjlk;sadjf" forKey:@"content"];
-//    [newManagedObject  setValue:@"" forKey:@"headImageURL_sender"];
-//    [newManagedObject  setValue:@"" forKey:@""];
-//    [newManagedObject  setValue:@"" forKey:@""];
-//    [newManagedObject  setValue:@"" forKey:@""];
-//    [newManagedObject  setValue:@"" forKey:@""];
-//    [newManagedObject  setValue:@"" forKey:@""];
     
     
     // Save the context.
@@ -423,12 +411,23 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
-//    NSInteger section = [[self.fetchedResultsController sections] count];
-//
-//    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-//    NSInteger row =  [sectionInfo numberOfObjects];
-//    
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+    {//让其滚动到底部
+        NSInteger section = [[self.fetchedResultsController sections] count];
+        if (section >= 1)
+        {
+            id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
+            NSInteger row =  [sectionInfo numberOfObjects];
+            if (row >= 1)
+            {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            }
+        }
+        
+        
+    });
+
 }
 
 @end
