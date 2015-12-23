@@ -8,6 +8,8 @@
 
 #import "WSChatImageTableViewCell.h"
 #import "PureLayout.h"
+#import "UIImageView+WebCache.h"
+
 
 //文本
 #define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
@@ -97,10 +99,7 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    UIImage *image = [UIImage imageNamed:model.content];
-  
-    mImageView.image = image;
-    
+    [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"tab_qworld_press"]];
     [super setModel:model];
 }
 

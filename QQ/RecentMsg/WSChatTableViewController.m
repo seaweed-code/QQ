@@ -22,7 +22,7 @@
 {
    
 }
-//@property(nonatomic,strong)NSMutableArray *DataSource;
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property(nonatomic,strong)UITableView *tableView;
 
@@ -124,12 +124,12 @@
         case EventChatCellTypeSendMsgEvent:
        
             [self.view endEditing:YES];
-          //  [self SendMessage:userInfo];
+            [self SendMessage:userInfo];
             
             break;
         case EventChatCellRemoveEvent:
         
-           // [self RemoveModel:model];
+            [self RemoveModel:model];
             
             break;
         case EventChatCellImageTapedEvent:
@@ -148,68 +148,53 @@
 
 }
 
-//
-//-(void)SendMessage:(NSDictionary*)userInfo
-//{
-//    WSChatModel *newModel = [[WSChatModel alloc]init];
-//    newModel.chatCellType = [userInfo[@"type"]integerValue];
-//    newModel.isSender     = YES;
-//    
-//    switch (newModel.chatCellType)
-//    {
-//        case WSChatCellType_Text:
-//            
-//             newModel.content      = userInfo[@"text"];
-//            
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    
-//    
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.DataSource.count inSection:0];
-//    [self.DataSource addObject:newModel];
-//    
-//    [self.tableView beginUpdates];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    [self.tableView endUpdates];
-//    
-//    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-//}
-//
-//
-///**
-// *  @brief  删除模型
-// *
-// *  @param model 模型
-// */
-//-(void)RemoveModel:(WSChatModel *)model
-//{
-//    NSIndexPath *index = [NSIndexPath indexPathForRow:[self.DataSource indexOfObject:model] inSection:0];
-//    
-//    NSMutableArray *indexs = @[index].mutableCopy;
-//    
-//    NSMutableIndexSet *indexSets = [NSMutableIndexSet indexSetWithIndex:index.row];
-//    
-//    
-//    if ((index.row > 0) && ((WSChatModel*)(self.DataSource[index.row-1])).chatCellType == WSChatCellType_Time)
-//    {
-//        if((index.row == self.DataSource.count-1) || (((WSChatModel*)(self.DataSource[index.row+1])).chatCellType == WSChatCellType_Time))
-//        {//删除上一个
-//            
-//            [indexSets addIndex:index.row-1];
-//            [indexs addObject:[NSIndexPath indexPathForRow:index.row-1 inSection:0]];
-//        }
-//    }
-//    
-//    [self.DataSource removeObjectsAtIndexes:indexSets];
-//    
-//    [self.tableView beginUpdates];
-//    [self.tableView deleteRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationFade];
-//    [self.tableView endUpdates];
-//
-//}
+
+-(void)SendMessage:(NSDictionary*)userInfo
+{
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    WSChatModel *newModel = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    newModel.chatCellType = userInfo[@"type"];
+    newModel.isSender     = @(YES);
+    newModel.timeStamp    = [NSDate date];
+    
+    switch ([newModel.chatCellType integerValue])
+    {
+        case WSChatCellType_Text:
+            
+             newModel.content      = userInfo[@"text"];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+}
+
+
+/**
+ *  @brief  删除模型
+ *
+ *  @param model 模型
+ */
+-(void)RemoveModel:(WSChatModel *)model
+{
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    [context deleteObject:model];
+    
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+}
 
 
 #pragma mark - Getter Method
@@ -270,16 +255,15 @@
                       @"dfsafdafdsafdsa"];
 
     
+    
     switch (i++%4)
     {
-//        case 0:
-//            
-//            model.chatCellType = @(WSChatCellType_Image);
-//            
-//            // model.content = [NSString stringWithFormat:@"app%ld",++num%8+1];
-//            
-//            
-//            break;
+        case 0:
+        
+            model.chatCellType = @(WSChatCellType_Image);
+            model.content = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"app%d",i%8+1] withExtension:@"png"].absoluteString;
+            
+            break;
         case 1:
             
             model.chatCellType = WSChatCellType_Time;
@@ -310,7 +294,8 @@
     model.timeStamp = [NSDate date];
     
     
-    
+    //NSLog(@"---%@",[NSThread currentThread])
+    ;
     // Save the context.
     NSError *error = nil;
     if (![context save:&error])
