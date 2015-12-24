@@ -14,6 +14,7 @@
 		3729CC211C27F147003D423F /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3729CC1F1C27F147003D423F /* WSChatModel.m */; };
 		372DDB731BB3FF6E00717FB2 /* WSChatMessageFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
+		3742B18F1C2B99E200DF795F /* WSChatTableViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */; };
 		374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
 		3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9781B7CC75E008D6360 /* NSArray+PureLayout.m */; };
@@ -84,6 +85,8 @@
 		372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageFaceView.m; sourceTree = "<group>"; };
 		37330BF41B81ED17002A885B /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		37330BF51B81ED17002A885B /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		3742B18D1C2B99E200DF795F /* WSChatTableViewController+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSChatTableViewController+CoreData.h"; sourceTree = "<group>"; };
+		3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSChatTableViewController+CoreData.m"; sourceTree = "<group>"; };
 		374A8BE41BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3763F9751B7CC75E008D6360 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				376413811B7D881F007738CB /* WSRecentMsgTableViewController.m */,
 				37DD27AD1B7F81AF0088FA59 /* WSChatTableViewController.h */,
 				37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */,
+				3742B18D1C2B99E200DF795F /* WSChatTableViewController+CoreData.h */,
+				3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */,
 				376413881B7D8D57007738CB /* View */,
 				37DD27B41B7F85EE0088FA59 /* Model */,
 			);
@@ -634,6 +639,7 @@
 				3763F9A61B7CC8C1008D6360 /* SDWebImageCompat.m in Sources */,
 				37A4EF211BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.m in Sources */,
 				3763F9A41B7CC8C1008D6360 /* NSData+ImageContentType.m in Sources */,
+				3742B18F1C2B99E200DF795F /* WSChatTableViewController+CoreData.m in Sources */,
 				376943E01B7CA34F004C85F3 /* main.m in Sources */,
 				3763F9A31B7CC8C1008D6360 /* MKAnnotationView+WebCache.m in Sources */,
 				3763F9A51B7CC8C1008D6360 /* SDImageCache.m in Sources */,

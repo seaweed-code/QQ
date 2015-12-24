@@ -13,5 +13,10 @@
  *  @brief  聊天窗口
  */
 @interface WSChatTableViewController : UIViewController
+{
+    UITableView *_tableView;
+    NSFetchedResultsController *_fetchedResultsController;
+}
+
 
 @end
