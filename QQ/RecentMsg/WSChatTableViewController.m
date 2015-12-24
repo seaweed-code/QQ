@@ -129,23 +129,6 @@
     }
 }
 
-
-#pragma mark - Getter Method
-
--(WSChatMessageInputBar *)inputBar
-{
-    if (_inputBar) {
-        return _inputBar;
-    }
-    
-    _inputBar = [[WSChatMessageInputBar alloc]init];
-    _inputBar.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    return _inputBar;
-}
-
-
-
 - (void)insertNewObject:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -199,9 +182,6 @@
     model.timeStamp = [NSDate date];
     
     
-    //NSLog(@"---%@",[NSThread currentThread])
-    ;
-    // Save the context.
     NSError *error = nil;
     if (![context save:&error])
     {
@@ -210,5 +190,18 @@
     }
 }
 
+#pragma mark - Getter Method
+
+-(WSChatMessageInputBar *)inputBar
+{
+    if (_inputBar) {
+        return _inputBar;
+    }
+    
+    _inputBar = [[WSChatMessageInputBar alloc]init];
+    _inputBar.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    return _inputBar;
+}
 
 @end
