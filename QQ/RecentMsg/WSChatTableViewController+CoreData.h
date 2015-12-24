@@ -8,10 +8,10 @@
 
 #import "WSChatTableViewController.h"
 
-@interface WSChatTableViewController (CoreData)<UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
+@interface WSChatTableViewController (CoreData)<NSFetchedResultsControllerDelegate>
 
 @property(nonatomic,strong,readonly)NSFetchedResultsController *fetchedResultsController;
 
-@property(nonatomic,strong,readonly)UITableView  *tableView;
+
 
 @end

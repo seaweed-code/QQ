@@ -13,27 +13,31 @@
 #import "WSChatVoiceTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
 #import "WSChatMessageInputBar.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #import "WSChatTableViewController+CoreData.h"
 
 
-@interface WSChatTableViewController ()
+#define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
+
+
+@interface WSChatTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)WSChatMessageInputBar *inputBar;
+
 
 @end
 
 @implementation WSChatTableViewController
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+   
     self.title = @"张金磊";
+   
     
     UIEdgeInsets inset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self.view addSubview:self.tableView];
+    [self.view addSubview:[self setupTableView]];
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeBottom];
 
     
@@ -44,7 +48,65 @@
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(insertNewObject:) userInfo:nil repeats:YES];
 }
 
+#pragma mark - TableView Delegate
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    CGFloat height = model.height.floatValue;
+    
+    if (!height)
+    {
+        height = [tableView fd_heightForCellWithIdentifier:kCellReuseID(model) configuration:^(WSChatBaseTableViewCell* cell)
+                  {
+                      [cell setModel:model];
+                  }];
+        
+        model.height = @(height);
+        
+    }
+    
+    return height;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.fetchedResultsController sections] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    WSChatBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseID(model) forIndexPath:indexPath];
+    
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.model = model;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.view endEditing:YES];
+}
 
 
 #pragma mark - UIResponder actions
@@ -191,6 +253,36 @@
 }
 
 #pragma mark - Getter Method
+
+
+-(UITableView*)setupTableView
+{
+    if (_tableView)
+    {
+        return _tableView;
+    }
+    
+    _tableView                      =   [[UITableView alloc]initWithFrame:self.view.bounds];
+    _tableView.fd_debugLogEnabled   =   NO;
+    _tableView.separatorStyle       =   UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor      =   kBkColorTableView;
+    _tableView.delegate             =   self;
+    _tableView.dataSource           =   self;
+    _tableView.keyboardDismissMode  =   UIScrollViewKeyboardDismissModeOnDrag;
+    
+    [_tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@1,@(WSChatCellType_Text))];
+    [_tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@0,@(WSChatCellType_Text))];
+    
+    [_tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@1, @(WSChatCellType_Image))];
+    [_tableView registerClass:[WSChatImageTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@0, @(WSChatCellType_Image))];
+    
+    [_tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@0, @(WSChatCellType_Audio))];
+    [_tableView registerClass:[WSChatVoiceTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@1, @(WSChatCellType_Audio))];
+    
+    [_tableView registerClass:[WSChatTimeTableViewCell class] forCellReuseIdentifier:kTimeCellReusedID];
+    
+    return _tableView;
+}
 
 -(WSChatMessageInputBar *)inputBar
 {

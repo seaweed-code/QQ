@@ -14,9 +14,9 @@
  */
 @interface WSChatTableViewController : UIViewController
 {
-    UITableView *_tableView;
     NSFetchedResultsController *_fetchedResultsController;
 }
 
+@property(nonatomic,strong,readonly)UITableView  *tableView;
 
 @end
