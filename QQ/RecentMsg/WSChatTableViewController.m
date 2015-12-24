@@ -45,7 +45,7 @@
     [self.inputBar autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTop];
     [self.inputBar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
     
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(insertNewObject:) userInfo:nil repeats:YES];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"自动发消息" style:UIBarButtonItemStyleDone target:self action:@selector(testInserNewobject)];
 }
 
 #pragma mark - TableView Delegate
@@ -190,6 +190,23 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
+
+//测试发送数据
+-(void)testInserNewobject
+{
+    static NSTimer *timer;
+    
+    if (timer)
+    {
+        [timer invalidate];
+        timer = nil;
+    }else
+    {
+        timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(insertNewObject:) userInfo:nil repeats:YES];
+    }
+    
+}
+
 
 - (void)insertNewObject:(id)sender
 {
