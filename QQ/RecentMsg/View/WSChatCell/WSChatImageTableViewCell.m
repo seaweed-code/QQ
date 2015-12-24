@@ -99,7 +99,7 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"tab_qworld_press"]];
+    [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"leftMenuBk"]];
     [super setModel:model];
 }
 
