@@ -8,10 +8,12 @@
 
 #import "WSChatTableViewController.h"
 
+@class WSChatBaseTableViewCell;
+
 @interface WSChatTableViewController (CoreData)<NSFetchedResultsControllerDelegate>
 
 @property(nonatomic,strong,readonly)NSFetchedResultsController *fetchedResultsController;
 
-
+- (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

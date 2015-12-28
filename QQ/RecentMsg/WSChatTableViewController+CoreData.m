@@ -24,6 +24,13 @@
 
 #pragma mark - NSFetchedResultsController Delegate
 
+- (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.model = model;
+}
+
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
@@ -60,7 +67,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-           // [self configureCell:[_tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:

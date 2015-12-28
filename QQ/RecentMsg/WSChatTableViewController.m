@@ -96,12 +96,7 @@
     return cell;
 }
 
-- (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.model = model;
-}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
