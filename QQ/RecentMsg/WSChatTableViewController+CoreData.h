@@ -15,5 +15,5 @@
 @property(nonatomic,strong,readonly)NSFetchedResultsController *fetchedResultsController;
 
 - (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-
+-(void)scrollToBottom:(BOOL)animated;
 @end

@@ -81,22 +81,25 @@
 {
     [self.tableView endUpdates];
     
-    dispatch_async(dispatch_get_main_queue(), ^
-                   {//让其滚动到底部
-                       NSInteger section = [[self.fetchedResultsController sections] count];
-                       if (section >= 1)
-                       {
-                           id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
-                           NSInteger row =  [sectionInfo numberOfObjects];
-                           if (row >= 1)
-                           {
-                               [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                           }
-                       }
-                   });
-    
+    [self scrollToBottom:YES];
 }
 
+-(void)scrollToBottom:(BOOL)animated
+{    //让其滚动到底部
+    dispatch_async(dispatch_get_main_queue(), ^
+    {
+        NSInteger section = [[self.fetchedResultsController sections] count];
+        if (section >= 1)
+        {
+            id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
+            NSInteger row =  [sectionInfo numberOfObjects];
+            if (row >= 1)
+            {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+            }
+        }
+    });
+}
 
 #pragma mark - Getter Mehod
 

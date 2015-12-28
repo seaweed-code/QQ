@@ -48,6 +48,13 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"自动发消息" style:UIBarButtonItemStyleDone target:self action:@selector(testInserNewobject)];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self scrollToBottom:NO];
+}
+
 #pragma mark - TableView Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
