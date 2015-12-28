@@ -135,7 +135,6 @@
     if (![_fetchedResultsController performFetch:&error])
     {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
     }
     
     return _fetchedResultsController;
