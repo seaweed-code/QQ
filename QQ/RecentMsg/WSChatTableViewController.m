@@ -147,8 +147,7 @@
 -(void)SendMessage:(NSDictionary*)userInfo
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    WSChatModel *newModel = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    WSChatModel *newModel = [WSChatModel insertNewObjectInManagedObjectContext:context];
     
     newModel.chatCellType = userInfo[@"type"];
     newModel.isSender     = @(YES);
@@ -211,8 +210,7 @@
 - (void)insertNewObject:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    WSChatModel *model = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    WSChatModel *model =[WSChatModel insertNewObjectInManagedObjectContext:context];
    
     static int i=0;
     

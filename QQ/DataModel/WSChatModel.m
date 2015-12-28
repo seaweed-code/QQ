@@ -10,6 +10,15 @@
 
 @implementation WSChatModel
 
++(NSString *)entityName
+{
+    return @"MsgHistory";
+}
+
++(WSChatModel *)insertNewObjectInManagedObjectContext:(NSManagedObjectContext *)context
+{
+    return   [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
+}
 // Insert code here to add functionality to your managed object subclass
 
 @end

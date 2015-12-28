@@ -103,6 +103,7 @@
     AppDelegate *appdelete = [UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context = appdelete.managedObjectContext;
     // Edit the entity name as appropriate.
+   
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"MsgHistory" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
