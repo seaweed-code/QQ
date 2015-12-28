@@ -19,6 +19,10 @@
 {
     return   [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
 }
-// Insert code here to add functionality to your managed object subclass
+
++(NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription entityForName:[self entityName] inManagedObjectContext:context];
+}
 
 @end

@@ -112,9 +112,9 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     AppDelegate *appdelete = [UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context = appdelete.managedObjectContext;
-    // Edit the entity name as appropriate.
    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MsgHistory" inManagedObjectContext:context];
+   
+    NSEntityDescription *entity = [WSChatModel entityInManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
