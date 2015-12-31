@@ -7,7 +7,9 @@
 //  https://github.com/weida-studio/QQ
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "NSObject+CoreDataHelper.h"
+
+@class ODRefreshControl,NSFetchedResultsController;
 
 /**
  *  @brief  聊天窗口
@@ -15,6 +17,7 @@
 @interface WSChatTableViewController : UIViewController
 {
     NSFetchedResultsController *_fetchedResultsController;
+    ODRefreshControl           *_refreshControl;
 }
 
 @property(nonatomic,strong,readonly)UITableView  *tableView;

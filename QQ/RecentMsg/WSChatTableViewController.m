@@ -15,6 +15,7 @@
 #import "WSChatMessageInputBar.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "WSChatTableViewController+CoreData.h"
+#import "ODRefreshControl.h"
 
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
@@ -34,7 +35,6 @@
     [super viewDidLoad];
    
     self.title = @"张金磊";
-   
     
     UIEdgeInsets inset = UIEdgeInsetsMake(0, 0, 0, 0);
     [self.view addSubview:[self setupTableView]];
@@ -172,6 +172,8 @@
     {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
+    
+    [self scrollToBottom:YES];
 }
 
 
@@ -267,7 +269,10 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    [self scrollToBottom:YES];
 }
+
+
 
 #pragma mark - Getter Method
 
@@ -286,6 +291,9 @@
     _tableView.delegate             =   self;
     _tableView.dataSource           =   self;
     _tableView.keyboardDismissMode  =   UIScrollViewKeyboardDismissModeOnDrag;
+    
+    _refreshControl                 =  [[ODRefreshControl alloc]initInScrollView:_tableView];
+    [_refreshControl addTarget:self action:@selector(loadMoreMsg) forControlEvents:UIControlEventValueChanged];
     
     [_tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@1,@(WSChatCellType_Text))];
     [_tableView registerClass:[WSChatTextTableViewCell class] forCellReuseIdentifier:kCellReuseIDWithSenderAndType(@0,@(WSChatCellType_Text))];

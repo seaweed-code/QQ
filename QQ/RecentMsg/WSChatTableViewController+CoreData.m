@@ -13,6 +13,10 @@
 #import "WSChatImageTableViewCell.h"
 #import "WSChatVoiceTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
+#import "ODRefreshControl.h"
+
+#define kMaxBachSize      (30)    //每次最多从数据库读取30条数据
+#define kPageSize         (10)    //一页10条数据
 
 
 
@@ -80,25 +84,54 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
-    
-    [self scrollToBottom:YES];
 }
 
 -(void)scrollToBottom:(BOOL)animated
 {    //让其滚动到底部
-    dispatch_async(dispatch_get_main_queue(), ^
+    NSInteger section = [[self.fetchedResultsController sections] count];
+    if (section >= 1)
     {
-        NSInteger section = [[self.fetchedResultsController sections] count];
-        if (section >= 1)
+        id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
+        NSInteger row =  [sectionInfo numberOfObjects];
+        if (row >= 1)
         {
-            id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
-            NSInteger row =  [sectionInfo numberOfObjects];
-            if (row >= 1)
-            {
-                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
-            }
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
         }
+    }
+}
+
+-(void)loadMoreMsg
+{
+    NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
+    
+    NSUInteger totalCount = [WSChatModel count];
+    NSUInteger offset = fetchRequest.fetchOffset;
+    NSUInteger limit;
+    
+    if (offset>=kPageSize)
+    {//可以加载前10条数据
+        offset -= kPageSize;
+        limit  =  totalCount - offset;
+    }else
+    {//显示所有数据
+        offset = 0;
+        limit  = 0;
+    }
+    
+    [fetchRequest setFetchOffset:offset];
+    [fetchRequest  setFetchLimit:limit];
+    
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+    {
+        [_refreshControl endRefreshing];
     });
+    
 }
 
 #pragma mark - Getter Mehod
@@ -110,24 +143,23 @@
     }
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    AppDelegate *appdelete = [UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *context = appdelete.managedObjectContext;
    
-   
-    NSEntityDescription *entity = [WSChatModel entityInManagedObjectContext:context];
+    NSEntityDescription *entity = [WSChatModel entityInManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:5];
     
-    // Edit the sort key as appropriate.
+    [fetchRequest setFetchBatchSize:kMaxBachSize];
+   // [fetchRequest  setFetchLimit:kPageSize];
+    
+  //  NSUInteger totalCount = [WSChatModel count];//一共多少条记录
+    
+   // [fetchRequest  setFetchOffset:(totalCount>=kPageSize)?(totalCount-kPageSize):0];
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:YES];
     
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"History"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     _fetchedResultsController = aFetchedResultsController;
     

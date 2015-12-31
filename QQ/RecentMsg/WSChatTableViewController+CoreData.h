@@ -8,6 +8,7 @@
 
 #import "WSChatTableViewController.h"
 
+
 @class WSChatBaseTableViewCell;
 
 @interface WSChatTableViewController (CoreData)<NSFetchedResultsControllerDelegate>
@@ -16,4 +17,5 @@
 
 - (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(void)scrollToBottom:(BOOL)animated;
+-(void)loadMoreMsg;
 @end

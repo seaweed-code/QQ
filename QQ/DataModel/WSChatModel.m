@@ -7,6 +7,7 @@
 //  https://github.com/weida-studio/QQ
 
 #import "WSChatModel.h"
+#import "NSObject+CoreDataHelper.h"
 
 @implementation WSChatModel
 
@@ -23,6 +24,17 @@
 +(NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)context
 {
     return [NSEntityDescription entityForName:[self entityName] inManagedObjectContext:context];
+}
+
++(NSUInteger)count
+{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [self entityInManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+
+    return [self.managedObjectContext countForFetchRequest:fetchRequest error:nil];
 }
 
 @end

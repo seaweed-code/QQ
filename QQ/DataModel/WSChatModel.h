@@ -58,6 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)context;
 
++(NSUInteger)count;
+
 @end
 
 NS_ASSUME_NONNULL_END
