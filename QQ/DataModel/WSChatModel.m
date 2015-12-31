@@ -28,7 +28,6 @@
 
 +(NSUInteger)count
 {
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entity = [self entityInManagedObjectContext:self.managedObjectContext];

@@ -60,7 +60,7 @@ static NSManagedObjectModel *__managedObjectModel;
 
 
 - (NSManagedObjectContext *)managedObjectContext {
-    // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+   
     if (__managedObjectContext != nil) {
         return __managedObjectContext;
     }
