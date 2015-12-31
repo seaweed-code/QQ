@@ -1,8 +1,11 @@
 # QQ For iOS
 （UI界面使用纯代码 的Autolayout 布局，所以支持系统版本为IOS6.0以上,同时适配iPhone和iPad）
-iPhone竖屏
+    
+   - iPhone竖屏
 <img src="https://github.com/weida-studio/QQ/blob/master/Sceenshots/screenShots-V.gif" width="320">
-iPhone横屏
+
+
+   - iPhone横屏
 <img src="https://github.com/weida-studio/QQ/blob/master/Sceenshots/screenShots-H.gif" width="480">
 
 ## Overview
