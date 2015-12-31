@@ -6,6 +6,9 @@
 
   - iPhone横屏 <img src="https://github.com/weida-studio/QQ/blob/master/Sceenshots/screenShots-H.gif" width="480">
 
+  - iPad      <img src="https://github.com/weida-studio/QQ/blob/master/Sceenshots/screenShots-iPad.gif" width="500">
+
+
 ## Overview
 QQ Code For iOS  >=IOS 6.0
 
