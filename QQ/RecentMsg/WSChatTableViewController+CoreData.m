@@ -88,16 +88,19 @@
 
 -(void)scrollToBottom:(BOOL)animated
 {    //让其滚动到底部
-    NSInteger section = [[self.fetchedResultsController sections] count];
-    if (section >= 1)
+    dispatch_async(dispatch_get_main_queue(), ^
     {
-        id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
-        NSInteger row =  [sectionInfo numberOfObjects];
-        if (row >= 1)
+        NSInteger section = [[self.fetchedResultsController sections] count];
+        if (section >= 1)
         {
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+            id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section-1];
+            NSInteger row =  [sectionInfo numberOfObjects];
+            if (row >= 1)
+            {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row-1 inSection:section-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+            }
         }
-    }
+    });
 }
 
 -(void)loadMoreMsg
