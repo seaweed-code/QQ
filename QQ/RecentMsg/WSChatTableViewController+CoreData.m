@@ -138,8 +138,9 @@
                 [insertRows addObject:[NSIndexPath indexPathForRow:i inSection:0]];
             }
             
+            [self.tableView beginUpdates];
             [self.tableView insertRowsAtIndexPaths:insertRows withRowAnimation:UITableViewRowAnimationNone];
-            
+            [self.tableView endUpdates];
             [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:newRows inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];//annimate必须YES??,否则界面无效果?
         }else
         {
@@ -147,7 +148,7 @@
         }
     }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
     {
         [_refreshControl endRefreshing];
     });
