@@ -23,9 +23,6 @@
 @implementation WSChatTableViewController (CoreData)
 
 
-
-
-
 #pragma mark - NSFetchedResultsController Delegate
 
 - (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -124,11 +121,17 @@
     [fetchRequest setFetchOffset:offset];
     [fetchRequest  setFetchLimit:limit];
     
+    
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error])
     {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }else
+    {
+        [self.tableView reloadData];
     }
+    
+    
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
     {
@@ -152,11 +155,11 @@
     
     
     [fetchRequest setFetchBatchSize:kMaxBachSize];
-   // [fetchRequest  setFetchLimit:kPageSize];
+    [fetchRequest  setFetchLimit:kPageSize];
     
-  //  NSUInteger totalCount = [WSChatModel count];//一共多少条记录
+    NSUInteger totalCount = [WSChatModel count];//一共多少条记录
     
-   // [fetchRequest  setFetchOffset:(totalCount>=kPageSize)?(totalCount-kPageSize):0];
+    [fetchRequest  setFetchOffset:(totalCount>=kPageSize)?(totalCount-kPageSize):0];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:YES];
     

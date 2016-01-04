@@ -19,8 +19,6 @@ static NSManagedObjectModel *__managedObjectModel;
 #pragma mark - Core Data stack
 
 
-
-
 - (NSManagedObjectModel *)managedObjectModel {
     if (__managedObjectModel != nil) {
         return __managedObjectModel;

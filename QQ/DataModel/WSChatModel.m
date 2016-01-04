@@ -31,8 +31,8 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entity = [self entityInManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-
+    [fetchRequest setEntity:entity];    
+    
     return [self.managedObjectContext countForFetchRequest:fetchRequest error:nil];
 }
 
