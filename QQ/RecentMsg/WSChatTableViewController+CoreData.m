@@ -107,15 +107,18 @@
     NSUInteger totalCount = [WSChatModel count];
     NSUInteger offset = fetchRequest.fetchOffset;
     NSUInteger limit;
+    NSUInteger rowsAdd;//新增了多少条数据?
     
     if (offset>=kPageSize)
     {//可以加载前10条数据
         offset -= kPageSize;
+        rowsAdd = kPageSize;
         limit  =  totalCount - offset;
     }else
-    {//显示所有数据
-        offset = 0;
-        limit  = 0;
+    {//前面不够一页，就显示所有数据
+        rowsAdd = offset;
+        offset  = 0;
+        limit   = 0;
     }
     
     [fetchRequest setFetchOffset:offset];
@@ -124,14 +127,26 @@
     
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error])
-    {
+    {//再次执行查询请求
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }else
     {
-        [self.tableView reloadData];
+        if (rowsAdd)
+        {
+            NSMutableArray *insertRows = [NSMutableArray arrayWithCapacity:rowsAdd];
+            for (NSUInteger i =0; i<rowsAdd; i++)
+            {
+                [insertRows addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+            }
+            
+            [self.tableView insertRowsAtIndexPaths:insertRows withRowAnimation:UITableViewRowAnimationNone];
+            
+            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rowsAdd inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];//annimate必须YES??,否则界面无效果?
+        }else
+        {
+            NSLog(@"已经没有更多数据啦。");
+        }
     }
-    
-    
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
     {

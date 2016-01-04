@@ -276,7 +276,6 @@
 
 #pragma mark - Getter Method
 
-
 -(UITableView*)setupTableView
 {
     if (_tableView)
