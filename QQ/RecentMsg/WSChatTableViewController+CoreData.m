@@ -103,20 +103,19 @@
 -(void)loadMoreMsg
 {
     NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
-    
-    NSUInteger totalCount = [WSChatModel count];
+
     NSUInteger offset = fetchRequest.fetchOffset;
     NSUInteger limit;
-    NSUInteger rowsAdd;//新增了多少条数据?
+    NSUInteger newRows;//新增了多少条数据?
     
     if (offset>=kPageSize)
     {//可以加载前10条数据
         offset -= kPageSize;
-        rowsAdd = kPageSize;
-        limit  =  totalCount - offset;
+        newRows = kPageSize;
+        limit  =  [self.tableView numberOfRowsInSection:0] + newRows;
     }else
     {//前面不够一页，就显示所有数据
-        rowsAdd = offset;
+        newRows = offset;
         offset  = 0;
         limit   = 0;
     }
@@ -131,17 +130,17 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }else
     {
-        if (rowsAdd)
+        if (newRows)
         {
-            NSMutableArray *insertRows = [NSMutableArray arrayWithCapacity:rowsAdd];
-            for (NSUInteger i =0; i<rowsAdd; i++)
+            NSMutableArray *insertRows = [NSMutableArray arrayWithCapacity:newRows];
+            for (NSUInteger i =0; i<newRows; i++)
             {
                 [insertRows addObject:[NSIndexPath indexPathForRow:i inSection:0]];
             }
             
             [self.tableView insertRowsAtIndexPaths:insertRows withRowAnimation:UITableViewRowAnimationNone];
             
-            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rowsAdd inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];//annimate必须YES??,否则界面无效果?
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:newRows inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];//annimate必须YES??,否则界面无效果?
         }else
         {
             NSLog(@"已经没有更多数据啦。");
