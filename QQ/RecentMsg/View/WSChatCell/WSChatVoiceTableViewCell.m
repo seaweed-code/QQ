@@ -104,9 +104,45 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    mSecondLable.text = [NSString stringWithFormat:@"  %@'  ",model.secondVoice];
+    if (!model.content)
+    {
+        model.content = [self makeContent:model.secondVoice];
+    }
+    mSecondLable.text = model.content;
     
     [super setModel:model];
+}
+
+/**
+ *  @author weida
+ *
+ *  @brief 将秒数转换成字符串，声音越长，字符串越长
+ *
+ *  @param secondVoice 录音几秒
+ *
+ *  @return 字符串
+ */
+-(NSString*)makeContent:(NSNumber*)secondVoice
+{
+    NSMutableString *voiceStr;
+    NSInteger second = secondVoice.integerValue;
+    
+    if (second >= 60)
+    {
+        voiceStr = [NSMutableString stringWithFormat:@"%ld'%ld''",second/60,second%60];
+    }else
+    {
+        voiceStr = [NSMutableString stringWithFormat:@"%@''",secondVoice];
+    }
+    
+    for (NSInteger i=1; second >= i*10; i++)
+    {
+        [voiceStr insertString:@" " atIndex:0];
+        [voiceStr appendString:@" "];
+    }
+    
+    
+    return  voiceStr;
 }
 
 
