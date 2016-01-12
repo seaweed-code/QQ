@@ -103,13 +103,17 @@
     return cell;
 }
 
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES];
 }
 
+- (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.model = model;
+}
 
 #pragma mark - UIResponder actions
 -(void)routerEventWithType:(EventChatCellType)eventType userInfo:(NSDictionary *)userInfo

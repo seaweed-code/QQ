@@ -25,13 +25,6 @@
 
 #pragma mark - NSFetchedResultsController Delegate
 
-- (void)configureCell:(WSChatBaseTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.model = model;
-}
-
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
@@ -68,7 +61,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeMove:
