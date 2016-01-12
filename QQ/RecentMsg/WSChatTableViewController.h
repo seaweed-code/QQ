@@ -18,6 +18,7 @@
 {
     NSFetchedResultsController *_fetchedResultsController;
     ODRefreshControl           *_refreshControl;
+    UITableView                *_tableView;
 }
 
 @property(nonatomic,strong,readonly)UITableView  *tableView;

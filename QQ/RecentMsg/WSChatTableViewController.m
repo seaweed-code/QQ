@@ -37,7 +37,7 @@
     self.title = @"张金磊";
     
     UIEdgeInsets inset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self.view addSubview:[self setupTableView]];
+    [self.view addSubview:self.tableView];
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeBottom];
 
     
@@ -280,7 +280,7 @@
 
 #pragma mark - Getter Method
 
--(UITableView*)setupTableView
+-(UITableView *)tableView
 {
     if (_tableView)
     {
