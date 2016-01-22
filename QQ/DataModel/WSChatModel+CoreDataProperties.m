@@ -20,5 +20,5 @@
 @dynamic headImageURL_sender;
 @dynamic secondVoice;
 @dynamic height;
-
+@dynamic sendingImage;
 @end

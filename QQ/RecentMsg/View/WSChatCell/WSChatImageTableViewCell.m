@@ -97,7 +97,13 @@
 
 -(void)setModel:(WSChatModel *)model
 {
-    [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"leftMenuBk"]];
+    if (model.sendingImage)
+    {
+        mImageView.image = model.sendingImage;
+    }else
+    {
+        [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"leftMenuBk"]];
+    }
     [super setModel:model];
 }
 

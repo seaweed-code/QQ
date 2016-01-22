@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *headImageURL_sender;
 @property (nullable, nonatomic, retain) NSNumber *secondVoice;
 @property (nullable, nonatomic, retain) NSNumber *height;
-
+@property (nullable, nonatomic, retain) id sendingImage;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -29,7 +29,7 @@
             newModel.chatCellType = @(WSChatCellType_Image);
             newModel.isSender     = @(YES);
             newModel.timeStamp    = [NSDate date];
-            newModel.content      = image.assetURL.absoluteString;
+            newModel.sendingImage = image.thumbImage;
             NSLog(@"%@",image.assetURL);
         }
         

@@ -7,9 +7,10 @@
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="isSender" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="secondVoice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sendingImage" optional="YES" attributeType="Transformable" valueTransformerName="UIImageToDataTransformer" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MsgHistory" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="MsgHistory" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>
