@@ -66,7 +66,7 @@
 
 #pragma mark - 展示控制器
 - (void)showPickerVc:(UIViewController *)vc{
-   // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     __weak typeof(vc)weakVc = vc;
     if (weakVc != nil) {
         [weakVc presentViewController:self animated:YES completion:nil];
