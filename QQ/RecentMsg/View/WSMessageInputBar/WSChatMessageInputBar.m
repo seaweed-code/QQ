@@ -11,7 +11,7 @@
 #import "UIResponder+Router.h"
 #import "WSChatModel.h"
 #import "WSChatMessageMoreView.h"
-#import "WSChatMessageFaceView.h"
+#import "WSChatMessageEmojiView.h"
 
 //背景颜色
 #define kBkColor               ([UIColor colorWithRed:0.922 green:0.925 blue:0.929 alpha:1])
@@ -57,7 +57,7 @@
     /**
      *  @brief  表情视图
      */
-    WSChatMessageFaceView  *mFaceView;
+    WSChatMessageEmojiView  *mFaceView;
 }
 
 
@@ -251,7 +251,7 @@
         [self.mInputTextView becomeFirstResponder];
     }else
     {
-        mFaceView = [[WSChatMessageFaceView alloc]init];
+        mFaceView = [[WSChatMessageEmojiView alloc]init];
         mFaceView.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:mFaceView];

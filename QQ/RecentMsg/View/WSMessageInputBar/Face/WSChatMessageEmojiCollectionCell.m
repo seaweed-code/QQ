@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 weida. All rights reserved.
 //  https://github.com/weida-studio/QQ
 
-#import "WSChatMessageFaceCollectionCell.h"
+#import "WSChatMessageEmojiCollectionCell.h"
 #import "PureLayout.h"
 
-@interface WSChatMessageFaceCollectionCell ()
+@interface WSChatMessageEmojiCollectionCell ()
 {
     UIImageView *mImageView;
 }
 @end
 
-@implementation WSChatMessageFaceCollectionCell
+@implementation WSChatMessageEmojiCollectionCell
 
 -(instancetype)initWithFrame:(CGRect)frame
 {

@@ -11,6 +11,6 @@
 /**
  *  @brief  表情视图
  */
-@interface WSChatMessageFaceView : UIView
+@interface WSChatMessageEmojiView : UIView
 
 @end

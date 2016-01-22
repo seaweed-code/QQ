@@ -36,7 +36,13 @@ typedef NS_OPTIONS(NSInteger, EventChatCellType)
     /**
      *  @brief  输入框点击发送消息事件
      */
-    EventChatCellTypeSendMsgEvent
+    EventChatCellTypeSendMsgEvent,
+    
+    
+    /**
+     *  @brief 输入界面，更多界面，选择图片
+     */
+    EventChatMoreViewPickerImage,
 };
 
 #define kModelKey      (@"model")

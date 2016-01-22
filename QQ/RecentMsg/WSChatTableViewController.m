@@ -15,6 +15,8 @@
 #import "WSChatMessageInputBar.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "WSChatTableViewController+CoreData.h"
+#import "WSChatTableViewController+MoreViewClick.h"
+#import "NSObject+CoreDataHelper.h"
 #import "ODRefreshControl.h"
 
 
@@ -143,6 +145,9 @@
         case EventChatCellHeadLongPressEvent:
             NSLog(@"头像被长按了。。。。");
             break;
+        case EventChatMoreViewPickerImage:
+            [self pickerImages:9];
+            break;
         default:
             break;
     }
@@ -152,8 +157,8 @@
 
 -(void)SendMessage:(NSDictionary*)userInfo
 {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    WSChatModel *newModel = [WSChatModel insertNewObjectInManagedObjectContext:context];
+    
+    WSChatModel *newModel = [WSChatModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
     
     newModel.chatCellType = userInfo[@"type"];
     newModel.isSender     = @(YES);
@@ -172,7 +177,7 @@
     }
     
     NSError *error = nil;
-    if (![context save:&error])
+    if (![self.managedObjectContext save:&error])
     {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }

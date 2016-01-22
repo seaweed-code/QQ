@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 weida. All rights reserved.
 //  https://github.com/weida-studio/QQ
 
-#import "WSChatMessageFaceView.h"
-#import "WSChatMessageFaceCollectionCell.h"
+#import "WSChatMessageEmojiView.h"
+#import "WSChatMessageEmojiCollectionCell.h"
 #import "PureLayout.h"
 
 #define kHeightFaceView     (170)
@@ -24,7 +24,7 @@
 #define kUnSelectedColorPageControl   ([UIColor colorWithRed:0.604 green:0.608 blue:0.616 alpha:1])
 #define kSelectedColorPageControl     ([UIColor colorWithRed:0.380 green:0.416 blue:0.463 alpha:1])
 
-@interface WSChatMessageFaceView ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface WSChatMessageEmojiView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     UICollectionView *mCollectionView;
     
@@ -38,7 +38,7 @@
 
 @end
 
-@implementation WSChatMessageFaceView
+@implementation WSChatMessageEmojiView
 
 -(instancetype)init
 {
@@ -61,7 +61,7 @@
         mCollectionView.backgroundColor = [UIColor clearColor];
         mCollectionView.dataSource = self;
         mCollectionView.delegate   = self;
-        [mCollectionView registerClass:[WSChatMessageFaceCollectionCell class] forCellWithReuseIdentifier:kReuseID];
+        [mCollectionView registerClass:[WSChatMessageEmojiCollectionCell class] forCellWithReuseIdentifier:kReuseID];
         
         [self addSubview:mCollectionView];
         UIEdgeInsets inset = UIEdgeInsetsMake(0, 0,0, 0);
@@ -170,7 +170,7 @@
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    WSChatMessageFaceCollectionCell*cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseID forIndexPath:indexPath];
+    WSChatMessageEmojiCollectionCell*cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseID forIndexPath:indexPath];
    
     cell.model = self.DataSource[indexPath.row];
     

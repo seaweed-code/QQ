@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WSChatMessageFaceCollectionCell : UICollectionViewCell
+@interface WSChatMessageEmojiCollectionCell : UICollectionViewCell
 
 @property(nonatomic,strong)NSDictionary *model;
 

@@ -12,7 +12,7 @@
 		3729CC1B1C27E77D003D423F /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3729CC191C27E77D003D423F /* Data.xcdatamodeld */; };
 		3729CC201C27F147003D423F /* WSChatModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3729CC1D1C27F147003D423F /* WSChatModel+CoreDataProperties.m */; };
 		3729CC211C27F147003D423F /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3729CC1F1C27F147003D423F /* WSChatModel.m */; };
-		372DDB731BB3FF6E00717FB2 /* WSChatMessageFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */; };
+		372DDB731BB3FF6E00717FB2 /* WSChatMessageEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
 		3742B18F1C2B99E200DF795F /* WSChatTableViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */; };
 		374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */; };
@@ -48,6 +48,27 @@
 		379799A81B8227D300A5775C /* Imageset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379799A71B8227D300A5775C /* Imageset.xcassets */; };
 		379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */; };
 		379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B77BB1B7CD510006A8722 /* WSNavigationController.m */; };
+		379B9DEC1C520A1300FB96A7 /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DC11C520A1300FB96A7 /* UIImage+MLTint.m */; };
+		379B9DED1C520A1300FB96A7 /* UIView+MLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DC31C520A1300FB96A7 /* UIView+MLExtension.m */; };
+		379B9DEE1C520A1300FB96A7 /* MLSelectPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DC81C520A1300FB96A7 /* MLSelectPhotoAssets.m */; };
+		379B9DEF1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DCA1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.m */; };
+		379B9DF01C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DCC1C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m */; };
+		379B9DF11C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DCE1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m */; };
+		379B9DF21C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD11C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m */; };
+		379B9DF31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m */; };
+		379B9DF41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD51C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m */; };
+		379B9DF51C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD71C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m */; };
+		379B9DF61C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD91C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m */; };
+		379B9DF71C520A1300FB96A7 /* MLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DDC1C520A1300FB96A7 /* MLPhotoPickerImageView.m */; };
+		379B9DF81C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DDE1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.m */; };
+		379B9DF91C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DE01C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */; };
+		379B9DFA1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DE21C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.m */; };
+		379B9DFB1C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DE41C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.m */; };
+		379B9DFC1C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DE61C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m */; };
+		379B9DFD1C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DE81C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m */; };
+		379B9DFE1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DEA1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m */; };
+		379B9DFF1C520A1300FB96A7 /* MLSelectPhoto.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 379B9DEB1C520A1300FB96A7 /* MLSelectPhoto.bundle */; };
+		379B9E041C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9E031C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.m */; };
 		37A4EF211BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4EF1D1BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.m */; };
 		37A4EF221BB3F0F200AFC2C0 /* WSChatMessageMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4EF1F1BB3F0F200AFC2C0 /* WSChatMessageMoreView.m */; };
 		37A4EF231BB3F0F200AFC2C0 /* WSMoreImageTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37A4EF201BB3F0F200AFC2C0 /* WSMoreImageTitles.plist */; };
@@ -58,7 +79,7 @@
 		37CACD091BA9515800C54610 /* WSLeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD081BA9515800C54610 /* WSLeftMenuController.m */; };
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
-		37DEFB761BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DEFB751BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m */; };
+		37DEFB761BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DEFB751BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m */; };
 		37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -82,8 +103,8 @@
 		3729CC1D1C27F147003D423F /* WSChatModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSChatModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3729CC1E1C27F147003D423F /* WSChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatModel.h; sourceTree = "<group>"; };
 		3729CC1F1C27F147003D423F /* WSChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatModel.m; sourceTree = "<group>"; };
-		372DDB711BB3FF6E00717FB2 /* WSChatMessageFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageFaceView.h; sourceTree = "<group>"; };
-		372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageFaceView.m; sourceTree = "<group>"; };
+		372DDB711BB3FF6E00717FB2 /* WSChatMessageEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageEmojiView.h; sourceTree = "<group>"; };
+		372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageEmojiView.m; sourceTree = "<group>"; };
 		37330BF41B81ED17002A885B /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		37330BF51B81ED17002A885B /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		3742B18D1C2B99E200DF795F /* WSChatTableViewController+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSChatTableViewController+CoreData.h"; sourceTree = "<group>"; };
@@ -159,6 +180,49 @@
 		379A50031B81D24D0089F59E /* WSChatImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatImageTableViewCell.h; sourceTree = "<group>"; };
 		379B77BA1B7CD510006A8722 /* WSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSNavigationController.h; sourceTree = "<group>"; };
 		379B77BB1B7CD510006A8722 /* WSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSNavigationController.m; sourceTree = "<group>"; };
+		379B9DC01C520A1300FB96A7 /* UIImage+MLTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MLTint.h"; sourceTree = "<group>"; };
+		379B9DC11C520A1300FB96A7 /* UIImage+MLTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MLTint.m"; sourceTree = "<group>"; };
+		379B9DC21C520A1300FB96A7 /* UIView+MLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MLExtension.h"; sourceTree = "<group>"; };
+		379B9DC31C520A1300FB96A7 /* UIView+MLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MLExtension.m"; sourceTree = "<group>"; };
+		379B9DC41C520A1300FB96A7 /* MLSelectPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhoto.h; sourceTree = "<group>"; };
+		379B9DC51C520A1300FB96A7 /* MLSelectPhotoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoCommon.h; sourceTree = "<group>"; };
+		379B9DC71C520A1300FB96A7 /* MLSelectPhotoAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoAssets.h; sourceTree = "<group>"; };
+		379B9DC81C520A1300FB96A7 /* MLSelectPhotoAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoAssets.m; sourceTree = "<group>"; };
+		379B9DC91C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhoto.h; sourceTree = "<group>"; };
+		379B9DCA1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhoto.m; sourceTree = "<group>"; };
+		379B9DCB1C520A1300FB96A7 /* MLSelectPhotoPickerDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerDatas.h; sourceTree = "<group>"; };
+		379B9DCC1C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerDatas.m; sourceTree = "<group>"; };
+		379B9DCD1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroup.h; sourceTree = "<group>"; };
+		379B9DCE1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroup.m; sourceTree = "<group>"; };
+		379B9DD01C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		379B9DD11C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoBrowserViewController.m; sourceTree = "<group>"; };
+		379B9DD21C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoNavigationViewController.h; sourceTree = "<group>"; };
+		379B9DD31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoNavigationViewController.m; sourceTree = "<group>"; };
+		379B9DD41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerAssetsViewController.h; sourceTree = "<group>"; };
+		379B9DD51C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerAssetsViewController.m; sourceTree = "<group>"; };
+		379B9DD61C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroupViewController.h; sourceTree = "<group>"; };
+		379B9DD71C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroupViewController.m; sourceTree = "<group>"; };
+		379B9DD81C520A1300FB96A7 /* MLSelectPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerViewController.h; sourceTree = "<group>"; };
+		379B9DD91C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerViewController.m; sourceTree = "<group>"; };
+		379B9DDB1C520A1300FB96A7 /* MLPhotoPickerImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPhotoPickerImageView.h; sourceTree = "<group>"; };
+		379B9DDC1C520A1300FB96A7 /* MLPhotoPickerImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPhotoPickerImageView.m; sourceTree = "<group>"; };
+		379B9DDD1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhotoImageView.h; sourceTree = "<group>"; };
+		379B9DDE1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhotoImageView.m; sourceTree = "<group>"; };
+		379B9DDF1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhotoScrollView.h; sourceTree = "<group>"; };
+		379B9DE01C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhotoScrollView.m; sourceTree = "<group>"; };
+		379B9DE11C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhotoView.h; sourceTree = "<group>"; };
+		379B9DE21C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhotoView.m; sourceTree = "<group>"; };
+		379B9DE31C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerCollectionView.h; sourceTree = "<group>"; };
+		379B9DE41C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerCollectionView.m; sourceTree = "<group>"; };
+		379B9DE51C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		379B9DE61C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerCollectionViewCell.m; sourceTree = "<group>"; };
+		379B9DE71C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerFooterCollectionReusableView.h; sourceTree = "<group>"; };
+		379B9DE81C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerFooterCollectionReusableView.m; sourceTree = "<group>"; };
+		379B9DE91C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroupTableViewCell.h; sourceTree = "<group>"; };
+		379B9DEA1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroupTableViewCell.m; sourceTree = "<group>"; };
+		379B9DEB1C520A1300FB96A7 /* MLSelectPhoto.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLSelectPhoto.bundle; sourceTree = "<group>"; };
+		379B9E021C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSChatTableViewController+MoreViewClick.h"; sourceTree = "<group>"; };
+		379B9E031C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSChatTableViewController+MoreViewClick.m"; sourceTree = "<group>"; };
 		37A4EF1C1BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageMoreCollectionCell.h; sourceTree = "<group>"; };
 		37A4EF1D1BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageMoreCollectionCell.m; sourceTree = "<group>"; };
 		37A4EF1E1BB3F0F200AFC2C0 /* WSChatMessageMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageMoreView.h; sourceTree = "<group>"; };
@@ -178,8 +242,8 @@
 		37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTableViewController.m; sourceTree = "<group>"; };
 		37DD27B11B7F83D80088FA59 /* WSChatBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatBaseTableViewCell.h; sourceTree = "<group>"; };
 		37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatBaseTableViewCell.m; sourceTree = "<group>"; };
-		37DEFB741BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageFaceCollectionCell.h; sourceTree = "<group>"; };
-		37DEFB751BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageFaceCollectionCell.m; sourceTree = "<group>"; };
+		37DEFB741BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageEmojiCollectionCell.h; sourceTree = "<group>"; };
+		37DEFB751BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageEmojiCollectionCell.m; sourceTree = "<group>"; };
 		37E784A61BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatVoiceTableViewCell.h; sourceTree = "<group>"; };
 		37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatVoiceTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +290,7 @@
 		3763F9731B7CC75E008D6360 /* Third Part Library */ = {
 			isa = PBXGroup;
 			children = (
+				379B9DBD1C520A1300FB96A7 /* MLSelectPhoto */,
 				374A8BE31BAFEA3700E2AFB6 /* FDTemplateLayoutCell */,
 				37B830041B833E160091E384 /* ODRefreshControl */,
 				3763F9811B7CC8C1008D6360 /* SDWebImage */,
@@ -310,6 +375,8 @@
 				37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */,
 				3742B18D1C2B99E200DF795F /* WSChatTableViewController+CoreData.h */,
 				3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */,
+				379B9E021C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.h */,
+				379B9E031C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.m */,
 				376413881B7D8D57007738CB /* View */,
 				37DD27B41B7F85EE0088FA59 /* Model */,
 			);
@@ -425,6 +492,94 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		379B9DBD1C520A1300FB96A7 /* MLSelectPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				379B9DBE1C520A1300FB96A7 /* Classes */,
+				379B9DEB1C520A1300FB96A7 /* MLSelectPhoto.bundle */,
+			);
+			path = MLSelectPhoto;
+			sourceTree = "<group>";
+		};
+		379B9DBE1C520A1300FB96A7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				379B9DBF1C520A1300FB96A7 /* Category */,
+				379B9DC41C520A1300FB96A7 /* MLSelectPhoto.h */,
+				379B9DC51C520A1300FB96A7 /* MLSelectPhotoCommon.h */,
+				379B9DC61C520A1300FB96A7 /* Models */,
+				379B9DCF1C520A1300FB96A7 /* ViewControllers */,
+				379B9DDA1C520A1300FB96A7 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		379B9DBF1C520A1300FB96A7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				379B9DC01C520A1300FB96A7 /* UIImage+MLTint.h */,
+				379B9DC11C520A1300FB96A7 /* UIImage+MLTint.m */,
+				379B9DC21C520A1300FB96A7 /* UIView+MLExtension.h */,
+				379B9DC31C520A1300FB96A7 /* UIView+MLExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		379B9DC61C520A1300FB96A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				379B9DC71C520A1300FB96A7 /* MLSelectPhotoAssets.h */,
+				379B9DC81C520A1300FB96A7 /* MLSelectPhotoAssets.m */,
+				379B9DC91C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.h */,
+				379B9DCA1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.m */,
+				379B9DCB1C520A1300FB96A7 /* MLSelectPhotoPickerDatas.h */,
+				379B9DCC1C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m */,
+				379B9DCD1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.h */,
+				379B9DCE1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		379B9DCF1C520A1300FB96A7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				379B9DD01C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.h */,
+				379B9DD11C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m */,
+				379B9DD21C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.h */,
+				379B9DD31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m */,
+				379B9DD41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.h */,
+				379B9DD51C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m */,
+				379B9DD61C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.h */,
+				379B9DD71C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m */,
+				379B9DD81C520A1300FB96A7 /* MLSelectPhotoPickerViewController.h */,
+				379B9DD91C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		379B9DDA1C520A1300FB96A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				379B9DDB1C520A1300FB96A7 /* MLPhotoPickerImageView.h */,
+				379B9DDC1C520A1300FB96A7 /* MLPhotoPickerImageView.m */,
+				379B9DDD1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.h */,
+				379B9DDE1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.m */,
+				379B9DDF1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.h */,
+				379B9DE01C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */,
+				379B9DE11C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.h */,
+				379B9DE21C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.m */,
+				379B9DE31C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.h */,
+				379B9DE41C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.m */,
+				379B9DE51C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.h */,
+				379B9DE61C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m */,
+				379B9DE71C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.h */,
+				379B9DE81C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m */,
+				379B9DE91C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.h */,
+				379B9DEA1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		37A4EF1B1BB3F0F200AFC2C0 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,10 +595,10 @@
 		37A4EF241BB3F5DC00AFC2C0 /* Face */ = {
 			isa = PBXGroup;
 			children = (
-				372DDB711BB3FF6E00717FB2 /* WSChatMessageFaceView.h */,
-				372DDB721BB3FF6E00717FB2 /* WSChatMessageFaceView.m */,
-				37DEFB741BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.h */,
-				37DEFB751BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m */,
+				372DDB711BB3FF6E00717FB2 /* WSChatMessageEmojiView.h */,
+				372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */,
+				37DEFB741BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.h */,
+				37DEFB751BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m */,
 			);
 			path = Face;
 			sourceTree = "<group>";
@@ -582,6 +737,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A4EF231BB3F0F200AFC2C0 /* WSMoreImageTitles.plist in Resources */,
+				379B9DFF1C520A1300FB96A7 /* MLSelectPhoto.bundle in Resources */,
 				379799A81B8227D300A5775C /* Imageset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,20 +756,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379B9DF51C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */,
 				3729CC201C27F147003D423F /* WSChatModel+CoreDataProperties.m in Sources */,
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,
 				370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */,
-				37DEFB761BB4E1550069DDE6 /* WSChatMessageFaceCollectionCell.m in Sources */,
+				37DEFB761BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m in Sources */,
 				3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */,
 				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
-				372DDB731BB3FF6E00717FB2 /* WSChatMessageFaceView.m in Sources */,
+				379B9DEF1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */,
+				379B9DED1C520A1300FB96A7 /* UIView+MLExtension.m in Sources */,
+				372DDB731BB3FF6E00717FB2 /* WSChatMessageEmojiView.m in Sources */,
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
+				379B9DFE1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
+				379B9DF31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */,
+				379B9DFD1C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				377227E01C3523AE00816748 /* NSObject+CoreDataHelper.m in Sources */,
 				3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */,
 				37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */,
@@ -624,29 +786,43 @@
 				3763F9AF1B7CC8C1008D6360 /* UIImage+WebP.m in Sources */,
 				3763F9AB1B7CC8C1008D6360 /* SDWebImagePrefetcher.m in Sources */,
 				3763F9801B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m in Sources */,
+				379B9DF01C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m in Sources */,
+				379B9DF61C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m in Sources */,
+				379B9DF71C520A1300FB96A7 /* MLPhotoPickerImageView.m in Sources */,
+				379B9DF91C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				379B9DF11C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m in Sources */,
 				3763F9A71B7CC8C1008D6360 /* SDWebImageDecoder.m in Sources */,
 				3763F9A81B7CC8C1008D6360 /* SDWebImageDownloader.m in Sources */,
+				379B9DF21C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m in Sources */,
 				376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */,
+				379B9DFC1C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */,
 				3763F9AA1B7CC8C1008D6360 /* SDWebImageManager.m in Sources */,
 				3763F9B21B7CC8C1008D6360 /* UIView+WebCacheOperation.m in Sources */,
+				379B9DEE1C520A1300FB96A7 /* MLSelectPhotoAssets.m in Sources */,
 				3763F9AC1B7CC8C1008D6360 /* UIButton+WebCache.m in Sources */,
 				3763F9AE1B7CC8C1008D6360 /* UIImage+MultiFormat.m in Sources */,
+				379B9DF41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m in Sources */,
 				379B77BC1B7CD510006A8722 /* WSNavigationController.m in Sources */,
 				3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */,
 				3763F9A91B7CC8C1008D6360 /* SDWebImageDownloaderOperation.m in Sources */,
+				379B9DFA1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				37CACD051BA94EEE00C54610 /* RESideMenu.m in Sources */,
 				3729CC1B1C27E77D003D423F /* Data.xcdatamodeld in Sources */,
 				37CACD091BA9515800C54610 /* WSLeftMenuController.m in Sources */,
 				3729CC211C27F147003D423F /* WSChatModel.m in Sources */,
 				3763F9AD1B7CC8C1008D6360 /* UIImage+GIF.m in Sources */,
 				37CACD041BA94EEE00C54610 /* RECommonFunctions.m in Sources */,
+				379B9DEC1C520A1300FB96A7 /* UIImage+MLTint.m in Sources */,
 				37773F841B806A3000EEB9CB /* WSChatTextTableViewCell.m in Sources */,
 				3763F9A61B7CC8C1008D6360 /* SDWebImageCompat.m in Sources */,
+				379B9DF81C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
 				37A4EF211BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.m in Sources */,
 				3763F9A41B7CC8C1008D6360 /* NSData+ImageContentType.m in Sources */,
 				3742B18F1C2B99E200DF795F /* WSChatTableViewController+CoreData.m in Sources */,
+				379B9E041C52206E00FB96A7 /* WSChatTableViewController+MoreViewClick.m in Sources */,
 				376943E01B7CA34F004C85F3 /* main.m in Sources */,
+				379B9DFB1C520A1300FB96A7 /* MLSelectPhotoPickerCollectionView.m in Sources */,
 				3763F9A31B7CC8C1008D6360 /* MKAnnotationView+WebCache.m in Sources */,
 				3763F9A51B7CC8C1008D6360 /* SDImageCache.m in Sources */,
 				37A4EF221BB3F0F200AFC2C0 /* WSChatMessageMoreView.m in Sources */,

@@ -144,7 +144,11 @@
     {
         [_refreshControl endRefreshing];
         
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:newRows inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];        
+        if (newRows)
+        {
+           [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:newRows inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];   
+        }
+        
     });
     
 }

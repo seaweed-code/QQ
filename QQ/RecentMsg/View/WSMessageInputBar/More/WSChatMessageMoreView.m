@@ -9,6 +9,7 @@
 #import "WSChatMessageMoreView.h"
 #import "PureLayout.h"
 #import "WSChatMessageMoreCollectionCell.h"
+#import "UIResponder+Router.h"
 
 //自己的高度
 #define kHeightMoreView      (170)
@@ -99,6 +100,16 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    switch (indexPath.row)
+    {
+        case 0://选择图片
+            [self routerEventWithType:EventChatMoreViewPickerImage userInfo:nil];
+            break;
+            
+        default:
+            break;
+    }
+   
     NSLog(@"选中了：%ld",(long)indexPath.row);
 }
 
