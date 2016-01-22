@@ -65,10 +65,8 @@
         
         [mBubbleImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mImageView withOffset:0];
         
-        CGFloat top     =  kTopHead - kOffsetTopHeadToBubble;
-        
+        CGFloat top     = kTopHead - kOffsetTopHeadToBubble;
         CGFloat bottom  = kBottom_OffsetTextWithSupView;
-        
         CGFloat leading = kOffsetHHeadToBubble + kWidthHead + kLeadingHead;
         CGFloat traing  = kMaxOffsetText;
         
