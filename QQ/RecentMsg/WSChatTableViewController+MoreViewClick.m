@@ -4,7 +4,7 @@
 //
 //  Created by weida on 16/1/22.
 //  Copyright © 2016年 weida. All rights reserved.
-//
+//  https://github.com/weida-studio/QQ
 
 #import "WSChatTableViewController+MoreViewClick.h"
 #import "MLSelectPhotoPickerViewController.h"

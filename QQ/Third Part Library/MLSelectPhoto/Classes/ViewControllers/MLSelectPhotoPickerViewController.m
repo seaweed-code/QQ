@@ -10,7 +10,6 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "MLSelectPhotoPickerViewController.h"
-#import "MLSelectPhotoNavigationViewController.h"
 #import "MLSelectPhotoPickerGroupViewController.h"
 #import "MLSelectPhotoCommon.h"
 #import "MLSelectPhotoAssets.h"
@@ -35,7 +34,7 @@
 #pragma mark - init Action
 - (void) createNavigationController{
     MLSelectPhotoPickerGroupViewController *groupVc = [[MLSelectPhotoPickerGroupViewController alloc] init];
-    MLSelectPhotoNavigationViewController *nav = [[MLSelectPhotoNavigationViewController alloc] initWithRootViewController:groupVc];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:groupVc];
     nav.view.frame = self.view.bounds;
     [self addChildViewController:nav];
     [self.view addSubview:nav.view];
@@ -67,7 +66,7 @@
 
 #pragma mark - 展示控制器
 - (void)showPickerVc:(UIViewController *)vc{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+   // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     __weak typeof(vc)weakVc = vc;
     if (weakVc != nil) {
         [weakVc presentViewController:self animated:YES completion:nil];

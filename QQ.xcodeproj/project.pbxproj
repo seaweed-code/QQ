@@ -55,7 +55,6 @@
 		379B9DF01C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DCC1C520A1300FB96A7 /* MLSelectPhotoPickerDatas.m */; };
 		379B9DF11C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DCE1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m */; };
 		379B9DF21C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD11C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m */; };
-		379B9DF31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m */; };
 		379B9DF41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD51C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m */; };
 		379B9DF51C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD71C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m */; };
 		379B9DF61C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B9DD91C520A1300FB96A7 /* MLSelectPhotoPickerViewController.m */; };
@@ -196,8 +195,6 @@
 		379B9DCE1C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroup.m; sourceTree = "<group>"; };
 		379B9DD01C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoBrowserViewController.h; sourceTree = "<group>"; };
 		379B9DD11C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoBrowserViewController.m; sourceTree = "<group>"; };
-		379B9DD21C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoNavigationViewController.h; sourceTree = "<group>"; };
-		379B9DD31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoNavigationViewController.m; sourceTree = "<group>"; };
 		379B9DD41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerAssetsViewController.h; sourceTree = "<group>"; };
 		379B9DD51C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerAssetsViewController.m; sourceTree = "<group>"; };
 		379B9DD61C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroupViewController.h; sourceTree = "<group>"; };
@@ -545,8 +542,6 @@
 			children = (
 				379B9DD01C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.h */,
 				379B9DD11C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m */,
-				379B9DD21C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.h */,
-				379B9DD31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m */,
 				379B9DD41C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.h */,
 				379B9DD51C520A1300FB96A7 /* MLSelectPhotoPickerAssetsViewController.m */,
 				379B9DD61C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.h */,
@@ -772,7 +767,6 @@
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				379B9DFE1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
-				379B9DF31C520A1300FB96A7 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */,
 				379B9DFD1C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
