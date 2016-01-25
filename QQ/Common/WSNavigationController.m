@@ -8,7 +8,7 @@
 
 #import "WSNavigationController.h"
 #import "WSRecentMsgTableViewController.h"
-#import "WSBuddyViewController.h"
+#import "WSBuddyListViewController.h"
 #import "WSQworldViewController.h"
 
 /**
@@ -53,7 +53,7 @@
             selectedImage = @"tab_recent_press";
         }else
         {
-            if ([rootViewController isKindOfClass:[WSBuddyViewController class]])
+            if ([rootViewController isKindOfClass:[WSBuddyListViewController class]])
             {
                 title         = @"联系人";
                 image         = @"tab_buddy_nor";

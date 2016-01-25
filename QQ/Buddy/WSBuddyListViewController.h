@@ -7,11 +7,16 @@
 //  https://github.com/weida-studio/QQ
 
 #import <UIKit/UIKit.h>
+#import "NSObject+CoreDataHelper.h"
 
 
 /**
  *  @brief  我的好友列表
  */
-@interface WSBuddyViewController : UIViewController
+@interface WSBuddyListViewController : UIViewController
+{
+    NSFetchedResultsController *_fetchedResultsController;
+}
+
 
 @end

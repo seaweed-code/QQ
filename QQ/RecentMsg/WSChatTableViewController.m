@@ -145,7 +145,7 @@
         case EventChatCellHeadLongPressEvent:
             NSLog(@"头像被长按了。。。。");
             break;
-        case EventChatMoreViewPickerImage:
+        case EventChatMoreViewPickerImage://选择图片
             [self pickerImages:9];
             break;
         default:

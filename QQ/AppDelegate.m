@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "WSNavigationController.h"
 #import "WSRecentMsgTableViewController.h"
-#import "WSBuddyViewController.h"
+#import "WSBuddyListViewController.h"
 #import "WSQworldViewController.h"
 #import "RESideMenu.h"
 #import "WSLeftMenuController.h"
@@ -67,7 +67,7 @@
     
     WSRecentMsgTableViewController *message = [[WSRecentMsgTableViewController alloc]init];
     
-    WSBuddyViewController *tel = [[WSBuddyViewController alloc]init];
+    WSBuddyListViewController *tel = [[WSBuddyListViewController alloc]init];
 
     WSQworldViewController *dynamic = [[WSQworldViewController alloc]init];
     
