@@ -49,6 +49,7 @@
 		3790E62A1C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6271C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m */; };
 		3790E6301C55F86C00DD9FD4 /* WSBuddyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E62D1C55F86C00DD9FD4 /* WSBuddyModel.m */; };
 		3790E6311C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E62F1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m */; };
+		3790E6341C56292500DD9FD4 /* WSBuddyListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6331C56292500DD9FD4 /* WSBuddyListTableHeaderView.m */; };
 		3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */; };
 		379799A81B8227D300A5775C /* Imageset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379799A71B8227D300A5775C /* Imageset.xcassets */; };
 		379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */; };
@@ -187,6 +188,8 @@
 		3790E62D1C55F86C00DD9FD4 /* WSBuddyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyModel.m; sourceTree = "<group>"; };
 		3790E62E1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSBuddyModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		3790E62F1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSBuddyModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3790E6321C56292500DD9FD4 /* WSBuddyListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSBuddyListTableHeaderView.h; sourceTree = "<group>"; };
+		3790E6331C56292500DD9FD4 /* WSBuddyListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyListTableHeaderView.m; sourceTree = "<group>"; };
 		3791A2441BB2933B00CEF694 /* WSChatMessageInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageInputBar.h; sourceTree = "<group>"; };
 		3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageInputBar.m; sourceTree = "<group>"; };
 		379799A71B8227D300A5775C /* Imageset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Imageset.xcassets; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 			children = (
 				3790E61B1C55EE2500DD9FD4 /* WSBuddyListTableViewCell.h */,
 				3790E61C1C55EE2500DD9FD4 /* WSBuddyListTableViewCell.m */,
+				3790E6321C56292500DD9FD4 /* WSBuddyListTableHeaderView.h */,
+				3790E6331C56292500DD9FD4 /* WSBuddyListTableHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -792,6 +797,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3790E6341C56292500DD9FD4 /* WSBuddyListTableHeaderView.m in Sources */,
 				379B9DF51C520A1300FB96A7 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */,
 				376413821B7D881F007738CB /* WSRecentMsgTableViewController.m in Sources */,

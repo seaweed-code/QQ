@@ -10,9 +10,11 @@
 #import "WSBuddyListViewController+CoreData.h"
 #import "WSBuddyModel.h"
 #import "WSBuddylistTableViewCell.h"
+#import "WSBuddyListTableHeaderView.h"
 
-#define kReusedCellID    (@"unique")
-#define kRowHeight       (44)
+#define kReusedCellID         (@"unique")
+#define kRowHeight            (44)
+#define kSectionHeaderHeight  (40)
 
 @interface WSBuddyListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -40,6 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    
     return [sectionInfo numberOfObjects];
 }
 
@@ -59,6 +62,13 @@
     cell.model = model;
     
     return cell;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    WSBuddyListTableHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kReusedCellID];
+    
+    return headerView;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,8 +96,10 @@
     _tableView.delegate             =   self;
     _tableView.dataSource           =   self;
     _tableView.rowHeight            =   kRowHeight;
+    _tableView.sectionHeaderHeight  =   kSectionHeaderHeight;
     _tableView.keyboardDismissMode  =   UIScrollViewKeyboardDismissModeOnDrag;
     [_tableView registerClass:[WSBuddyListTableViewCell class] forCellReuseIdentifier:kReusedCellID];
+    [_tableView registerClass:[WSBuddyListTableHeaderView class] forHeaderFooterViewReuseIdentifier:kReusedCellID];
     
     _refreshControl                 =  [[ODRefreshControl alloc]initInScrollView:_tableView];
     [_refreshControl addTarget:self action:@selector(refreshBuddyList) forControlEvents:UIControlEventValueChanged];
