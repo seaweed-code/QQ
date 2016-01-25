@@ -10,6 +10,14 @@
 
 @interface WSBuddyListViewController (CoreData)<NSFetchedResultsControllerDelegate>
 
+
 @property(nonatomic,strong,readonly)NSFetchedResultsController *fetchedResultsController;
+
+/**
+ *  @author weida
+ *
+ *  @brief 刷新好友列表
+ */
+-(void)refreshBuddyList;
 
 @end

@@ -7,7 +7,6 @@
 //  https://github.com/weida-studio/QQ
 
 #import "WSBuddyListViewController.h"
-#import "ODRefreshControl.h"
 #import "WSBuddyListViewController+CoreData.h"
 #import "WSBuddyModel.h"
 #import "WSBuddylistTableViewCell.h"
@@ -15,9 +14,6 @@
 #define kReusedCellID    (@"unique")
 
 @interface WSBuddyListViewController ()<UITableViewDataSource,UITableViewDelegate>
-{
-    ODRefreshControl*  _refreshControl;
-}
 
 @property(nonatomic,strong)UITableView *tableView;
 
@@ -81,7 +77,7 @@
     [_tableView registerClass:[WSBuddyListTableViewCell class] forCellReuseIdentifier:kReusedCellID];
     
     _refreshControl                 =  [[ODRefreshControl alloc]initInScrollView:_tableView];
-   // [_refreshControl addTarget:self action:@selector(loadMoreMsg) forControlEvents:UIControlEventValueChanged];
+    [_refreshControl addTarget:self action:@selector(refreshBuddyList) forControlEvents:UIControlEventValueChanged];
     
     return _tableView;
 }

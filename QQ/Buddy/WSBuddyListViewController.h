@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+CoreDataHelper.h"
-
+#import "ODRefreshControl.h"
 
 /**
  *  @brief  我的好友列表
@@ -16,6 +16,7 @@
 @interface WSBuddyListViewController : UIViewController
 {
     NSFetchedResultsController *_fetchedResultsController;
+    ODRefreshControl*  _refreshControl;
 }
 
 
