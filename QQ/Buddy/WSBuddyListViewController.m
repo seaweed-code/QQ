@@ -15,7 +15,7 @@
 
 @interface WSBuddyListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property(nonatomic,strong)UITableView *tableView;
+
 
 @end
 
@@ -42,13 +42,20 @@
     return [sectionInfo numberOfObjects];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if ([[self.fetchedResultsController sections] count] > 0) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        return [sectionInfo name];
+    } else
+        return nil;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WSBuddyModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     WSBuddyListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReusedCellID forIndexPath:indexPath];
-    
-   // [self configureCell:cell atIndexPath:indexPath];
+    cell.model = model;
     
     return cell;
 }

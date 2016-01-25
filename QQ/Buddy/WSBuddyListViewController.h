@@ -16,8 +16,10 @@
 @interface WSBuddyListViewController : UIViewController
 {
     NSFetchedResultsController *_fetchedResultsController;
-    ODRefreshControl*  _refreshControl;
+    ODRefreshControl*           _refreshControl;
+    UITableView  *              _tableView;
 }
 
+@property(nonatomic,strong,readonly)UITableView *tableView;
 
 @end
