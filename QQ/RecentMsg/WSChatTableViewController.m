@@ -19,6 +19,7 @@
 #import "NSObject+CoreDataHelper.h"
 #import "ODRefreshControl.h"
 
+#import "WSBuddyModel.h"
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
@@ -225,6 +226,9 @@
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     WSChatModel *model =[WSChatModel insertNewObjectInManagedObjectContext:context];
    
+    WSBuddyModel *buddy = [WSBuddyModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
+    
+    
     static int i=0;
     
     NSArray *strs = @[@"在么，有急事",
@@ -238,6 +242,7 @@
     {
         case 0:
         
+            
             model.chatCellType = @(WSChatCellType_Image);
             model.content = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"app%d",i%8+1] withExtension:@"png"].absoluteString;
             
@@ -267,6 +272,10 @@
             
             break;
     }
+    
+    buddy.lastSignature = strs[i%5];
+    buddy.groupName = strs[(i*11)%5];
+    buddy.nickName = @"张三";
     
     model.isSender = @(NO);
     model.timeStamp = [NSDate date];

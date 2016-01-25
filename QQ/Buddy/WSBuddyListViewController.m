@@ -12,6 +12,7 @@
 #import "WSBuddylistTableViewCell.h"
 
 #define kReusedCellID    (@"unique")
+#define kRowHeight       (44)
 
 @interface WSBuddyListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -60,6 +61,10 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 -(void)loadView
 {
@@ -80,6 +85,7 @@
     _tableView.backgroundColor      =   [UIColor whiteColor];
     _tableView.delegate             =   self;
     _tableView.dataSource           =   self;
+    _tableView.rowHeight            =   kRowHeight;
     _tableView.keyboardDismissMode  =   UIScrollViewKeyboardDismissModeOnDrag;
     [_tableView registerClass:[WSBuddyListTableViewCell class] forCellReuseIdentifier:kReusedCellID];
     
