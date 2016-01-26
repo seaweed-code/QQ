@@ -45,7 +45,7 @@
         [_button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         _button.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        _button.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 30);
+        _button.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 50);
         _button.titleLabel.font = [UIFont systemFontOfSize:13];
         _button.imageView.contentMode =  UIViewContentModeScaleAspectFit;
         [_button addTarget:self action:@selector(showGroup:) forControlEvents:UIControlEventTouchUpInside];
@@ -92,7 +92,8 @@
 -(void)setSectionInfo:(id<NSFetchedResultsSectionInfo>)sectionInfo
 {
     _sectionInfo = sectionInfo;
-     _totalCount.text = [sectionInfo indexTitle];
+    
+    _totalCount.text = [NSString stringWithFormat:@"100/%ld",[sectionInfo numberOfObjects]];
     
     [_button setTitle:[sectionInfo name] forState:UIControlStateNormal];
 
