@@ -8,7 +8,9 @@
 
 #import "WSBuddyListTableHeaderView.h"
 
-#define kBkColorLine          ([UIColor colorWithRed:0.918 green:0.918 blue:0.918 alpha:1])
+#define kBkColorLine            ([UIColor colorWithRed:0.918 green:0.918 blue:0.918 alpha:1])
+#define kWidthTotalCountLable   (40)
+#define kTraingTotalCountLable  (15)
 
 @interface WSBuddyListTableHeaderView ()
 {
@@ -41,7 +43,7 @@
         
         _button = [[UIButton alloc]init];
         _button.backgroundColor = [UIColor clearColor];
-        [_button setImage:[UIImage imageNamed:@"buddy_header_arrow"] forState:UIControlStateNormal];
+        [_button setImage:[UIImage imageNamed:@"buddy_header_arrow"] forState:UIControlStateNormal];//这个Image必须是正方形,否则旋转会变形
         [_button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         _button.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
@@ -61,12 +63,15 @@
     [super layoutSubviews];
     
     _line.frame = CGRectMake(0, 0, self.bounds.size.width, 0.6);
-    
-    CGFloat width = 40;
-    CGFloat Offset = 15;
-    _totalCount.frame = CGRectMake(self.bounds.size.width-width - Offset, 0,width, self.bounds.size.height);
-    
+    _totalCount.frame = CGRectMake(self.bounds.size.width-kWidthTotalCountLable - kTraingTotalCountLable, 0,kWidthTotalCountLable, self.bounds.size.height);
     _button.frame = self.contentView.bounds;
+}
+
+-(void)prepareForReuse
+{
+    [super prepareForReuse];
+    
+    _button.imageView.transform = CGAffineTransformIdentity;
 }
 
 
