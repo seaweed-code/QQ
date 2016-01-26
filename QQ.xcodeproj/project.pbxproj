@@ -13,6 +13,7 @@
 		372DDB731BB3FF6E00717FB2 /* WSChatMessageEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
 		3742B18F1C2B99E200DF795F /* WSChatTableViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */; };
+		3748164D1C570D02004155F7 /* buddy_header_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3748164C1C570D02004155F7 /* buddy_header_arrow.png */; };
 		374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
 		3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9781B7CC75E008D6360 /* NSArray+PureLayout.m */; };
@@ -110,6 +111,7 @@
 		37330BF51B81ED17002A885B /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		3742B18D1C2B99E200DF795F /* WSChatTableViewController+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSChatTableViewController+CoreData.h"; sourceTree = "<group>"; };
 		3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSChatTableViewController+CoreData.m"; sourceTree = "<group>"; };
+		3748164C1C570D02004155F7 /* buddy_header_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buddy_header_arrow.png; sourceTree = "<group>"; };
 		374A8BE41BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3763F9751B7CC75E008D6360 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				3790E61B1C55EE2500DD9FD4 /* WSBuddyListTableViewCell.h */,
 				3790E61C1C55EE2500DD9FD4 /* WSBuddyListTableViewCell.m */,
 				3790E6321C56292500DD9FD4 /* WSBuddyListTableHeaderView.h */,
+				3748164C1C570D02004155F7 /* buddy_header_arrow.png */,
 				3790E6331C56292500DD9FD4 /* WSBuddyListTableHeaderView.m */,
 			);
 			path = View;
@@ -780,6 +783,7 @@
 				37A4EF231BB3F0F200AFC2C0 /* WSMoreImageTitles.plist in Resources */,
 				379B9DFF1C520A1300FB96A7 /* MLSelectPhoto.bundle in Resources */,
 				379799A81B8227D300A5775C /* Imageset.xcassets in Resources */,
+				3748164D1C570D02004155F7 /* buddy_header_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

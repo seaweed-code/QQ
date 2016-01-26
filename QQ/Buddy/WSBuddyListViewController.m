@@ -18,9 +18,8 @@
 
 @interface WSBuddyListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-
-
 @end
+
 
 @implementation WSBuddyListViewController
 
@@ -46,13 +45,6 @@
     return [sectionInfo numberOfObjects];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if ([[self.fetchedResultsController sections] count] > 0) {
-        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-        return [sectionInfo name];
-    } else
-        return nil;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,6 +59,13 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     WSBuddyListTableHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kReusedCellID];
+    id <NSFetchedResultsSectionInfo> sectionInfo = nil;
+    
+    if ([[self.fetchedResultsController sections] count] > 0)
+    {
+        sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    }
+    headerView.sectionInfo = sectionInfo;
     
     return headerView;
 }

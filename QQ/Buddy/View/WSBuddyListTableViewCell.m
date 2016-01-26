@@ -50,6 +50,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor whiteColor];
         _headImageView = [UIImageView newAutoLayoutView];
         _headImageView.image = [UIImage imageNamed:@"user_avatar_default"];
         [self.contentView addSubview:_headImageView];
@@ -60,7 +62,7 @@
         
         
         _nickName = [UILabel newAutoLayoutView];
-        _nickName.font = [UIFont systemFontOfSize:14];
+        _nickName.font = [UIFont systemFontOfSize:13];
         _nickName.text = @"张金磊";
         [self.contentView addSubview:_nickName];
         
@@ -70,7 +72,7 @@
         
         
         mSubTitle = [UILabel newAutoLayoutView];
-        mSubTitle.font = [UIFont systemFontOfSize:12];
+        mSubTitle.font = [UIFont systemFontOfSize:10];
         mSubTitle.text = @"国庆不回家？";
         mSubTitle.textColor = kTextColorSubTitle;
         [self.contentView addSubview:mSubTitle];

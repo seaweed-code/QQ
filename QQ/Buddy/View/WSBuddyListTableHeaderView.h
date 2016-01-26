@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface WSBuddyListTableHeaderView : UITableViewHeaderFooterView
+
+@property(nonatomic,strong) id <NSFetchedResultsSectionInfo> sectionInfo;
 
 @end
