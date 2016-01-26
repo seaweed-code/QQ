@@ -29,8 +29,6 @@
     
     self.title = @"联系人";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
 }
 
 #pragma mark - TableView Delegate
