@@ -8,9 +8,10 @@
 
 #import "WSBuddyListTableHeaderView.h"
 
-#define kBkColorLine            ([UIColor colorWithRed:0.918 green:0.918 blue:0.918 alpha:1])
-#define kWidthTotalCountLable   (40)
-#define kTraingTotalCountLable  (15)
+#define kBkColorLine              ([UIColor colorWithRed:0.918 green:0.918 blue:0.918 alpha:1])
+#define kTextColorTotalCountLable ([UIColor colorWithRed:0.545 green:0.545 blue:0.545 alpha:1])
+#define kWidthTotalCountLable     (40)
+#define kTraingTotalCountLable    (15)
 
 @interface WSBuddyListTableHeaderView ()
 {
@@ -38,6 +39,7 @@
         _totalCount = [[UILabel alloc]init];
         _totalCount.backgroundColor = [UIColor clearColor];
         _totalCount.textAlignment = NSTextAlignmentRight;
+        _totalCount.textColor = kTextColorTotalCountLable;
         _totalCount.font = [UIFont systemFontOfSize:10];
         [self.contentView.layer addSublayer:_totalCount.layer];
         

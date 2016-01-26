@@ -11,6 +11,7 @@
 #import "WSBuddyModel.h"
 #import "WSBuddylistTableViewCell.h"
 #import "WSBuddyListTableHeaderView.h"
+#import "WSChatTableViewController.h"
 
 #define kReusedCellID         (@"unique")
 #define kRowHeight            (44)
@@ -72,6 +73,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WSChatTableViewController *chat = [[WSChatTableViewController alloc]init];
+     chat.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chat animated:YES];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
