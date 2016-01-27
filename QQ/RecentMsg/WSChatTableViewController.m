@@ -19,7 +19,7 @@
 #import "NSObject+CoreDataHelper.h"
 #import "ODRefreshControl.h"
 
-#import "WSBuddyModel.h"
+#import "WSBuddyGroupModel.h"
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
 
@@ -226,8 +226,12 @@
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     WSChatModel *model =[WSChatModel insertNewObjectInManagedObjectContext:context];
    
+    WSBuddyGroupModel *group;
+
+        
     WSBuddyModel *buddy = [WSBuddyModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
     
+    NSArray *groupNames = @[@"我的设备",@"手机通讯录",@"小学同学",@"高中同学",@"校友",@"我的基友",@"大学室友",@"我的粉丝",@"一起回家",@"公司同事"];
     
     static int i=0;
     
@@ -273,9 +277,19 @@
             break;
     }
     
+    NSString *name = groupNames[i%10];
+    group = [WSBuddyGroupModel selectObjectInManagedObjectContext:context withGroupName:name];
+    
+    if (!group)
+    {
+        group = [WSBuddyGroupModel insertNewObjectInManagedObjectContext:context];
+    }
+   
+    group.groupName = name;
     buddy.lastSignature = strs[i%5];
-    buddy.groupName = strs[(i*11)%5];
     buddy.nickName = @"张三";
+    
+    buddy.group = group;
     
     model.isSender = @(NO);
     model.timeStamp = [NSDate date];

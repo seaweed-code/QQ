@@ -14,6 +14,10 @@
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
 		3742B18F1C2B99E200DF795F /* WSChatTableViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */; };
 		3748164D1C570D02004155F7 /* buddy_header_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3748164C1C570D02004155F7 /* buddy_header_arrow.png */; };
+		374816641C574344004155F7 /* WSBuddyGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748165D1C574344004155F7 /* WSBuddyGroupModel.m */; };
+		374816651C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748165F1C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m */; };
+		374816661C574344004155F7 /* WSBuddyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 374816611C574344004155F7 /* WSBuddyModel.m */; };
+		374816671C574344004155F7 /* WSBuddyModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 374816631C574344004155F7 /* WSBuddyModel+CoreDataProperties.m */; };
 		374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
 		3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9781B7CC75E008D6360 /* NSArray+PureLayout.m */; };
@@ -48,8 +52,6 @@
 		3790E6281C55F7F800DD9FD4 /* UIImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6231C55F7F800DD9FD4 /* UIImageToDataTransformer.m */; };
 		3790E6291C55F7F800DD9FD4 /* WSChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6251C55F7F800DD9FD4 /* WSChatModel.m */; };
 		3790E62A1C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6271C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m */; };
-		3790E6301C55F86C00DD9FD4 /* WSBuddyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E62D1C55F86C00DD9FD4 /* WSBuddyModel.m */; };
-		3790E6311C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E62F1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m */; };
 		3790E6341C56292500DD9FD4 /* WSBuddyListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6331C56292500DD9FD4 /* WSBuddyListTableHeaderView.m */; };
 		3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3791A2451BB2933B00CEF694 /* WSChatMessageInputBar.m */; };
 		379799A81B8227D300A5775C /* Imageset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379799A71B8227D300A5775C /* Imageset.xcassets */; };
@@ -112,6 +114,14 @@
 		3742B18D1C2B99E200DF795F /* WSChatTableViewController+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSChatTableViewController+CoreData.h"; sourceTree = "<group>"; };
 		3742B18E1C2B99E200DF795F /* WSChatTableViewController+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSChatTableViewController+CoreData.m"; sourceTree = "<group>"; };
 		3748164C1C570D02004155F7 /* buddy_header_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buddy_header_arrow.png; sourceTree = "<group>"; };
+		3748165C1C574344004155F7 /* WSBuddyGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSBuddyGroupModel.h; sourceTree = "<group>"; };
+		3748165D1C574344004155F7 /* WSBuddyGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyGroupModel.m; sourceTree = "<group>"; };
+		3748165E1C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSBuddyGroupModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3748165F1C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSBuddyGroupModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		374816601C574344004155F7 /* WSBuddyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSBuddyModel.h; sourceTree = "<group>"; };
+		374816611C574344004155F7 /* WSBuddyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyModel.m; sourceTree = "<group>"; };
+		374816621C574344004155F7 /* WSBuddyModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSBuddyModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		374816631C574344004155F7 /* WSBuddyModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSBuddyModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		374A8BE41BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3763F9751B7CC75E008D6360 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
@@ -186,10 +196,6 @@
 		3790E6251C55F7F800DD9FD4 /* WSChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatModel.m; sourceTree = "<group>"; };
 		3790E6261C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSChatModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		3790E6271C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSChatModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		3790E62C1C55F86C00DD9FD4 /* WSBuddyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSBuddyModel.h; sourceTree = "<group>"; };
-		3790E62D1C55F86C00DD9FD4 /* WSBuddyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyModel.m; sourceTree = "<group>"; };
-		3790E62E1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSBuddyModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3790E62F1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSBuddyModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3790E6321C56292500DD9FD4 /* WSBuddyListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSBuddyListTableHeaderView.h; sourceTree = "<group>"; };
 		3790E6331C56292500DD9FD4 /* WSBuddyListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyListTableHeaderView.m; sourceTree = "<group>"; };
 		3791A2441BB2933B00CEF694 /* WSChatMessageInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageInputBar.h; sourceTree = "<group>"; };
@@ -511,10 +517,14 @@
 		3790E62B1C55F83600DD9FD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3790E62C1C55F86C00DD9FD4 /* WSBuddyModel.h */,
-				3790E62D1C55F86C00DD9FD4 /* WSBuddyModel.m */,
-				3790E62E1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.h */,
-				3790E62F1C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m */,
+				3748165C1C574344004155F7 /* WSBuddyGroupModel.h */,
+				3748165D1C574344004155F7 /* WSBuddyGroupModel.m */,
+				3748165E1C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.h */,
+				3748165F1C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m */,
+				374816601C574344004155F7 /* WSBuddyModel.h */,
+				374816611C574344004155F7 /* WSBuddyModel.m */,
+				374816621C574344004155F7 /* WSBuddyModel+CoreDataProperties.h */,
+				374816631C574344004155F7 /* WSBuddyModel+CoreDataProperties.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -808,15 +818,14 @@
 				370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */,
 				37DEFB761BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m in Sources */,
 				3790E6131C55EA4600DD9FD4 /* WSBuddyListViewController+CoreData.m in Sources */,
-				3790E6311C55F86C00DD9FD4 /* WSBuddyModel+CoreDataProperties.m in Sources */,
 				3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */,
 				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,
 				379B9DEF1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */,
+				374816671C574344004155F7 /* WSBuddyModel+CoreDataProperties.m in Sources */,
 				379B9DED1C520A1300FB96A7 /* UIView+MLExtension.m in Sources */,
 				372DDB731BB3FF6E00717FB2 /* WSChatMessageEmojiView.m in Sources */,
-				3790E6301C55F86C00DD9FD4 /* WSBuddyModel.m in Sources */,
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				379B9DFE1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
@@ -842,10 +851,12 @@
 				379B9DF71C520A1300FB96A7 /* MLPhotoPickerImageView.m in Sources */,
 				379B9DF91C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				379B9DF11C520A1300FB96A7 /* MLSelectPhotoPickerGroup.m in Sources */,
+				374816651C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m in Sources */,
 				3763F9A71B7CC8C1008D6360 /* SDWebImageDecoder.m in Sources */,
 				3763F9A81B7CC8C1008D6360 /* SDWebImageDownloader.m in Sources */,
 				379B9DF21C520A1300FB96A7 /* MLSelectPhotoBrowserViewController.m in Sources */,
 				376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */,
+				374816661C574344004155F7 /* WSBuddyModel.m in Sources */,
 				379B9DFC1C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */,
 				3763F9AA1B7CC8C1008D6360 /* SDWebImageManager.m in Sources */,
@@ -859,6 +870,7 @@
 				3763F9A91B7CC8C1008D6360 /* SDWebImageDownloaderOperation.m in Sources */,
 				379B9DFA1C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				37CACD051BA94EEE00C54610 /* RESideMenu.m in Sources */,
+				374816641C574344004155F7 /* WSBuddyGroupModel.m in Sources */,
 				3729CC1B1C27E77D003D423F /* Data.xcdatamodeld in Sources */,
 				37CACD091BA9515800C54610 /* WSLeftMenuController.m in Sources */,
 				3763F9AD1B7CC8C1008D6360 /* UIImage+GIF.m in Sources */,

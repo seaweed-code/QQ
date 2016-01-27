@@ -7,11 +7,14 @@
 //  https://github.com/weida-studio/QQ
 
 #import "WSBuddyListTableHeaderView.h"
+#import "WSBuddyGroupModel.h"
 
 #define kBkColorLine              ([UIColor colorWithRed:0.918 green:0.918 blue:0.918 alpha:1])
 #define kTextColorTotalCountLable ([UIColor colorWithRed:0.545 green:0.545 blue:0.545 alpha:1])
-#define kWidthTotalCountLable     (40)
+#define kWidthTotalCountLable     (60)
 #define kTraingTotalCountLable    (15)
+
+static __weak UITableView *__tableView;
 
 @interface WSBuddyListTableHeaderView ()
 {
@@ -21,10 +24,30 @@
     
     UIButton *_button;
 }
+
 @end
 
 
+
 @implementation WSBuddyListTableHeaderView
+
+-(UITableView *)tableView
+{
+    if (__tableView) {
+        return __tableView;
+    }
+    
+    for (UITableView *supView = (UITableView*)self.superview;supView;supView = (UITableView*)supView.superview)
+    {
+        if ([supView isKindOfClass:[UITableView class]])
+        {
+            __tableView = supView;
+            break;
+        }
+    }
+
+    return __tableView;
+}
 
 -(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -72,7 +95,6 @@
 -(void)prepareForReuse
 {
     [super prepareForReuse];
-    
     _button.imageView.transform = CGAffineTransformIdentity;
 }
 
@@ -81,11 +103,16 @@
 
 -(void)showGroup:(UIButton *)sender
 {
-    static BOOL lll;
-    lll = !lll;
+    
+//    self.groupModel.hide = @(!self.groupModel.hide.boolValue);//反转
+
+  //  BOOL hidden = self.groupModel.hide.boolValue;
+    
+    static BOOL hidden;
+    
     [UIView animateWithDuration:0.5 animations:^
     {
-        if (lll)
+        if (!hidden)
         {
             _button.imageView.transform = CGAffineTransformMakeRotation(M_PI_2);
         }else
@@ -93,17 +120,36 @@
             _button.imageView.transform = CGAffineTransformIdentity;
         }
     }];
-    
+   
+    [self.tableView reloadData];
 }
 
--(void)setSectionInfo:(id<NSFetchedResultsSectionInfo>)sectionInfo
+-(void)setGroupModel:(WSBuddyGroupModel *)groupModel
 {
-    _sectionInfo = sectionInfo;
-    
-    _totalCount.text = [NSString stringWithFormat:@"100/%ld",[sectionInfo numberOfObjects]];
-    
-    [_button setTitle:[sectionInfo name] forState:UIControlStateNormal];
+    _groupModel = groupModel;
 
+//    id <NSFetchedResultsSectionInfo> sectionInfo = groupModel;
+//    
+//    _totalCount.text = [NSString stringWithFormat:@"1/%@",[sectionInfo numberOfObjects]];
+//    
+//    [_button setTitle:[sectionInfo name] forState:UIControlStateNormal];
+//
+//    NSLog(@"%@",self);
+//    _totalCount.text = [NSString stringWithFormat:@"%@/%@",groupModel.onLineCount,groupModel.totalCount];
+//    
+//    [_button setTitle:groupModel.groupName forState:UIControlStateNormal];
+//    
+//    if (!groupModel.hide.boolValue)
+//    {
+//        _button.imageView.transform = CGAffineTransformMakeRotation(M_PI_2);
+//    }else
+//    {
+//        _button.imageView.transform = CGAffineTransformIdentity;
+//    }
+    
 }
+
+
+
 
 @end

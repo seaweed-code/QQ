@@ -8,7 +8,7 @@
 
 #import "WSBuddyListViewController.h"
 #import "WSBuddyListViewController+CoreData.h"
-#import "WSBuddyModel.h"
+#import "WSBuddyGroupModel.h"
 #import "WSBuddylistTableViewCell.h"
 #import "WSBuddyListTableHeaderView.h"
 #import "WSChatTableViewController.h"
@@ -40,8 +40,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    
+
     return [sectionInfo numberOfObjects];
+//    NSInteger count = [sectionInfo numberOfObjects];
+//    if (count)
+//    {
+//        WSBuddyModel* buddy = [sectionInfo objects][0];
+//        if (buddy.group.hide.boolValue)
+//        {
+//            count = 0;//需要隐藏
+//        }
+//    }
+//    return count;
 }
 
 
@@ -64,7 +74,10 @@
     {
         sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     }
-    headerView.sectionInfo = sectionInfo;
+    
+//    WSBuddyGroupModel *group = [WSBuddyGroupModel selectObjectInManagedObjectContext:self.managedObjectContext withGroupName:[sectionInfo name]];
+//    group.totalCount = @([sectionInfo numberOfObjects]);
+    headerView.groupModel = sectionInfo;
     
     return headerView;
 }

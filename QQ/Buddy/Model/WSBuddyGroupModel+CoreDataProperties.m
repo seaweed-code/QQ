@@ -1,5 +1,5 @@
 //
-//  WSBuddyModel+CoreDataProperties.m
+//  WSBuddyGroupModel+CoreDataProperties.m
 //  QQ
 //
 //  Created by weida on 16/1/26.
@@ -9,15 +9,14 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "WSBuddyModel+CoreDataProperties.h"
+#import "WSBuddyGroupModel+CoreDataProperties.h"
 
-@implementation WSBuddyModel (CoreDataProperties)
+@implementation WSBuddyGroupModel (CoreDataProperties)
 
-@dynamic headImageURL;
-@dynamic id;
-@dynamic lastSignature;
-@dynamic nickName;
-@dynamic onLineState;
-@dynamic group;
+@dynamic groupName;
+@dynamic hide;
+@dynamic onLineCount;
+@dynamic totalCount;
+@dynamic buddys;
 
 @end

@@ -12,7 +12,7 @@
 
 +(NSString *)entityName
 {
-    return @"BuddyList";//相当于数据库表名
+    return @"Buddy";//相当于数据库表名
 }
 
 +(WSBuddyModel *)insertNewObjectInManagedObjectContext:(NSManagedObjectContext *)context
