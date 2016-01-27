@@ -133,18 +133,18 @@ static __weak UITableView *__tableView;
     
      _totalCount.text = [NSString stringWithFormat:@"1/%ld",[sectionInfo numberOfObjects]];
     
-    [_button setTitle:[NSString stringWithFormat:@"%@",self] forState:UIControlStateNormal];
+   // [_button setTitle:[NSString stringWithFormat:@"%@",self] forState:UIControlStateNormal];
     
     [_button setTitle:[sectionInfo name] forState:UIControlStateNormal];
     
 }
 
--(NSString *)description
-{
-   NSString *str = [super description];
-    
-    return [str substringFromIndex:27];
-}
+//-(NSString *)description
+//{
+//   NSString *str = [super description];
+//    
+//    return [str substringFromIndex:27];
+//}
 
 
 @end
