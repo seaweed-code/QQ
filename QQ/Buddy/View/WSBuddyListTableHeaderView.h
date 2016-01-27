@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@class WSBuddyGroupModel;
 
 @interface WSBuddyListTableHeaderView : UITableViewHeaderFooterView
 
-@property(nonatomic,strong) WSBuddyGroupModel *groupModel;
+@property(nonatomic,strong)  id <NSFetchedResultsSectionInfo> sectionInfo;
 
 @end

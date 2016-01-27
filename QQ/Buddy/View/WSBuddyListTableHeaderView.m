@@ -103,13 +103,13 @@ static __weak UITableView *__tableView;
 
 -(void)showGroup:(UIButton *)sender
 {
-    
+    NSLog(@"点击了:%@",self);
 //    self.groupModel.hide = @(!self.groupModel.hide.boolValue);//反转
 
   //  BOOL hidden = self.groupModel.hide.boolValue;
     
     static BOOL hidden;
-    
+    hidden = !hidden;
     [UIView animateWithDuration:0.5 animations:^
     {
         if (!hidden)
@@ -119,37 +119,32 @@ static __weak UITableView *__tableView;
         {
             _button.imageView.transform = CGAffineTransformIdentity;
         }
+    } completion:^(BOOL finished)
+    {
+        
     }];
    
-    [self.tableView reloadData];
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.tag-1] withRowAnimation:UITableViewRowAnimationFade];
 }
 
--(void)setGroupModel:(WSBuddyGroupModel *)groupModel
+-(void)setSectionInfo:(id<NSFetchedResultsSectionInfo>)sectionInfo
 {
-    _groupModel = groupModel;
-
-//    id <NSFetchedResultsSectionInfo> sectionInfo = groupModel;
-//    
-//    _totalCount.text = [NSString stringWithFormat:@"1/%@",[sectionInfo numberOfObjects]];
-//    
-//    [_button setTitle:[sectionInfo name] forState:UIControlStateNormal];
-//
-//    NSLog(@"%@",self);
-//    _totalCount.text = [NSString stringWithFormat:@"%@/%@",groupModel.onLineCount,groupModel.totalCount];
-//    
-//    [_button setTitle:groupModel.groupName forState:UIControlStateNormal];
-//    
-//    if (!groupModel.hide.boolValue)
-//    {
-//        _button.imageView.transform = CGAffineTransformMakeRotation(M_PI_2);
-//    }else
-//    {
-//        _button.imageView.transform = CGAffineTransformIdentity;
-//    }
+    _sectionInfo = sectionInfo;
+    
+     _totalCount.text = [NSString stringWithFormat:@"1/%ld",[sectionInfo numberOfObjects]];
+    
+    [_button setTitle:[NSString stringWithFormat:@"%@",self] forState:UIControlStateNormal];
+    
+    [_button setTitle:[sectionInfo name] forState:UIControlStateNormal];
     
 }
 
-
+-(NSString *)description
+{
+   NSString *str = [super description];
+    
+    return [str substringFromIndex:27];
+}
 
 
 @end
