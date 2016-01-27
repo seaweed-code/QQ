@@ -69,16 +69,13 @@
 {
     WSBuddyListTableHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kReusedCellID];
     headerView.tag = section+1;
-    NSLog(@"---headeView%@",headerView);
+    NSLog(@"headeView:%@",headerView);
     id <NSFetchedResultsSectionInfo> sectionInfo = nil;
     
     if ([[self.fetchedResultsController sections] count] > 0)
     {
         sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     }
-    
-//    WSBuddyGroupModel *group = [WSBuddyGroupModel selectObjectInManagedObjectContext:self.managedObjectContext withGroupName:[sectionInfo name]];
-//    group.totalCount = @([sectionInfo numberOfObjects]);
     headerView.sectionInfo = sectionInfo;
     
     return headerView;
