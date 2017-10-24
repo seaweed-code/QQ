@@ -41,8 +41,15 @@
     switch ([self.chatCellType integerValue])
     {
         case WSChatCellType_Text:
-            self.subViewsFrame = [WSChatTextTableViewCell calculateSubViewsFramewithModel:self width:width];
-            
+        {
+            if ([self.subViewsFrame objectForKey:@(width)]) {
+                return;
+            }else{
+                NSMutableDictionary *newDict = [WSChatTextTableViewCell calculateSubViewsFramewithModel:self width:width].mutableCopy;
+                [newDict addEntriesFromDictionary:self.subViewsFrame];
+                self.subViewsFrame = newDict;
+            }
+        }
         default:
             break;
     }

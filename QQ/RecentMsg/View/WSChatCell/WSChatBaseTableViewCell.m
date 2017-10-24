@@ -42,8 +42,6 @@
         [mBubbleImageView addGestureRecognizer:bubblelongPress];
         [self.contentView addSubview:mBubbleImageView];
         
-      //  [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
-        
     
         NSArray *IDs = [reuseIdentifier componentsSeparatedByString:kReuseIDSeparate];
         
@@ -51,21 +49,13 @@
        
         isSender = [IDs[0] boolValue];
         
-        if (isSender){//是我自己发送的
-           // mHead.frame = CGRectMake(kLeadingHead, kTopHead, kWidthHead, kHeightHead);
-            
+        if (isSender){
             mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             mBubbleImageView.highlightedImage = [[UIImage imageNamed:kImageNameChat_send_press] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             
-           // [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
-        }else{//别人发送的消息
-           
-           // mHead.frame = CGRectMake(kTraingHead, kTopHead, kWidthHead, kHeightHead);
-            
+        }else{
             mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             mBubbleImageView.highlightedImage = [[UIImage imageNamed:kImageNameChat_Recieve_press] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-            
-          //  [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
         }
     }
     
@@ -92,6 +82,16 @@
         mHead.frame = [value CGRectValue];
         
         model = model;
+    }else{
+        [model calculateSubViewsFrame:width];
+        
+        NSDictionary *frame = model.subViewsFrame[@(width)];
+        if (frame && [frame isKindOfClass:[NSDictionary class]]) {
+            NSValue *value = frame[@"mHead"];
+            mHead.frame = [value CGRectValue];
+            
+            model = model;
+        }
     }
 }
 
