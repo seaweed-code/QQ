@@ -9,6 +9,7 @@
 #import "WSChatModel.h"
 #import "NSObject+CoreDataHelper.h"
 #import "WSChatTextTableViewCell.h"
+#import "WSChatTimeTableViewCell.h"
 
 @implementation WSChatModel
 
@@ -49,6 +50,18 @@
                 [newDict addEntriesFromDictionary:self.subViewsFrame];
                 self.subViewsFrame = newDict;
             }
+        }
+        case WSChatCellType_Time:
+        {
+           
+            if ([self.subViewsFrame objectForKey:@(width)]) {
+                return;
+            }else{
+                NSMutableDictionary *newDict = [WSChatTimeTableViewCell calculateSubViewsFramewithModel:self width:width].mutableCopy;
+                [newDict addEntriesFromDictionary:self.subViewsFrame];
+                self.subViewsFrame = newDict;
+            }
+            
         }
         default:
             break;

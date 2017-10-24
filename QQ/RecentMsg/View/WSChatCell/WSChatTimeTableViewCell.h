@@ -14,9 +14,9 @@
 @class WSChatModel;
 
 @interface WSChatTimeTableViewCell : UITableViewCell
-/**
- *  @brief  聊天消息中单条消息模型
- */
-@property(nonatomic,strong) WSChatModel *model;
+
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width;
+
++(NSDictionary*)calculateSubViewsFramewithModel:(WSChatModel*) model width:(CGFloat) width;
 
 @end

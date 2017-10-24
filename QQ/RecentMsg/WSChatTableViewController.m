@@ -68,8 +68,21 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    CGFloat height = model.height.floatValue;
-    return height;
+    
+    NSDictionary *dict = model.subViewsFrame[@(self.view.bounds.size.width)];
+    
+    if (dict && [dict isKindOfClass:[NSDictionary class]]) {
+       return  [dict[@"height"] floatValue];
+    }else{
+        [model calculateSubViewsFrame:self.view.bounds.size.width];
+        
+        dict = model.subViewsFrame[@(self.view.bounds.size.width)];
+        if (dict && [dict isKindOfClass:[NSDictionary class]]) {
+            return  [dict[@"height"] floatValue];
+        }
+    }
+    
+    return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -230,10 +243,9 @@
                       @"呵呵呵呵，，你在逗我么？？吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓哇哇哇哇吾问无为谓吾问无为谓哇哇哇哇吾问无为谓我放假打算离开了房间的撒娇，你知道我什么意思吧？"];
 
     
-   // switch (i++%4)
-    switch(100)
+    switch (i++%2)
     {
-        case 0:
+        case 10:
         
             
             model.chatCellType = @(WSChatCellType_Image);
@@ -255,7 +267,7 @@
             
             break;
        
-        default:
+        case 0:
             
             model.chatCellType = @(WSChatCellType_Text);
             

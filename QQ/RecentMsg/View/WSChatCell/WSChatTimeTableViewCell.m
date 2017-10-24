@@ -8,7 +8,6 @@
 
 #import "WSChatTimeTableViewCell.h"
 #import "WSChatModel.h"
-#import "PureLayout.h"
 
 
 #define kTextColorTime      ([UIColor colorWithRed:0.341 green:0.369 blue:0.357 alpha:1])
@@ -16,6 +15,7 @@
 #define kTopOffsetTime      (20)//Time Lable和父控件顶部间距
 #define kLeadingOffetTime   (20)//Time Lable和父控件右侧最小间距
 
+#define kFontTimeLable     ([UIFont systemFontOfSize:10])
 
 @interface WSChatTimeTableViewCell ()
 {
@@ -35,27 +35,38 @@
         self.contentView.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        mTimeLable = [UILabel newAutoLayoutView];
+        mTimeLable = [[UILabel alloc]init];
         mTimeLable.backgroundColor =[UIColor clearColor];
-        mTimeLable.font = [UIFont systemFontOfSize:10];
+        mTimeLable.font = kFontTimeLable;
         mTimeLable.textColor = kTextColorTime;
+        mTimeLable.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:mTimeLable];
-        
-        [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kTopOffsetTime];
-        [mTimeLable autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-        [mTimeLable autoAlignAxisToSuperviewAxis:ALAxisVertical];
-        [mTimeLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLeadingOffetTime relation:NSLayoutRelationGreaterThanOrEqual];
         
     }
     
     return self;
 }
 
--(void)setModel:(WSChatModel *)model
-{
-    _model = model;
++(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width{
     
+    if (model) {
+         CGRect textRect = [model.timeStamp.description boundingRectWithSize:CGSizeMake(width-kLeadingOffetTime*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFontTimeLable} context:nil];
+        
+        return @{@(width):@{@"mTimeLable":[NSValue valueWithCGRect:CGRectMake((width-textRect.size.width)*0.5, kTopOffsetTime,textRect.size.width,textRect.size.height)],@"height":@(kTopOffsetTime*2+textRect.size.height)}};
+    }
+    
+    
+    return nil;
+}
+
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width{
     mTimeLable.text = model.timeStamp.description;
+    
+    NSDictionary *frame = model.subViewsFrame[@(width)];
+    if (frame && [frame isKindOfClass:[NSDictionary class]]) {
+        NSValue *value = frame[@"mTimeLable"];
+        mTimeLable.frame = [value CGRectValue];
+    }
 }
 
 @end

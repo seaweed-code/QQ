@@ -61,6 +61,7 @@
 
 +(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width{
     NSMutableDictionary *superDict = [super calculateSubViewsFramewithModel:model width:width].mutableCopy;
+    
     if (superDict && model) {
         NSString *text = model.content;
         CGRect textRect = [text boundingRectWithSize:CGSizeMake(width-kMaxOffsetText-kWidthHead-kOffsetHHeadToBubble-kLeadingHead-kLeadingBubble_Text*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFontText} context:nil];
