@@ -81,17 +81,13 @@
         NSValue *value = frame[@"mHead"];
         mHead.frame = [value CGRectValue];
         
+        value = frame[@"mBubbleImageView"];
+        mBubbleImageView.frame = [value CGRectValue];
+        
         model = model;
     }else{
         [model calculateSubViewsFrame:width];
-        
-        NSDictionary *frame = model.subViewsFrame[@(width)];
-        if (frame && [frame isKindOfClass:[NSDictionary class]]) {
-            NSValue *value = frame[@"mHead"];
-            mHead.frame = [value CGRectValue];
-            
-            model = model;
-        }
+        [self setModel:model width:width];
     }
 }
 

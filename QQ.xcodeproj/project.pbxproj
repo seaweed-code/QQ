@@ -18,7 +18,6 @@
 		374816651C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3748165F1C574344004155F7 /* WSBuddyGroupModel+CoreDataProperties.m */; };
 		374816661C574344004155F7 /* WSBuddyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 374816611C574344004155F7 /* WSBuddyModel.m */; };
 		374816671C574344004155F7 /* WSBuddyModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 374816631C574344004155F7 /* WSBuddyModel+CoreDataProperties.m */; };
-		374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */; };
 		3763F97E1B7CC75E008D6360 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */; };
 		3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F9781B7CC75E008D6360 /* NSArray+PureLayout.m */; };
 		3763F9801B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3763F97A1B7CC75E008D6360 /* NSLayoutConstraint+PureLayout.m */; };
@@ -112,8 +111,6 @@
 		374816611C574344004155F7 /* WSBuddyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSBuddyModel.m; sourceTree = "<group>"; };
 		374816621C574344004155F7 /* WSBuddyModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSBuddyModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		374816631C574344004155F7 /* WSBuddyModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSBuddyModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		374A8BE41BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
-		374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3763F9751B7CC75E008D6360 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
 		3763F9761B7CC75E008D6360 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
 		3763F9771B7CC75E008D6360 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
@@ -281,20 +278,10 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
-		374A8BE31BAFEA3700E2AFB6 /* FDTemplateLayoutCell */ = {
-			isa = PBXGroup;
-			children = (
-				374A8BE41BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.h */,
-				374A8BE51BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m */,
-			);
-			path = FDTemplateLayoutCell;
-			sourceTree = "<group>";
-		};
 		3763F9731B7CC75E008D6360 /* Third Part Library */ = {
 			isa = PBXGroup;
 			children = (
 				379B9DBD1C520A1300FB96A7 /* MLSelectPhoto */,
-				374A8BE31BAFEA3700E2AFB6 /* FDTemplateLayoutCell */,
 				37B830041B833E160091E384 /* ODRefreshControl */,
 				3763F9811B7CC8C1008D6360 /* SDWebImage */,
 				3763F9741B7CC75E008D6360 /* PureLayout */,
@@ -785,7 +772,6 @@
 				379A50041B81D24D0089F59E /* WSChatImageTableViewCell.m in Sources */,
 				3763F97F1B7CC75E008D6360 /* NSArray+PureLayout.m in Sources */,
 				379B9DFE1C520A1300FB96A7 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
-				374A8BE61BAFEA3F00E2AFB6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */,
 				379B9DFD1C520A1300FB96A7 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				3790E62A1C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m in Sources */,

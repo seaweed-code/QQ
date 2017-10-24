@@ -48,10 +48,7 @@
     
     NSDictionary *frame = model.subViewsFrame[@(width)];
     if (frame && [frame isKindOfClass:[NSDictionary class]]) {
-        NSValue *value = frame[@"mBubbleImageView"];
-        mBubbleImageView.frame = [value CGRectValue];
-        
-        value = frame[@"mTextLable"];
+        NSValue* value = frame[@"mTextLable"];
         mTextLable.frame = [value CGRectValue];
     }
     

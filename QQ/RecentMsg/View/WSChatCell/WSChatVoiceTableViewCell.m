@@ -19,6 +19,7 @@
 #define kTextColorSecondLable_Receive             ([UIColor blackColor])
 #define kTextColorSecondLable_Sender              ([UIColor whiteColor])
 
+#define kFontText               ([UIFont systemFontOfSize:12])
 
 @interface WSChatVoiceTableViewCell ()
 {    
@@ -45,16 +46,17 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(voiceBeenTaped:)];
         [mBubbleImageView addGestureRecognizer:tap];
         
-        mSecondLable = [UILabel newAutoLayoutView];
+        mSecondLable = [[UILabel alloc]init];
         mSecondLable.backgroundColor = [UIColor clearColor];
+        mSecondLable.font = kFontText;
         [self.contentView addSubview:mSecondLable];
         
-        mVoiceImageView = [UIImageView newAutoLayoutView];
+        mVoiceImageView = [[UIImageView alloc]init];
         mVoiceImageView.backgroundColor= [UIColor clearColor];
         [self.contentView addSubview:mVoiceImageView];
 
-        CGFloat scale = 0.6;
-        [mVoiceImageView autoSetDimensionsToSize:CGSizeMake(29 *scale, 33*scale)];
+       // CGFloat scale = 0.6;
+        //[mVoiceImageView autoSetDimensionsToSize:CGSizeMake(29 *scale, 33*scale)];
         mVoiceImageView.animationDuration = 1;
         mVoiceImageView.animationRepeatCount = 0;
         
@@ -62,16 +64,17 @@
         {
             mSecondLable.textAlignment = NSTextAlignmentRight;
             mSecondLable.textColor = kTextColorSecondLable_Sender;
-            [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mVoiceImageView withOffset:-kHOffsetSecondLable_voiceImageView];
-            [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetSecondLable_BubbleView];
+           
+            //[mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mVoiceImageView withOffset:-kHOffsetSecondLable_voiceImageView];
+           // [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetSecondLable_BubbleView];
 
-            [mSecondLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
+           // [mSecondLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
             
             mVoiceImageView.image = [UIImage imageNamed:@"chat_voice_sender3"];
             mVoiceImageView.animationImages = @[[UIImage imageNamed:@"chat_voice_sender1"],
                                                 [UIImage imageNamed:@"chat_voice_sender2"],
                                                 [UIImage imageNamed:@"chat_voice_sender3"]];
-            [mVoiceImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetVoiceImage_BubbleView];
+           // [mVoiceImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetVoiceImage_BubbleView];
             
             
         }else
@@ -80,68 +83,102 @@
             mVoiceImageView.animationImages = @[[UIImage imageNamed:@"chat_voice_receive1"],
                                                 [UIImage imageNamed:@"chat_voice_receive2"],
                                                 [UIImage imageNamed:@"chat_voice_receive3"]];
-            [mVoiceImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetVoiceImage_BubbleView];
+           // [mVoiceImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetVoiceImage_BubbleView];
             
             
             mSecondLable.textColor = kTextColorSecondLable_Receive;
             mSecondLable.textAlignment = NSTextAlignmentLeft;
-            [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mVoiceImageView withOffset:kHOffsetSecondLable_voiceImageView];
-            [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetSecondLable_BubbleView];
-            [mSecondLable  autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
+           // [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mVoiceImageView withOffset:kHOffsetSecondLable_voiceImageView];
+           // [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetSecondLable_BubbleView];
+           // [mSecondLable  autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
         }
         
-        
+       /*
         [mVoiceImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:mSecondLable];
         [mSecondLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mBubbleImageView withOffset:kVOffsetSecondLable_BubbleView];
         [mVoiceImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:mBubbleImageView];
-        [mBubbleImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView];
+        [mBubbleImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView];*/
         
     }
     
     return self;
 }
 
-
--(void)setModel:(WSChatModel *)model
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width
 {
-    if (!model.content)
-    {
-        model.content = [self makeContent:model.secondVoice];
+    if (!model.content){
+        model.content = [self.class makeContent:model.secondVoice];
     }
     mSecondLable.text = model.content;
     
-   // [super setModel:model];
+    NSDictionary *dict = model.subViewsFrame[@(width)];
+    if (dict && [dict isKindOfClass:[NSDictionary class]]) {
+        NSValue *frame = dict[@"mSecondLable"];
+        mSecondLable.frame = [frame CGRectValue];
+        
+        frame = dict[@"mVoiceImageView"];
+        mVoiceImageView.frame = [frame CGRectValue];
+    }else{
+        [model calculateSubViewsFrame:width];
+        [self setModel:model width:width];
+    }
+    
+    [super setModel:model width:width];
 }
 
-/**
- *  @author weida
- *
- *  @brief 将秒数转换成字符串，声音越长，字符串越长
- *
- *  @param secondVoice 录音几秒
- *
- *  @return 字符串
- */
--(NSString*)makeContent:(NSNumber*)secondVoice
++(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width{
+    NSMutableDictionary *dict = [super calculateSubViewsFramewithModel:model width:width].mutableCopy;
+    if (!model.content){
+        model.content = [self makeContent:model.secondVoice];
+    }
+    CGRect textRect = [model.content boundingRectWithSize:CGSizeMake(MAXFLOAT,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFontText} context:nil];
+    
+    CGFloat widthVoiceImage = 29*0.6;
+    CGFloat heightVoiceImage = 33*0.6;
+    
+    CGFloat hOffsetVoice_Lable = 20;
+    
+    CGFloat xBubble = kLeadingHead+kWidthHead+kOffsetHHeadToBubble;
+    CGFloat yBubble = kTopHead+kOffsetTopHeadToBubble;
+    CGFloat widthBubble = kHOffsetVoiceImage_BubbleView*2 +widthVoiceImage+hOffsetVoice_Lable+textRect.size.width;
+    CGFloat heightBubble = textRect.size.height + 2*kVOffsetSecondLable_BubbleView;
+    
+    CGFloat yVoiceImage = yBubble+(heightBubble-heightVoiceImage)/2;
+    CGFloat xVoiceImage = xBubble+kHOffsetVoiceImage_BubbleView;
+    CGFloat xSecondLable = xBubble + kHOffsetVoiceImage_BubbleView+widthVoiceImage+hOffsetVoice_Lable;
+    if (dict && model) {
+        if ([model.isSender boolValue]) {
+            [dict setObject:[NSValue valueWithCGRect:CGRectMake(width-xBubble-widthBubble,yBubble, widthBubble,heightBubble)] forKey:@"mBubbleImageView"];
+            
+            [dict setObject:[NSValue valueWithCGRect:CGRectMake(width-xVoiceImage-widthVoiceImage, yVoiceImage,widthVoiceImage, heightVoiceImage)] forKey:@"mVoiceImageView"];
+            
+            [dict setObject:[NSValue valueWithCGRect:CGRectMake(width-xSecondLable-textRect.size.width,yBubble+kVOffsetSecondLable_BubbleView, textRect.size.width, textRect.size.height)] forKey:@"mSecondLable"];
+            
+        }else{
+            
+            [dict setObject:[NSValue valueWithCGRect:CGRectMake(xBubble, yBubble,widthBubble,heightBubble)] forKey:@"mBubbleImageView"];
+            
+            [dict setObject:[NSValue valueWithCGRect:CGRectMake(xVoiceImage,yVoiceImage,widthVoiceImage, heightVoiceImage)] forKey:@"mVoiceImageView"];
+            
+            [dict setObject:[NSValue valueWithCGRect:CGRectMake(xSecondLable,yBubble+kVOffsetSecondLable_BubbleView, textRect.size.width, textRect.size.height)] forKey:@"mSecondLable"];
+        }
+        [dict setObject:@(80) forKey:@"height"];
+        return @{@(width):dict};
+    }
+    return dict;
+}
+
+
++(NSString*)makeContent:(NSNumber*)secondVoice
 {
-    NSMutableString *voiceStr;
+    NSString *voiceStr = nil;
     NSInteger second = secondVoice.integerValue;
     
-    if (second >= 60)
-    {
-        voiceStr = [NSMutableString stringWithFormat:@"%ld'%ld''",second/60,second%60];
-    }else
-    {
-        voiceStr = [NSMutableString stringWithFormat:@"%@''",secondVoice];
+    if (second >= 60){
+        voiceStr = [NSString stringWithFormat:@"%ld'%ld''",second/60,second%60];
+    }else{
+        voiceStr = [NSString stringWithFormat:@"%@''",secondVoice];
     }
-    
-    for (NSInteger i=1; second >= i*10; i++)
-    {
-        [voiceStr insertString:@" " atIndex:0];
-        [voiceStr appendString:@" "];
-    }
-    
-    
     return  voiceStr;
 }
 

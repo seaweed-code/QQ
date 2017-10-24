@@ -13,7 +13,6 @@
 #import "WSChatVoiceTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
 #import "WSChatMessageInputBar.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "WSChatTableViewController+CoreData.h"
 #import "WSChatTableViewController+MoreViewClick.h"
 #import "NSObject+CoreDataHelper.h"
@@ -216,7 +215,7 @@
         timer = nil;
     }else
     {
-        timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(insertNewObject:) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(insertNewObject:) userInfo:nil repeats:YES];
     }
     
 }
@@ -243,7 +242,7 @@
                       @"呵呵呵呵，，你在逗我么？？吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓哇哇哇哇吾问无为谓吾问无为谓哇哇哇哇吾问无为谓我放假打算离开了房间的撒娇，你知道我什么意思吧？"];
 
     
-    switch (i++%2)
+    switch (i++%3)
     {
         case 10:
         
@@ -263,7 +262,7 @@
             
             model.chatCellType = @(WSChatCellType_Audio);
             
-            model.secondVoice = @(i%60);
+            model.secondVoice = @(rand()%600);
             
             break;
        
@@ -303,7 +302,7 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    [self scrollToBottom:YES];
+   // [self scrollToBottom:YES];
 }
 
 
@@ -312,13 +311,11 @@
 
 -(UITableView *)tableView
 {
-    if (_tableView)
-    {
+    if (_tableView){
         return _tableView;
     }
     
     _tableView                      =   [[UITableView alloc]initWithFrame:self.view.bounds];
-    _tableView.fd_debugLogEnabled   =   NO;
     _tableView.separatorStyle       =   UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor      =   kBkColorTableView;
     _tableView.delegate             =   self;

@@ -10,6 +10,7 @@
 #import "NSObject+CoreDataHelper.h"
 #import "WSChatTextTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
+#import "WSChatVoiceTableViewCell.h"
 
 @implementation WSChatModel
 
@@ -58,6 +59,18 @@
                 return;
             }else{
                 NSMutableDictionary *newDict = [WSChatTimeTableViewCell calculateSubViewsFramewithModel:self width:width].mutableCopy;
+                [newDict addEntriesFromDictionary:self.subViewsFrame];
+                self.subViewsFrame = newDict;
+            }
+            
+        }
+        case WSChatCellType_Audio:
+        {
+            
+            if ([self.subViewsFrame objectForKey:@(width)]) {
+                return;
+            }else{
+                NSMutableDictionary *newDict = [WSChatVoiceTableViewCell calculateSubViewsFramewithModel:self width:width].mutableCopy;
                 [newDict addEntriesFromDictionary:self.subViewsFrame];
                 self.subViewsFrame = newDict;
             }
