@@ -21,6 +21,10 @@
 
 #define kFontText               ([UIFont systemFontOfSize:12])
 
+#define kMaxSecondRecondVoice     (600)//录音最长时间10分钟
+
+#define kTraingBubble_SuperView   (100)//Bubule气泡与父控件右侧间距最小值
+
 @interface WSChatVoiceTableViewCell ()
 {    
     /**
@@ -105,6 +109,12 @@
     [super setModel:model width:width];
 }
 
+
++(CGFloat)calculateHSpace:(NSNumber*)secondVoice maxWidth:(CGFloat)maxWidth{
+    CGFloat hSpace = kHOffsetSecondLable_voiceImageView;
+    return hSpace + (secondVoice.floatValue/kMaxSecondRecondVoice)*(maxWidth-kHOffsetSecondLable_voiceImageView);
+}
+
 +(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width{
     NSMutableDictionary *dict = [super calculateSubViewsFramewithModel:model width:width].mutableCopy;
     if (!model.content){
@@ -114,16 +124,19 @@
     
     CGFloat widthVoiceImage = 29*0.6;
     CGFloat heightVoiceImage = 33*0.6;
-    
-    CGFloat hOffsetVoice_Lable = 20;
-    
+ 
     CGFloat xBubble = kLeadingHead+kWidthHead+kOffsetHHeadToBubble;
     CGFloat yBubble = kTopHead+kOffsetTopHeadToBubble;
+    CGFloat xVoiceImage = xBubble+kHOffsetVoiceImage_BubbleView;
+    
+    CGFloat hOffsetVoice_Lable = [self calculateHSpace:model.secondVoice maxWidth:width-xVoiceImage-widthVoiceImage-textRect.size.width-kHOffsetVoiceImage_BubbleView-kTraingBubble_SuperView];
+    
+   
     CGFloat widthBubble = kHOffsetVoiceImage_BubbleView*2 +widthVoiceImage+hOffsetVoice_Lable+textRect.size.width;
     CGFloat heightBubble = textRect.size.height + 2*kVOffsetSecondLable_BubbleView;
     
     CGFloat yVoiceImage = yBubble+(heightBubble-heightVoiceImage)/2;
-    CGFloat xVoiceImage = xBubble+kHOffsetVoiceImage_BubbleView;
+  
     CGFloat xSecondLable = xBubble + kHOffsetVoiceImage_BubbleView+widthVoiceImage+hOffsetVoice_Lable;
     if (dict && model) {
         if ([model.isSender boolValue]) {
@@ -141,7 +154,7 @@
             
             [dict setObject:[NSValue valueWithCGRect:CGRectMake(xSecondLable,yBubble+kVOffsetSecondLable_BubbleView, textRect.size.width, textRect.size.height)] forKey:@"mSecondLable"];
         }
-        [dict setObject:@(80) forKey:@"height"];
+        [dict setObject:@(2*yBubble+heightBubble) forKey:@"height"];
         return @{@(width):dict};
     }
     return dict;
