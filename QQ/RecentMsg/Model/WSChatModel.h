@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 #define kCellReuseIDWithSenderAndType(isSender,chatCellType)    ([NSString stringWithFormat:@"%@-%@",isSender,chatCellType])
 
@@ -59,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)context;
 
 +(NSUInteger)count;
+
+-(void)calculateSubViewsFrame:(CGFloat)width;
 
 @end
 

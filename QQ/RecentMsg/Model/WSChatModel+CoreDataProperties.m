@@ -21,4 +21,6 @@
 @dynamic secondVoice;
 @dynamic height;
 @dynamic sendingImage;
+@dynamic subViewsFrame;
+
 @end

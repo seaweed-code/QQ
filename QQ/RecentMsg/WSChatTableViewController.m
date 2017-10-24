@@ -18,7 +18,7 @@
 #import "WSChatTableViewController+MoreViewClick.h"
 #import "NSObject+CoreDataHelper.h"
 #import "ODRefreshControl.h"
-
+#import "PureLayout.h"
 #import "WSBuddyGroupModel.h"
 
 #define kBkColorTableView    ([UIColor colorWithRed:0.773 green:0.855 blue:0.824 alpha:1])
@@ -68,20 +68,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
     CGFloat height = model.height.floatValue;
-    
-    if (!height)
-    {
-        height = [tableView fd_heightForCellWithIdentifier:kCellReuseID(model) configuration:^(WSChatBaseTableViewCell* cell)
-                  {
-                      [cell setModel:model];
-                  }];
-        
-        model.height = @(height);
-        
-    }
-    
     return height;
 }
 
@@ -115,7 +102,7 @@
 {
     WSChatModel *model = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.model = model;
+    [cell setModel:model width:self.view.bounds.size.width];
 }
 
 #pragma mark - UIResponder actions
@@ -168,14 +155,15 @@
     switch ([newModel.chatCellType integerValue])
     {
         case WSChatCellType_Text:
-            
-             newModel.content      = userInfo[@"text"];
-            
+            newModel.content       = userInfo[@"text"];
+           
             break;
             
         default:
             break;
     }
+    
+    [newModel calculateSubViewsFrame:self.view.bounds.size.width];//可以再后台线程计算,使界面更流畅
     
     NSError *error = nil;
     if (![self.managedObjectContext save:&error])
@@ -242,7 +230,8 @@
                       @"呵呵呵呵，，你在逗我么？？吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓哇哇哇哇吾问无为谓吾问无为谓哇哇哇哇吾问无为谓我放假打算离开了房间的撒娇，你知道我什么意思吧？"];
 
     
-    switch (i++%4)
+   // switch (i++%4)
+    switch(100)
     {
         case 0:
         
@@ -294,6 +283,7 @@
     model.isSender = @(NO);
     model.timeStamp = [NSDate date];
     
+    [model calculateSubViewsFrame:self.view.bounds.size.width];
     
     NSError *error = nil;
     if (![context save:&error])

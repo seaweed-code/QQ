@@ -8,12 +8,17 @@
 
 #import "WSChatTextTableViewCell.h"
 #import "PureLayout.h"
-
 //文本
 #define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
-#define kMaxOffsetText               (45)//文本最长时，为了不让文本分行显示，需要和屏幕对面保持一定距离
+#define kMaxOffsetText               (45)//文本最长时，为了让文本分行显示，需要和屏幕对面保持一定距离
 #define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
 #define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
+
+#define kFontText  ([UIFont systemFontOfSize:14])
+
+#define kLeadingBubble_Text  (20)//气泡和文本的水平间距
+#define kTopBubble_Text     (20)//气泡和文本竖直间距
+#define kBottomBubble_Super  (10)
 
 @interface WSChatTextTableViewCell ()
 {
@@ -31,13 +36,13 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        mTextLable = [UILabel newAutoLayoutView];
+        mTextLable = [[UILabel alloc]init];
         mTextLable.numberOfLines = 0;
         mTextLable.backgroundColor = [UIColor clearColor];
-        mTextLable.font = [UIFont systemFontOfSize:14];
+        mTextLable.font = kFontText;
         [self.contentView addSubview:mTextLable];
         
-        if (isSender)//是我自己发送的
+      /*  if (isSender)//是我自己发送的
         {
            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mTextLable withOffset:-20];
         }else//别人发送的消息
@@ -70,22 +75,65 @@
             
             [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
         }
+       */
 
     }
     return self;
 }
 
-
-
--(void)setModel:(WSChatModel *)model
-{
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width{
     mTextLable.text = model.content;
     
-    [super setModel:model];
+    NSDictionary *frame = model.subViewsFrame[@(width)];
+    if (frame && [frame isKindOfClass:[NSDictionary class]]) {
+        NSValue *value = frame[@"mBubbleImageView"];
+        mBubbleImageView.frame = [value CGRectValue];
+        
+        value = frame[@"mTextLable"];
+        mTextLable.frame = [value CGRectValue];
+    }
     
+    
+    [super setModel:model width:width];
 }
 
 
++(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width{
+    NSMutableDictionary *superDict = [super calculateSubViewsFramewithModel:model width:width].mutableCopy;
+    if (superDict && model) {
+        NSString *text = model.content;
+        CGRect textRect = [text boundingRectWithSize:CGSizeMake(width-kMaxOffsetText-kWidthHead-kOffsetHHeadToBubble-kLeadingHead-kLeadingBubble_Text*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFontText} context:nil];
+        
+        
+        CGFloat yText = kTopHead+kOffsetTopHeadToBubble+kTopBubble_Text;
+        CGFloat heightBubble = textRect.size.height+2*kTopBubble_Text;
+        superDict[@"height"] = @(kTopHead+kOffsetTopHeadToBubble + heightBubble + kBottomBubble_Super);
+        
+         CGFloat widthBubble = textRect.size.width+2*kLeadingBubble_Text;
+        
+        if ([model.isSender boolValue]) {
+            
+            [superDict setObject:[NSValue valueWithCGRect:CGRectMake(width-(kLeadingHead+kWidthHead+kOffsetHHeadToBubble+kLeadingBubble_Text+textRect.size.width), yText, textRect.size.width, textRect.size.height)] forKey:@"mTextLable"];
+            
+           
+            [superDict setObject:[NSValue valueWithCGRect:CGRectMake(width-(kLeadingHead+kWidthHead+kOffsetHHeadToBubble+widthBubble), kTopHead+kOffsetTopHeadToBubble,widthBubble, heightBubble)] forKey:@"mBubbleImageView"];
+           
+            
+        }else{
+            
+             [superDict setObject:[NSValue valueWithCGRect:CGRectMake(kLeadingHead+kWidthHead+kOffsetHHeadToBubble+kLeadingBubble_Text, yText, textRect.size.width, textRect.size.height)] forKey:@"mTextLable"];
+            
+           
+             [superDict setObject:[NSValue valueWithCGRect:CGRectMake(kLeadingHead+kWidthHead+kOffsetHHeadToBubble, kTopHead+kOffsetTopHeadToBubble, widthBubble, heightBubble)] forKey:@"mBubbleImageView"];
+            
+           
+        }
+        
+        return @{@(width):superDict};
+    }
+    
+    return nil;
+}
 
 
 -(void)longPress:(UILongPressGestureRecognizer *)Press
@@ -151,7 +199,7 @@
 
 -(void)menuRemove:(id)sender
 {
-    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:self.model}];
+    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:model}];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "WSChatModel.h"
 #import "NSObject+CoreDataHelper.h"
+#import "WSChatTextTableViewCell.h"
 
 @implementation WSChatModel
 
@@ -34,6 +35,19 @@
     [fetchRequest setEntity:entity];    
     
     return [self.managedObjectContext countForFetchRequest:fetchRequest error:nil];
+}
+
+-(void)calculateSubViewsFrame:(CGFloat)width{
+    switch ([self.chatCellType integerValue])
+    {
+        case WSChatCellType_Text:
+            self.subViewsFrame = [WSChatTextTableViewCell calculateSubViewsFramewithModel:self width:width];
+            
+        default:
+            break;
+    }
+    
+    self.height = self.subViewsFrame[@(width)][@"height"];
 }
 
 @end

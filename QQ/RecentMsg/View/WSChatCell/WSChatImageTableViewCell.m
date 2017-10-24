@@ -104,13 +104,13 @@
     {
         [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"leftMenuBk"]];
     }
-    [super setModel:model];
+   // [super setModel:model];
 }
 
 
 -(void)imageBeenTaped:(UITapGestureRecognizer*)tap
 {
-    [self routerEventWithType:EventChatCellImageTapedEvent userInfo:@{kModelKey:self.model}];
+    [self routerEventWithType:EventChatCellImageTapedEvent userInfo:@{kModelKey:model}];
 }
 
 -(void)longPress:(UILongPressGestureRecognizer *)Press
@@ -144,7 +144,7 @@
 
 -(void)menuRemove:(id)sender
 {
-    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:self.model}];
+    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:model}];
 }
 
 @end

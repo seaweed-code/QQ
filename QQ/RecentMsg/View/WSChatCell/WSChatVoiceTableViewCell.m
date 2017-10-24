@@ -110,7 +110,7 @@
     }
     mSecondLable.text = model.content;
     
-    [super setModel:model];
+   // [super setModel:model];
 }
 
 /**
@@ -172,7 +172,7 @@
 
 -(void)menuRemove:(id)sender
 {
-    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:self.model}];
+    [self routerEventWithType:EventChatCellRemoveEvent userInfo:@{kModelKey:model}];
 }
 
 

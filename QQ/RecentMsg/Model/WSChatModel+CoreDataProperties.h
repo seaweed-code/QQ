@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *secondVoice;
 @property (nullable, nonatomic, retain) NSNumber *height;
 @property (nullable, nonatomic, retain) id sendingImage;
+@property (nullable, nonatomic, retain) NSDictionary *subViewsFrame;
+
 @end
 
 NS_ASSUME_NONNULL_END

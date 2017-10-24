@@ -44,7 +44,6 @@
 		3764138C1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3764138A1B7D8DBC007738CB /* WSRecentMsgTableViewCell.m */; };
 		376943E01B7CA34F004C85F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943DF1B7CA34F004C85F3 /* main.m */; };
 		376943E31B7CA34F004C85F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943E21B7CA34F004C85F3 /* AppDelegate.m */; };
-		376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 376943FC1B7CA34F004C85F3 /* QQTests.m */; };
 		377227E01C3523AE00816748 /* NSObject+CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 377227DF1C3523AE00816748 /* NSObject+CoreDataHelper.m */; };
 		37773F841B806A3000EEB9CB /* WSChatTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */; };
 		3790E6131C55EA4600DD9FD4 /* WSBuddyListViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3790E6121C55EA4600DD9FD4 /* WSBuddyListViewController+CoreData.m */; };
@@ -85,21 +84,12 @@
 		37CACD051BA94EEE00C54610 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD011BA94EEE00C54610 /* RESideMenu.m */; };
 		37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD031BA94EEE00C54610 /* UIViewController+RESideMenu.m */; };
 		37CACD091BA9515800C54610 /* WSLeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CACD081BA9515800C54610 /* WSLeftMenuController.m */; };
+		37D23A3D1F9DE76500CDB43B /* DictToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D23A3C1F9DE76500CDB43B /* DictToDataTransformer.m */; };
 		37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */; };
 		37DD27B31B7F83D80088FA59 /* WSChatBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD27B21B7F83D80088FA59 /* WSChatBaseTableViewCell.m */; };
 		37DEFB761BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DEFB751BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m */; };
 		37E784A81BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		376943F71B7CA34F004C85F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 376943D21B7CA34F004C85F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 376943D91B7CA34F004C85F3;
-			remoteInfo = QQ;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		370584161B846E3C00E254D8 /* UIResponder+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Router.h"; sourceTree = "<group>"; };
@@ -179,7 +169,6 @@
 		376943DF1B7CA34F004C85F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		376943E11B7CA34F004C85F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		376943E21B7CA34F004C85F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		376943F61B7CA34F004C85F3 /* QQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		376943FB1B7CA34F004C85F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376943FC1B7CA34F004C85F3 /* QQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQTests.m; sourceTree = "<group>"; };
 		377227DE1C3523AE00816748 /* NSObject+CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CoreDataHelper.h"; sourceTree = "<group>"; };
@@ -261,6 +250,8 @@
 		37CACD031BA94EEE00C54610 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		37CACD071BA9515800C54610 /* WSLeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLeftMenuController.h; sourceTree = "<group>"; };
 		37CACD081BA9515800C54610 /* WSLeftMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLeftMenuController.m; sourceTree = "<group>"; };
+		37D23A3B1F9DE76500CDB43B /* DictToDataTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictToDataTransformer.h; sourceTree = "<group>"; };
+		37D23A3C1F9DE76500CDB43B /* DictToDataTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictToDataTransformer.m; sourceTree = "<group>"; };
 		37DD27AD1B7F81AF0088FA59 /* WSChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTableViewController.h; sourceTree = "<group>"; };
 		37DD27AE1B7F81AF0088FA59 /* WSChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTableViewController.m; sourceTree = "<group>"; };
 		37DD27B11B7F83D80088FA59 /* WSChatBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -273,13 +264,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		376943D71B7CA34F004C85F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		376943F31B7CA34F004C85F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				376943DA1B7CA34F004C85F3 /* QQ.app */,
-				376943F61B7CA34F004C85F3 /* QQTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -510,6 +493,8 @@
 				3790E6251C55F7F800DD9FD4 /* WSChatModel.m */,
 				3790E6261C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.h */,
 				3790E6271C55F7F800DD9FD4 /* WSChatModel+CoreDataProperties.m */,
+				37D23A3B1F9DE76500CDB43B /* DictToDataTransformer.h */,
+				37D23A3C1F9DE76500CDB43B /* DictToDataTransformer.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,24 +715,6 @@
 			productReference = 376943DA1B7CA34F004C85F3 /* QQ.app */;
 			productType = "com.apple.product-type.application";
 		};
-		376943F51B7CA34F004C85F3 /* QQTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 376944031B7CA34F004C85F3 /* Build configuration list for PBXNativeTarget "QQTests" */;
-			buildPhases = (
-				376943F21B7CA34F004C85F3 /* Sources */,
-				376943F31B7CA34F004C85F3 /* Frameworks */,
-				376943F41B7CA34F004C85F3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				376943F81B7CA34F004C85F3 /* PBXTargetDependency */,
-			);
-			name = QQTests;
-			productName = QQTests;
-			productReference = 376943F61B7CA34F004C85F3 /* QQTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -759,10 +726,7 @@
 				TargetAttributes = {
 					376943D91B7CA34F004C85F3 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					376943F51B7CA34F004C85F3 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 376943D91B7CA34F004C85F3;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -780,7 +744,6 @@
 			projectRoot = "";
 			targets = (
 				376943D91B7CA34F004C85F3 /* QQ */,
-				376943F51B7CA34F004C85F3 /* QQTests */,
 			);
 		};
 /* End PBXProject section */
@@ -794,13 +757,6 @@
 				379B9DFF1C520A1300FB96A7 /* MLSelectPhoto.bundle in Resources */,
 				379799A81B8227D300A5775C /* Imageset.xcassets in Resources */,
 				3748164D1C570D02004155F7 /* buddy_header_arrow.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		376943F41B7CA34F004C85F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +815,7 @@
 				374816661C574344004155F7 /* WSBuddyModel.m in Sources */,
 				379B9DFC1C520A1300FB96A7 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */,
+				37D23A3D1F9DE76500CDB43B /* DictToDataTransformer.m in Sources */,
 				3763F9AA1B7CC8C1008D6360 /* SDWebImageManager.m in Sources */,
 				3763F9B21B7CC8C1008D6360 /* UIView+WebCacheOperation.m in Sources */,
 				379B9DEE1C520A1300FB96A7 /* MLSelectPhotoAssets.m in Sources */,
@@ -891,23 +848,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		376943F21B7CA34F004C85F3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				376943FD1B7CA34F004C85F3 /* QQTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		376943F81B7CA34F004C85F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 376943D91B7CA34F004C85F3 /* QQ */;
-			targetProxy = 376943F71B7CA34F004C85F3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		376943FE1B7CA34F004C85F3 /* Debug */ = {
@@ -1001,12 +942,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: YiFan Yang (6ZDEZDJ454)";
 				INFOPLIST_FILE = QQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "345c219a-081f-419b-a7ea-48c01792eddc";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1016,47 +960,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: YiFan Yang (6ZDEZDJ454)";
 				INFOPLIST_FILE = QQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "345c219a-081f-419b-a7ea-48c01792eddc";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		376944041B7CA34F004C85F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = QQTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QQ.app/QQ";
-			};
-			name = Debug;
-		};
-		376944051B7CA34F004C85F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = QQTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QQ.app/QQ";
 			};
 			name = Release;
 		};
@@ -1077,15 +989,6 @@
 			buildConfigurations = (
 				376944011B7CA34F004C85F3 /* Debug */,
 				376944021B7CA34F004C85F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		376944031B7CA34F004C85F3 /* Build configuration list for PBXNativeTarget "QQTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				376944041B7CA34F004C85F3 /* Debug */,
-				376944051B7CA34F004C85F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

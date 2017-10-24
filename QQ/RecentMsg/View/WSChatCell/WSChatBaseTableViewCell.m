@@ -21,7 +21,7 @@
         self.contentView.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        mHead = [UIImageView newAutoLayoutView];
+        mHead = [[UIImageView alloc]init];
         mHead.backgroundColor = [UIColor clearColor];
         mHead.userInteractionEnabled = YES;
         
@@ -34,69 +34,85 @@
         mHead.image = [UIImage imageNamed:@"user_avatar_default"];
         [self.contentView addSubview:mHead];
       
-        [mHead autoSetDimensionsToSize:CGSizeMake(kWidthHead, kHeightHead)];
         
-        [mHead autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kTopHead];
-        NSArray *IDs = [reuseIdentifier componentsSeparatedByString:kReuseIDSeparate];
-        
-        NSAssert(IDs.count>=2, @"reuseIdentifier should be separate by -");
-        
-        isSender = [IDs[0] boolValue];
-        
-        if (isSender)//是我自己发送的
-        {
-            [mHead autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kTraingHead];
-        }else//别人发送的消息
-        {
-            [mHead autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLeadingHead];
-        }
-        
-        mBubbleImageView = [UIImageView newAutoLayoutView];
+        mBubbleImageView = [[UIImageView alloc]init];
         mBubbleImageView.backgroundColor = [UIColor clearColor];
         mBubbleImageView.userInteractionEnabled = YES;
         UILongPressGestureRecognizer *bubblelongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
         [mBubbleImageView addGestureRecognizer:bubblelongPress];
         [self.contentView addSubview:mBubbleImageView];
         
-        [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
+      //  [mBubbleImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mHead withOffset:-kOffsetTopHeadToBubble];
         
     
-        if (isSender)//是我自己发送的
-        {
-            mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+        NSArray *IDs = [reuseIdentifier componentsSeparatedByString:kReuseIDSeparate];
+        
+        NSAssert(IDs.count>=2, @"reuseIdentifier should be separate by -");
+       
+        isSender = [IDs[0] boolValue];
+        
+        if (isSender){//是我自己发送的
+           // mHead.frame = CGRectMake(kLeadingHead, kTopHead, kWidthHead, kHeightHead);
             
+            mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_send_nor] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             mBubbleImageView.highlightedImage = [[UIImage imageNamed:kImageNameChat_send_press] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             
-            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
-        }else//别人发送的消息
-        {
-             mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+           // [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mHead withOffset:-kOffsetHHeadToBubble];
+        }else{//别人发送的消息
+           
+           // mHead.frame = CGRectMake(kTraingHead, kTopHead, kWidthHead, kHeightHead);
+            
+            mBubbleImageView.image = [[UIImage imageNamed:kImageNameChat_Recieve_nor]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             mBubbleImageView.highlightedImage = [[UIImage imageNamed:kImageNameChat_Recieve_press] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             
-            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
+          //  [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mHead withOffset:kOffsetHHeadToBubble];
         }
     }
     
     return self;
 }
 
++(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width
+{
+    if (model && [model.isSender boolValue]) {
+        return  @{@"mHead":[NSValue valueWithCGRect:CGRectMake(width-kTraingHead-kWidthHead, kTopHead, kWidthHead, kHeightHead)]};
+    }
+    
+    if (model && ![model.isSender boolValue]) {
+        return  @{@"mHead":[NSValue valueWithCGRect:CGRectMake(kLeadingHead, kTopHead, kWidthHead, kHeightHead)]};
+    }
+    
+    return nil;
+}
+
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width{
+    NSDictionary *frame = model.subViewsFrame[@(width)];
+    if (frame && [frame isKindOfClass:[NSDictionary class]]) {
+        NSValue *value = frame[@"mHead"];
+        mHead.frame = [value CGRectValue];
+        
+        model = model;
+    }
+}
+
+
 -(void)headBeenTaped:(UITapGestureRecognizer *)tap
 {
-    [self routerEventWithType:EventChatCellHeadTapedEvent userInfo:@{kModelKey:self.model}];
+    [self routerEventWithType:EventChatCellHeadTapedEvent userInfo:@{kModelKey:model}];
 }
 
 -(void)headBeenLongPress:(UILongPressGestureRecognizer *)longPress
 {
     if (longPress.state == UIGestureRecognizerStateBegan)
     {
-        [self routerEventWithType:EventChatCellHeadLongPressEvent userInfo:@{kModelKey:self.model}];
+        [self routerEventWithType:EventChatCellHeadLongPressEvent userInfo:@{kModelKey:model}];
     }
    
 }
 
 -(void)longPress:(UILongPressGestureRecognizer *)Press
 {
-    
+    NSLog(@"subClass Must Override this Method");
 }
 
 -(BOOL)canBecomeFirstResponder

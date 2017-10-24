@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "WSChatModel.h"
-#import "PureLayout.h"
 #import "UIResponder+Router.h"
+#import "PureLayout.h"
 
 #define kWidthHead                    (40)  //头像宽度
 #define kHeightHead                   (kWidthHead) //头像高度
@@ -49,21 +49,15 @@
      *  @brief  本消息是否是本人发送的？
      */
     BOOL isSender;
+    
+    WSChatModel *model;
 }
 
 
-/**
- *  @brief  聊天消息中单条消息模型
- */
-@property(nonatomic,strong) WSChatModel *model;
 
 
-/**
- *  @brief  气泡被长按后通知，子类必须实现此方法
- *
- *  @param Press 长按手势
- */
--(void)longPress:(UILongPressGestureRecognizer *)Press;
++(NSDictionary*)calculateSubViewsFramewithModel:(WSChatModel*) model width:(CGFloat) width;
 
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width;
 
 @end
