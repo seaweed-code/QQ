@@ -31,52 +31,14 @@
 
 @implementation WSChatTextTableViewCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self)
-    {
+    if (self){
         mTextLable = [[UILabel alloc]init];
         mTextLable.numberOfLines = 0;
         mTextLable.backgroundColor = [UIColor clearColor];
         mTextLable.font = kFontText;
         [self.contentView addSubview:mTextLable];
-        
-      /*  if (isSender)//是我自己发送的
-        {
-           [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mTextLable withOffset:-20];
-        }else//别人发送的消息
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mTextLable withOffset:20];
-        }
-        
-        [mBubbleImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mTextLable withOffset:20];
-        
-        CGFloat top     = kTop_OffsetTextWithHead + kTopHead;
-        CGFloat bottom  = kBottom_OffsetTextWithSupView;
-        
-        CGFloat leading = kH_OffsetTextWithHead + kWidthHead + kLeadingHead;
-        CGFloat traing  = kMaxOffsetText;
-        
-        UIEdgeInsets inset;
-        if (isSender)//是自己发送的消息
-        {
-            inset = UIEdgeInsetsMake(top, traing, bottom, leading);
-            
-            [mTextLable autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeLeading];
-            
-            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
-            
-        }else//是对方发送的消息
-        {
-            inset = UIEdgeInsetsMake(top, leading, bottom, traing);
-            
-            [mTextLable autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTrailing];
-            
-            [mTextLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
-        }
-       */
-
     }
     return self;
 }
@@ -92,7 +54,6 @@
         value = frame[@"mTextLable"];
         mTextLable.frame = [value CGRectValue];
     }
-    
     
     [super setModel:model width:width];
 }
