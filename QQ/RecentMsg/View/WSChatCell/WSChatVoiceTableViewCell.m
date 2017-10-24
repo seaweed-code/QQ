@@ -55,8 +55,6 @@
         mVoiceImageView.backgroundColor= [UIColor clearColor];
         [self.contentView addSubview:mVoiceImageView];
 
-       // CGFloat scale = 0.6;
-        //[mVoiceImageView autoSetDimensionsToSize:CGSizeMake(29 *scale, 33*scale)];
         mVoiceImageView.animationDuration = 1;
         mVoiceImageView.animationRepeatCount = 0;
         
@@ -65,17 +63,10 @@
             mSecondLable.textAlignment = NSTextAlignmentRight;
             mSecondLable.textColor = kTextColorSecondLable_Sender;
            
-            //[mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:mVoiceImageView withOffset:-kHOffsetSecondLable_voiceImageView];
-           // [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetSecondLable_BubbleView];
-
-           // [mSecondLable autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
-            
             mVoiceImageView.image = [UIImage imageNamed:@"chat_voice_sender3"];
             mVoiceImageView.animationImages = @[[UIImage imageNamed:@"chat_voice_sender1"],
                                                 [UIImage imageNamed:@"chat_voice_sender2"],
                                                 [UIImage imageNamed:@"chat_voice_sender3"]];
-           // [mVoiceImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetVoiceImage_BubbleView];
-            
             
         }else
         {
@@ -83,22 +74,10 @@
             mVoiceImageView.animationImages = @[[UIImage imageNamed:@"chat_voice_receive1"],
                                                 [UIImage imageNamed:@"chat_voice_receive2"],
                                                 [UIImage imageNamed:@"chat_voice_receive3"]];
-           // [mVoiceImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mBubbleImageView withOffset:kHOffsetVoiceImage_BubbleView];
-            
-            
+           
             mSecondLable.textColor = kTextColorSecondLable_Receive;
             mSecondLable.textAlignment = NSTextAlignmentLeft;
-           // [mSecondLable autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:mVoiceImageView withOffset:kHOffsetSecondLable_voiceImageView];
-           // [mSecondLable autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mBubbleImageView withOffset:-kHOffsetSecondLable_BubbleView];
-           // [mSecondLable  autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kHMinOffsetSecondLable_supView relation:NSLayoutRelationGreaterThanOrEqual];
         }
-        
-       /*
-        [mVoiceImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:mSecondLable];
-        [mSecondLable autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:mBubbleImageView withOffset:kVOffsetSecondLable_BubbleView];
-        [mVoiceImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:mBubbleImageView];
-        [mBubbleImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.contentView];*/
-        
     }
     
     return self;
