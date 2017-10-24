@@ -112,7 +112,14 @@
 
 +(CGFloat)calculateHSpace:(NSNumber*)secondVoice maxWidth:(CGFloat)maxWidth{
     CGFloat hSpace = kHOffsetSecondLable_voiceImageView;
-    return hSpace + (secondVoice.floatValue/kMaxSecondRecondVoice)*(maxWidth-kHOffsetSecondLable_voiceImageView);
+    
+    CGFloat persent = secondVoice.floatValue/kMaxSecondRecondVoice;
+    
+    if (persent>1) {
+        return maxWidth;
+    }
+    
+    return hSpace + persent*(maxWidth-kHOffsetSecondLable_voiceImageView);
 }
 
 +(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width{
