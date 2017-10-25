@@ -12,7 +12,7 @@
 #import "WSBubbleImageView.h"
 
 #define kMinWidthImageView             (20)
-#define kMinHeightImageView            (30)
+#define kMinHeightImageView            (60)
 #define kMaxHeightImageView            (140)
 //#define kMinTraingImageViewSupView     (60)//图片与父视图右侧最小间距
 

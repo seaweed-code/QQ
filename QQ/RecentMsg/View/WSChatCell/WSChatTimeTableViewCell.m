@@ -12,7 +12,7 @@
 
 #define kTextColorTime      ([UIColor colorWithRed:0.341 green:0.369 blue:0.357 alpha:1])
 
-#define kTopOffsetTime      (20)//Time Lable和父控件顶部间距
+#define kTopOffsetTime      (18)//Time Lable和父控件顶部间距
 #define kLeadingOffetTime   (20)//Time Lable和父控件右侧最小间距
 
 #define kFontTimeLable     ([UIFont systemFontOfSize:10])
