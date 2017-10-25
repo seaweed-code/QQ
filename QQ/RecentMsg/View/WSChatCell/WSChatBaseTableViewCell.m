@@ -75,8 +75,8 @@
     return nil;
 }
 
--(void)setModel:(WSChatModel *)model width:(CGFloat)width{
-    NSDictionary *frame = model.subViewsFrame[@(width)];
+-(void)setModel:(WSChatModel *)m width:(CGFloat)width{
+    NSDictionary *frame = m.subViewsFrame[@(width)];
     if (frame && [frame isKindOfClass:[NSDictionary class]]) {
         NSValue *value = frame[@"mHead"];
         mHead.frame = [value CGRectValue];
@@ -84,16 +84,15 @@
         value = frame[@"mBubbleImageView"];
         mBubbleImageView.frame = [value CGRectValue];
         
-        model = model;
+        model = m;
     }else{
-        [model calculateSubViewsFrame:width];
+        [m calculateSubViewsFrame:width];
         [self setModel:model width:width];
     }
 }
 
 
--(void)headBeenTaped:(UITapGestureRecognizer *)tap
-{
+-(void)headBeenTaped:(UITapGestureRecognizer *)tap{
     [self routerEventWithType:EventChatCellHeadTapedEvent userInfo:@{kModelKey:model}];
 }
 

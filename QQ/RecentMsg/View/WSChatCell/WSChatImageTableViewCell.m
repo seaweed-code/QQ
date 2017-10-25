@@ -31,6 +31,10 @@
         [mBubbleImageView removeFromSuperview];
         mBubbleImageView = nil;
         mBubbleImageView = [[WSBubbleImageView alloc]init:isSender];
+        mBubbleImageView.backgroundColor = [UIColor clearColor];
+        mBubbleImageView.userInteractionEnabled = YES;
+        UILongPressGestureRecognizer *bubblelongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
+        [mBubbleImageView addGestureRecognizer:bubblelongPress];
         [self.contentView addSubview:mBubbleImageView];
     }
     
