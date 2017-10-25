@@ -52,7 +52,13 @@
     if (model) {
          CGRect textRect = [model.timeStamp.description boundingRectWithSize:CGSizeMake(width-kLeadingOffetTime*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFontTimeLable} context:nil];
         
-        return @{@(width):@{@"mTimeLable":[NSValue valueWithCGRect:CGRectMake((width-textRect.size.width)*0.5, kTopOffsetTime,textRect.size.width,textRect.size.height)],@"height":@(kTopOffsetTime*2+textRect.size.height)}};
+        return @{@(width):@{@"mTimeLable":[NSValue valueWithCGRect:
+                                           CGRectMake((width-textRect.size.width)*0.5,
+                                                      kTopOffsetTime,
+                                                      textRect.size.width,
+                                                      textRect.size.height)],
+                            @"height":@(kTopOffsetTime*2+textRect.size.height)
+                            }};
     }
     
     
