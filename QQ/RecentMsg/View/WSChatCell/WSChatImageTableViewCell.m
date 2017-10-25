@@ -11,24 +11,12 @@
 #import "UIImageView+WebCache.h"
 #import "WSBubbleImageView.h"
 
-//文本
-#define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
-#define kMaxOffsetText               (45)//文本最长时，为了不让文本分行显示，需要和屏幕对面保持一定距离
-#define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
-#define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
-
 #define kMinWidthImageView             (20)
 #define kMinHeightImageView            (20)
 #define kMaxHeightImageView            (200)
 #define kMinTraingImageViewSupView     (60)//图片与父视图右侧最小间距
 
 @interface WSChatImageTableViewCell ()
-{
-    /**
-     *  @brief  图片所在ImageView
-     */
-    //UIImageView *mImageView;
-}
 @end
 
 
@@ -44,58 +32,6 @@
         mBubbleImageView = nil;
         mBubbleImageView = [[WSBubbleImageView alloc]init:isSender];
         [self.contentView addSubview:mBubbleImageView];
-    /*    if (isSender)//是我自己发送的
-        {
-            mBubbleImageView.image = [[UIImage imageNamed:@"chat_send_imagemask@2x"] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-            
-        }else//别人发送的消息
-        {
-            mBubbleImageView.image = [[UIImage imageNamed:@"chat_recive_imagemask@2x"]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-        }
-   
-        mImageView = [UIImageView newAutoLayoutView];
-        mImageView.backgroundColor = [UIColor clearColor];
-        mImageView.userInteractionEnabled = NO;
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageBeenTaped:)];
-        [mBubbleImageView addGestureRecognizer:tap];
-        
-        [self.contentView insertSubview:mImageView atIndex:0];
-
-        if (isSender)//是我自己发送的
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:mImageView withOffset:0];
-        }else//别人发送的消息
-        {
-            [mBubbleImageView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:mImageView withOffset:0];
-        }
-        
-        [mBubbleImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:mImageView withOffset:0];
-        
-        CGFloat top     = kTopHead - kOffsetTopHeadToBubble;
-        CGFloat bottom  = kBottom_OffsetTextWithSupView;
-        CGFloat leading = kOffsetHHeadToBubble + kWidthHead + kLeadingHead;
-        CGFloat traing  = kMaxOffsetText;
-        
-        [mImageView autoSetDimension:ALDimensionHeight toSize:kMaxHeightImageView relation:NSLayoutRelationLessThanOrEqual];
-        
-        UIEdgeInsets inset;
-        if (isSender)//是自己发送的消息
-        {
-            inset = UIEdgeInsetsMake(top, traing, bottom, leading);
-            
-            [mImageView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeLeading];
-            
-            [mImageView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
-            
-        }else//是对方发送的消息
-        {
-            inset = UIEdgeInsetsMake(top, leading, bottom, traing);
-            
-            [mImageView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTrailing];
-            
-            [mImageView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
-        }*/
     }
     
     return self;
