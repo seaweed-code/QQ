@@ -11,6 +11,7 @@
 #import "WSChatTextTableViewCell.h"
 #import "WSChatTimeTableViewCell.h"
 #import "WSChatVoiceTableViewCell.h"
+#import "WSChatImageTableViewCell.h"
 
 @implementation WSChatModel
 
@@ -71,6 +72,18 @@
                 return;
             }else{
                 NSMutableDictionary *newDict = [WSChatVoiceTableViewCell calculateSubViewsFramewithModel:self width:width].mutableCopy;
+                [newDict addEntriesFromDictionary:self.subViewsFrame];
+                self.subViewsFrame = newDict;
+            }
+            
+        }
+        case WSChatCellType_Image:
+        {
+            
+            if ([self.subViewsFrame objectForKey:@(width)]) {
+                return;
+            }else{
+                NSMutableDictionary *newDict = [WSChatImageTableViewCell calculateSubViewsFramewithModel:self width:width].mutableCopy;
                 [newDict addEntriesFromDictionary:self.subViewsFrame];
                 self.subViewsFrame = newDict;
             }

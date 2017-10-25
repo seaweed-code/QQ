@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 370584171B846E3C00E254D8 /* UIResponder+Router.m */; };
 		3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */; };
+		370E43951FA0308C007F114F /* WSBubbleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370E43941FA0308C007F114F /* WSBubbleImageView.m */; };
 		3729CC1B1C27E77D003D423F /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3729CC191C27E77D003D423F /* Data.xcdatamodeld */; };
 		372DDB731BB3FF6E00717FB2 /* WSChatMessageEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
@@ -95,6 +96,8 @@
 		370584171B846E3C00E254D8 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
 		3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatTimeTableViewCell.h; sourceTree = "<group>"; };
 		3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTimeTableViewCell.m; sourceTree = "<group>"; };
+		370E43931FA0308C007F114F /* WSBubbleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSBubbleImageView.h; sourceTree = "<group>"; };
+		370E43941FA0308C007F114F /* WSBubbleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSBubbleImageView.m; sourceTree = "<group>"; };
 		3729CC1A1C27E77D003D423F /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		372DDB711BB3FF6E00717FB2 /* WSChatMessageEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageEmojiView.h; sourceTree = "<group>"; };
 		372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageEmojiView.m; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 				3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */,
 				37E784A61BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.h */,
 				37E784A71BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.m */,
+				370E43931FA0308C007F114F /* WSBubbleImageView.h */,
+				370E43941FA0308C007F114F /* WSBubbleImageView.m */,
 			);
 			path = WSChatCell;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				37DEFB761BB4E1550069DDE6 /* WSChatMessageEmojiCollectionCell.m in Sources */,
 				3790E6131C55EA4600DD9FD4 /* WSBuddyListViewController+CoreData.m in Sources */,
 				3791A2461BB2933B00CEF694 /* WSChatMessageInputBar.m in Sources */,
+				370E43951FA0308C007F114F /* WSBubbleImageView.m in Sources */,
 				37CACD061BA94EEE00C54610 /* UIViewController+RESideMenu.m in Sources */,
 				376413861B7D8852007738CB /* WSQworldViewController.m in Sources */,
 				37DD27AF1B7F81AF0088FA59 /* WSChatTableViewController.m in Sources */,

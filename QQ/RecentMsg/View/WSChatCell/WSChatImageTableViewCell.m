@@ -9,7 +9,7 @@
 #import "WSChatImageTableViewCell.h"
 #import "PureLayout.h"
 #import "UIImageView+WebCache.h"
-
+#import "WSBubbleImageView.h"
 
 //文本
 #define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
@@ -17,14 +17,17 @@
 #define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
 #define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
 
+#define kMinWidthImageView             (20)
+#define kMinHeightImageView            (20)
 #define kMaxHeightImageView            (200)
+#define kMinTraingImageViewSupView     (60)//图片与父视图右侧最小间距
 
 @interface WSChatImageTableViewCell ()
 {
     /**
      *  @brief  图片所在ImageView
      */
-    UIImageView *mImageView;
+    //UIImageView *mImageView;
 }
 @end
 
@@ -37,7 +40,11 @@
     
     if (self)
     {
-        if (isSender)//是我自己发送的
+        [mBubbleImageView removeFromSuperview];
+        mBubbleImageView = nil;
+        mBubbleImageView = [[WSBubbleImageView alloc]init:isSender];
+        [self.contentView addSubview:mBubbleImageView];
+    /*    if (isSender)//是我自己发送的
         {
             mBubbleImageView.image = [[UIImage imageNamed:@"chat_send_imagemask@2x"] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
             
@@ -45,7 +52,7 @@
         {
             mBubbleImageView.image = [[UIImage imageNamed:@"chat_recive_imagemask@2x"]stretchableImageWithLeftCapWidth:30 topCapHeight:30];
         }
-        
+   
         mImageView = [UIImageView newAutoLayoutView];
         mImageView.backgroundColor = [UIColor clearColor];
         mImageView.userInteractionEnabled = NO;
@@ -88,23 +95,78 @@
             [mImageView autoPinEdgesToSuperviewEdgesWithInsets:inset excludingEdge:ALEdgeTrailing];
             
             [mImageView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:traing relation:NSLayoutRelationGreaterThanOrEqual];
-        }
+        }*/
     }
     
     return self;
 }
 
++(CGSize)calculateImageModelSize:(WSChatModel*)model width:(CGFloat)width{
+    NSArray *arry = [model.content componentsSeparatedByString:@","];
+    CGFloat wOriginal = [arry[0] floatValue];
+    CGFloat hOriginal = [arry[1] floatValue];
+    CGFloat w,h = hOriginal;
+    
+    if (hOriginal < kMinHeightImageView){
+        h = kMinHeightImageView;
+    }
+    
+    if (hOriginal > kMaxHeightImageView){
+        h = kMaxHeightImageView;
+    }
+    
+    w = (wOriginal/hOriginal)*h;
+    
+    
+    CGFloat xBubble = kLeadingHead+kWidthHead+kOffsetHHeadToBubble;
+    if (xBubble + w + kMinTraingImageViewSupView > width) {
+        w = width - xBubble - kMinTraingImageViewSupView;
+    }
+    
+    if (w < kMinWidthImageView) {
+        w = kMinWidthImageView;
+    }
+    
+    return CGSizeMake(w, h);
+}
 
--(void)setModel:(WSChatModel *)model
++(NSDictionary *)calculateSubViewsFramewithModel:(WSChatModel *)model width:(CGFloat)width
 {
+    NSMutableDictionary *superDict = [super calculateSubViewsFramewithModel:model width:width].mutableCopy;
+    if (superDict && model) {
+       
+        CGFloat xBubble = kLeadingHead+kWidthHead+kOffsetHHeadToBubble;
+        CGFloat yBubble = kTopHead+kOffsetTopHeadToBubble;
+        CGSize  size = [self calculateImageModelSize:model width:width];
+        CGFloat widthBubble  = size.width;
+        CGFloat heightBubble = size.height;
+        
+        
+        if ([model.isSender boolValue]) {
+            [superDict setObject:[NSValue valueWithCGRect:CGRectMake(width - xBubble - widthBubble, yBubble, widthBubble, heightBubble)] forKey:@"mBubbleImageView"];
+        }else{
+            [superDict setObject:[NSValue valueWithCGRect:CGRectMake(xBubble, yBubble, widthBubble, heightBubble)] forKey:@"mBubbleImageView"];
+        }
+    
+        [superDict setObject:@(heightBubble+2*yBubble) forKey:@"height"];
+        
+        return @{@(width):superDict};
+        
+    }
+    return nil;
+}
+
+-(void)setModel:(WSChatModel *)model width:(CGFloat)width{
+    
     if (model.sendingImage)
     {
-        mImageView.image = model.sendingImage;
+        mBubbleImageView.image = model.sendingImage;
     }else
     {
-        [mImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"leftMenuBk"]];
+        [mBubbleImageView sd_setImageWithURL:[NSURL URLWithString:model.content] placeholderImage:[UIImage imageNamed:@"leftMenuBk"]];
     }
-   // [super setModel:model];
+    
+    [super setModel:model width:width];
 }
 
 
@@ -139,7 +201,7 @@
 #pragma mark --复制、删除处理
 -(void)menuCopy:(id)sender
 {
-    [UIPasteboard generalPasteboard].image = mImageView.image;
+   // [UIPasteboard generalPasteboard].image = mImageView.image;
 }
 
 -(void)menuRemove:(id)sender

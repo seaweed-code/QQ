@@ -242,14 +242,17 @@
                       @"呵呵呵呵，，你在逗我么？？吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓哇哇哇哇吾问无为谓吾问无为谓哇哇哇哇吾问无为谓我放假打算离开了房间的撒娇，你知道我什么意思吧？"];
 
     
-    switch (i++%3)
+    switch (i++%4)
     {
-        case 10:
-        
-            
+        case 3:
+        {
             model.chatCellType = @(WSChatCellType_Image);
-            model.content = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"app%d",i%8+1] withExtension:@"png"].absoluteString;
             
+            UIImage *img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:[NSString stringWithFormat:@"app%d",i%8+1] ofType:@"png"]];
+         
+            model.sendingImage = img;
+            model.content = [NSString stringWithFormat:@"%lf,%lf",img.size.width,img.size.height];
+        }
             break;
         case 1:
             
@@ -317,7 +320,7 @@
     
     _tableView                      =   [[UITableView alloc]initWithFrame:self.view.bounds];
     _tableView.separatorStyle       =   UITableViewCellSeparatorStyleNone;
-    _tableView.backgroundColor      =   kBkColorTableView;
+    _tableView.backgroundView       =   [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"leftMenuBk"]];
     _tableView.delegate             =   self;
     _tableView.dataSource           =   self;
     _tableView.keyboardDismissMode  =   UIScrollViewKeyboardDismissModeOnDrag;
