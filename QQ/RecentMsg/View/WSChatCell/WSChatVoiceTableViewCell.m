@@ -9,17 +9,17 @@
 #import "WSChatVoiceTableViewCell.h"
 
 
-#define kHMinOffsetSecondLable_supView            (40)  //水平方向上，秒数Lable和父控件之间最小间隙
+//#define kHMinOffsetSecondLable_supView            (40)  //水平方向上，秒数Lable和父控件之间最小间隙
 #define kHOffsetSecondLable_voiceImageView        (10)  //水平方向上，秒数Lable和喇叭ImageVIew之间的间隙
-#define kHOffsetSecondLable_BubbleView            (20)  //水平方向上，秒数Lable和气泡之间的间隙
-#define kHOffsetVoiceImage_BubbleView             (25)  //水平方向上，喇叭和气泡之间的间隔
-#define kVOffsetSecondLable_BubbleView            (20)   //垂直方向上，秒数Lable和气泡顶部间隔
+//#define kHOffsetSecondLable_BubbleView            (20)  //水平方向上，秒数Lable和气泡之间的间隙
+#define kHOffsetVoiceImage_BubbleView             (20)  //水平方向上，喇叭和气泡之间的间隔
+#define kVOffsetSecondLable_BubbleView            (18)   //垂直方向上，秒数Lable和气泡顶部间隔
 
 //对方秒数Lable 字体颜色
 #define kTextColorSecondLable_Receive             ([UIColor blackColor])
 #define kTextColorSecondLable_Sender              ([UIColor whiteColor])
 
-#define kFontText               ([UIFont systemFontOfSize:12])
+#define kFontText               ([UIFont systemFontOfSize:13])
 
 #define kMaxSecondRecondVoice     (600)//录音最长时间10分钟
 

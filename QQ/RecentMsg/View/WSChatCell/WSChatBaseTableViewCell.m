@@ -86,8 +86,8 @@
         
         model = m;
     }else{
-        [m calculateSubViewsFrame:width];
-        [self setModel:model width:width];
+       // [m calculateSubViewsFrame:width];
+        //[self setModel:model width:width];
     }
 }
 

@@ -9,15 +9,12 @@
 #import "WSChatTextTableViewCell.h"
 #import "PureLayout.h"
 //文本
-#define kH_OffsetTextWithHead        (20)//水平方向文本和头像的距离
+
 #define kMaxOffsetText               (45)//文本最长时，为了让文本分行显示，需要和屏幕对面保持一定距离
-#define kTop_OffsetTextWithHead      (15) //文本和头像顶部对其间距
-#define kBottom_OffsetTextWithSupView   (40)//文本与父视图底部间距
+#define kFontText  ([UIFont systemFontOfSize:13])
 
-#define kFontText  ([UIFont systemFontOfSize:14])
-
-#define kLeadingBubble_Text  (20)//气泡和文本的水平间距
-#define kTopBubble_Text     (20)//气泡和文本竖直间距
+#define kLeadingBubble_Text  (18)//气泡和文本的水平间距
+#define kTopBubble_Text     (18)//气泡和文本竖直间距
 #define kBottomBubble_Super  (10)
 
 @interface WSChatTextTableViewCell ()

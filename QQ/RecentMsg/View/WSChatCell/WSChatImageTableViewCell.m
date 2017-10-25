@@ -12,9 +12,9 @@
 #import "WSBubbleImageView.h"
 
 #define kMinWidthImageView             (20)
-#define kMinHeightImageView            (20)
-#define kMaxHeightImageView            (200)
-#define kMinTraingImageViewSupView     (60)//图片与父视图右侧最小间距
+#define kMinHeightImageView            (30)
+#define kMaxHeightImageView            (140)
+//#define kMinTraingImageViewSupView     (60)//图片与父视图右侧最小间距
 
 @interface WSChatImageTableViewCell ()
 @end
@@ -45,26 +45,27 @@
     NSArray *arry = [model.content componentsSeparatedByString:@","];
     CGFloat wOriginal = [arry[0] floatValue];
     CGFloat hOriginal = [arry[1] floatValue];
-    CGFloat w,h = hOriginal;
+    CGFloat h,w = wOriginal;
     
-    if (hOriginal < kMinHeightImageView){
+    if (wOriginal < kMinWidthImageView) {
+        w = kMinWidthImageView;
+    }
+    
+    CGFloat minTraingImageViewSuperView = width*.5;
+    
+    CGFloat xBubble = kLeadingHead+kWidthHead+kOffsetHHeadToBubble;
+    if (xBubble + wOriginal + minTraingImageViewSuperView > width) {
+        w = width - xBubble - minTraingImageViewSuperView;
+    }
+
+    h = (hOriginal/wOriginal)*w;
+    
+    if (h < kMinHeightImageView){
         h = kMinHeightImageView;
     }
     
-    if (hOriginal > kMaxHeightImageView){
+    if (h > kMaxHeightImageView){
         h = kMaxHeightImageView;
-    }
-    
-    w = (wOriginal/hOriginal)*h;
-    
-    
-    CGFloat xBubble = kLeadingHead+kWidthHead+kOffsetHHeadToBubble;
-    if (xBubble + w + kMinTraingImageViewSupView > width) {
-        w = width - xBubble - kMinTraingImageViewSupView;
-    }
-    
-    if (w < kMinWidthImageView) {
-        w = kMinWidthImageView;
     }
     
     return CGSizeMake(w, h);

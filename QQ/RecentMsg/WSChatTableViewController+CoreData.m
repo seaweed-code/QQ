@@ -30,8 +30,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
          [self.tableView beginUpdates];
     });
-    
-   
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo

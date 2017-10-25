@@ -11,9 +11,9 @@
 #import "UIResponder+Router.h"
 #import "PureLayout.h"
 
-#define kWidthHead                    (40)  //头像宽度
+#define kWidthHead                    (35)  //头像宽度
 #define kHeightHead                   (kWidthHead) //头像高度
-#define kTopHead                      (10)  //头像离父视图顶部距离
+#define kTopHead                      (5)  //头像离父视图顶部距离
 #define kLeadingHead                  (10) //对方发送的消息时，头像距离父视图的leading(头像在左边)
 #define kTraingHead                   (kLeadingHead) //自己发送的消息时，头像距离父视图的traing(头像在右边)
 

@@ -27,8 +27,7 @@
 }
 
 
-- (void)setup:(BOOL)isSender
-{
+- (void)setup:(BOOL)isSender{
     _maskLayer = [CAShapeLayer layer];
     _maskLayer.fillColor = [UIColor blackColor].CGColor;
     _maskLayer.strokeColor = [UIColor clearColor].CGColor;
@@ -47,8 +46,7 @@
     [self.layer addSublayer:_contentLayer];
 }
 
--(void)layoutSubviews
-{
+-(void)layoutSubviews{
     [super layoutSubviews];
     _maskLayer.frame = self.bounds;
     _contentLayer.frame = self.bounds;
