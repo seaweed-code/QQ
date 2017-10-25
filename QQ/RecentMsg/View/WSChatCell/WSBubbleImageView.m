@@ -32,22 +32,18 @@
     _maskLayer = [CAShapeLayer layer];
     _maskLayer.fillColor = [UIColor blackColor].CGColor;
     _maskLayer.strokeColor = [UIColor clearColor].CGColor;
-   // _maskLayer.frame = frame;
     _maskLayer.contentsCenter = CGRectMake(0.5, 0.5, 0.1, 0.1);
-    _maskLayer.contentsScale = [UIScreen mainScreen].scale;                 //非常关键设置自动拉伸的效果且不变形
+    _maskLayer.contentsScale = [UIScreen mainScreen].scale;//非常关键设置自动拉伸的效果且不变形
     
-    if (isSender)//是我自己发送的
-    {
+    if (isSender){
         _maskLayer.contents = (id)[[UIImage imageNamed:@"chat_send_imagemask@2x"] stretchableImageWithLeftCapWidth:30 topCapHeight:30].CGImage;
         
-    }else//别人发送的消息
-    {
+    }else{
         _maskLayer.contents = (id)[[UIImage imageNamed:@"chat_recive_imagemask@2x"]stretchableImageWithLeftCapWidth:30 topCapHeight:30].CGImage;
     }
     
     _contentLayer = [CALayer layer];
     _contentLayer.mask = _maskLayer;
-    //_contentLayer.frame = frame;
     [self.layer addSublayer:_contentLayer];
 }
 

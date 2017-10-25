@@ -10,6 +10,7 @@
 		370584181B846E3C00E254D8 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 370584171B846E3C00E254D8 /* UIResponder+Router.m */; };
 		3706A1E91B80CB82009520B7 /* WSChatTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */; };
 		370E43951FA0308C007F114F /* WSBubbleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370E43941FA0308C007F114F /* WSBubbleImageView.m */; };
+		370E43981FA04364007F114F /* WSChatVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370E43971FA04364007F114F /* WSChatVideoTableViewCell.m */; };
 		3729CC1B1C27E77D003D423F /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3729CC191C27E77D003D423F /* Data.xcdatamodeld */; };
 		372DDB731BB3FF6E00717FB2 /* WSChatMessageEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */; };
 		37330BF61B81ED17002A885B /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37330BF41B81ED17002A885B /* UIImage+Utils.m */; };
@@ -98,6 +99,8 @@
 		3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatTimeTableViewCell.m; sourceTree = "<group>"; };
 		370E43931FA0308C007F114F /* WSBubbleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSBubbleImageView.h; sourceTree = "<group>"; };
 		370E43941FA0308C007F114F /* WSBubbleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSBubbleImageView.m; sourceTree = "<group>"; };
+		370E43961FA04364007F114F /* WSChatVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSChatVideoTableViewCell.h; sourceTree = "<group>"; };
+		370E43971FA04364007F114F /* WSChatVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSChatVideoTableViewCell.m; sourceTree = "<group>"; };
 		3729CC1A1C27E77D003D423F /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		372DDB711BB3FF6E00717FB2 /* WSChatMessageEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSChatMessageEmojiView.h; sourceTree = "<group>"; };
 		372DDB721BB3FF6E00717FB2 /* WSChatMessageEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSChatMessageEmojiView.m; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 				37773F831B806A3000EEB9CB /* WSChatTextTableViewCell.m */,
 				379A50031B81D24D0089F59E /* WSChatImageTableViewCell.h */,
 				379A50021B81D24D0089F59E /* WSChatImageTableViewCell.m */,
+				370E43961FA04364007F114F /* WSChatVideoTableViewCell.h */,
+				370E43971FA04364007F114F /* WSChatVideoTableViewCell.m */,
 				3706A1E71B80CB82009520B7 /* WSChatTimeTableViewCell.h */,
 				3706A1E81B80CB82009520B7 /* WSChatTimeTableViewCell.m */,
 				37E784A61BB1409D00D0D1E5 /* WSChatVoiceTableViewCell.h */,
@@ -828,6 +833,7 @@
 				37CACD041BA94EEE00C54610 /* RECommonFunctions.m in Sources */,
 				379B9DEC1C520A1300FB96A7 /* UIImage+MLTint.m in Sources */,
 				37773F841B806A3000EEB9CB /* WSChatTextTableViewCell.m in Sources */,
+				370E43981FA04364007F114F /* WSChatVideoTableViewCell.m in Sources */,
 				3763F9A61B7CC8C1008D6360 /* SDWebImageCompat.m in Sources */,
 				379B9DF81C520A1300FB96A7 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
 				37A4EF211BB3F0F200AFC2C0 /* WSChatMessageMoreCollectionCell.m in Sources */,

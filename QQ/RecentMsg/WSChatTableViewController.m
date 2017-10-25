@@ -248,7 +248,7 @@
         {
             model.chatCellType = @(WSChatCellType_Image);
             
-            UIImage *img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:[NSString stringWithFormat:@"app%d",i%8+1] ofType:@"png"]];
+            UIImage *img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:[NSString stringWithFormat:@"app%d",rand()%8+1] ofType:@"png"]];
          
             model.sendingImage = img;
             model.content = [NSString stringWithFormat:@"%lf,%lf",img.size.width,img.size.height];
