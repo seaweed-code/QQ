@@ -13,8 +13,8 @@
 #define kMaxOffsetText               (45)//文本最长时，为了让文本分行显示，需要和屏幕对面保持一定距离
 #define kFontText  ([UIFont systemFontOfSize:13])
 
-#define kLeadingBubble_Text  (18)//气泡和文本的水平间距
-#define kTopBubble_Text     (18)//气泡和文本竖直间距
+#define kLeadingBubble_Text  (20)//气泡和文本的水平间距
+#define kTopBubble_Text     (20)//气泡和文本竖直间距
 #define kBottomBubble_Super  (10)
 
 @interface WSChatTextTableViewCell ()
