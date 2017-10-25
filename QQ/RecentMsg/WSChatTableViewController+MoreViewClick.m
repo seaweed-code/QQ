@@ -29,7 +29,9 @@
             newModel.chatCellType = @(WSChatCellType_Image);
             newModel.isSender     = @(YES);
             newModel.timeStamp    = [NSDate date];
-            newModel.sendingImage = image.thumbImage;
+            UIImage *thumb        = image.thumbImage;
+            newModel.sendingImage = thumb;
+            newModel.content      = [NSString stringWithFormat:@"%lf,%lf",thumb.size.width,thumb.size.height];
             NSLog(@"%@",image.assetURL);
         }
         

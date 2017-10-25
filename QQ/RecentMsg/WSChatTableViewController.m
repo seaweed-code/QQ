@@ -157,33 +157,38 @@
 
 -(void)SendMessage:(NSDictionary*)userInfo
 {
-    
-    WSChatModel *newModel = [WSChatModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
-    
-    newModel.chatCellType = userInfo[@"type"];
-    newModel.isSender     = @(YES);
-    newModel.timeStamp    = [NSDate date];
-    
-    switch ([newModel.chatCellType integerValue])
-    {
-        case WSChatCellType_Text:
-            newModel.content       = userInfo[@"text"];
-           
-            break;
-            
-        default:
-            break;
-    }
-    
-    [newModel calculateSubViewsFrame:self.view.bounds.size.width];//可以再后台线程计算,使界面更流畅
-    
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error])
-    {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    }
-    
-    [self scrollToBottom:YES];
+    CGFloat width = self.view.bounds.size.width;
+    [self.managedObjectContext performBlock:^{
+        
+        WSChatModel *newModel = [WSChatModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
+        
+        newModel.chatCellType = userInfo[@"type"];
+        newModel.isSender     = @(YES);
+        newModel.timeStamp    = [NSDate date];
+        
+        switch ([newModel.chatCellType integerValue])
+        {
+            case WSChatCellType_Text:
+                newModel.content       = userInfo[@"text"];
+                
+                break;
+                
+            default:
+                break;
+        }
+        
+        [newModel calculateSubViewsFrame:width];//可以再后台线程计算,使界面更流畅
+        
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [self scrollToBottom:YES];
+        });
+    }];
 }
 
 
@@ -223,88 +228,91 @@
 
 - (void)insertNewObject:(id)sender
 {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    WSChatModel *model =[WSChatModel insertNewObjectInManagedObjectContext:context];
-   
-    WSBuddyGroupModel *group;
-
+    CGFloat width = self.view.bounds.size.width;
+    
+    [self.managedObjectContext performBlock:^{
+        WSChatModel *model =[WSChatModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
         
-    WSBuddyModel *buddy = [WSBuddyModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
-    
-    NSArray *groupNames = @[@"我的设备",@"手机通讯录",@"小学同学",@"高中同学",@"校友",@"我的基友",@"大学室友",@"我的粉丝",@"一起回家",@"公司同事"];
-    
-    static int i=0;
-    
-    NSArray *strs = @[@"在么，有急事",
-                      @"有事说事，别磨磨唧唧的。。。。。",
-                      @"及时组织防化专业力量，先后9次进入爆炸现场，采集了土壤样品、检测沾染的数据，获得第一手资料。主要查明有害物质的种类、位置和危险程度，为现场指挥、决策和组织救援提供可靠的依据。",
-                      @"史鲁泽说，事故核心区危险减弱了以后，16日上午，北京卫戍区防化团在爆炸现场附近的前方指挥部，军事医学科学院毒物药物研究所研究小组介绍，截至11时左右，从现场搜救的官兵等人员身上还没有发现化学沾染病例。",
-                      @"呵呵呵呵，，你在逗我么？？吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓哇哇哇哇吾问无为谓吾问无为谓哇哇哇哇吾问无为谓我放假打算离开了房间的撒娇，你知道我什么意思吧？"];
-
-    
-    switch (i++%4)
-    {
-        case 3:
+      //  WSBuddyGroupModel *group;
+       // WSBuddyModel *buddy = [WSBuddyModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
+        
+       // NSArray *groupNames = @[@"我的设备",@"手机通讯录",@"小学同学",@"高中同学",@"校友",@"我的基友",@"大学室友",@"我的粉丝",@"一起回家",@"公司同事"];
+        
+        static int i=0;
+        
+        NSArray *strs = @[@"在么，有急事",
+                          @"有事说事，别磨磨唧唧的。。。。。",
+                          @"及时组织防化专业力量，先后9次进入爆炸现场，采集了土壤样品、检测沾染的数据，获得第一手资料。主要查明有害物质的种类、位置和危险程度，为现场指挥、决策和组织救援提供可靠的依据。",
+                          @"史鲁泽说，事故核心区危险减弱了以后，16日上午，北京卫戍区防化团在爆炸现场附近的前方指挥部，军事医学科学院毒物药物研究所研究小组介绍，截至11时左右，从现场搜救的官兵等人员身上还没有发现化学沾染病例。",
+                          @"呵呵呵呵，，你在逗我么？？吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓吾问无为谓哇哇哇哇吾问无为谓吾问无为谓哇哇哇哇吾问无为谓我放假打算离开了房间的撒娇，你知道我什么意思吧？"];
+        
+        
+        switch (i++%4)
         {
-            model.chatCellType = @(WSChatCellType_Image);
-            
-            UIImage *img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:[NSString stringWithFormat:@"app%d",rand()%8+1] ofType:@"png"]];
-         
-            model.sendingImage = img;
-            model.content = [NSString stringWithFormat:@"%lf,%lf",img.size.width,img.size.height];
+            case 3:
+            {
+                model.chatCellType = @(WSChatCellType_Image);
+                
+                UIImage *img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:[NSString stringWithFormat:@"app%d",rand()%8+1] ofType:@"png"]];
+                
+                model.sendingImage = img;
+                model.content = [NSString stringWithFormat:@"%lf,%lf",img.size.width,img.size.height];
+            }
+                break;
+            case 1:
+                
+                model.chatCellType = WSChatCellType_Time;
+                
+                model.content = @"下午9:00";
+                
+                break;
+            case 2:
+                
+                model.chatCellType = @(WSChatCellType_Audio);
+                
+                model.secondVoice = @(rand()%600);
+                
+                break;
+                
+            case 0:
+                
+                model.chatCellType = @(WSChatCellType_Text);
+                
+                model.content = strs[i%5];
+                
+                
+                
+                break;
         }
-            break;
-        case 1:
-            
-            model.chatCellType = WSChatCellType_Time;
-            
-            model.content = @"下午9:00";
-            
-            break;
-        case 2:
-            
-            model.chatCellType = @(WSChatCellType_Audio);
-            
-            model.secondVoice = @(rand()%600);
-            
-            break;
-       
-        case 0:
-            
-            model.chatCellType = @(WSChatCellType_Text);
-            
-            model.content = strs[i%5];
-            
-            
-            
-            break;
-    }
+        /*
+        NSString *name = groupNames[i%10];
+        group = [WSBuddyGroupModel selectObjectInManagedObjectContext:self.managedObjectContext withGroupName:name];
+        
+        if (!group)
+        {
+            group = [WSBuddyGroupModel insertNewObjectInManagedObjectContext:self.managedObjectContext];
+        }
+        
+        group.groupName = name;
+        buddy.lastSignature = strs[i%5];
+        buddy.nickName = @"张三";
+        
+        buddy.group = group;*/
+        
+        model.isSender = @(NO);
+        model.timeStamp = [NSDate date];
+        
+        [model calculateSubViewsFrame:width];
+        
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }];
     
-    NSString *name = groupNames[i%10];
-    group = [WSBuddyGroupModel selectObjectInManagedObjectContext:context withGroupName:name];
-    
-    if (!group)
-    {
-        group = [WSBuddyGroupModel insertNewObjectInManagedObjectContext:context];
-    }
    
-    group.groupName = name;
-    buddy.lastSignature = strs[i%5];
-    buddy.nickName = @"张三";
-    
-    buddy.group = group;
-    
-    model.isSender = @(NO);
-    model.timeStamp = [NSDate date];
-    
-    [model calculateSubViewsFrame:self.view.bounds.size.width];
-    
-    NSError *error = nil;
-    if (![context save:&error])
-    {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
    // [self scrollToBottom:YES];
 }
 

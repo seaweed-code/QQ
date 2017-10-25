@@ -67,7 +67,7 @@ static NSManagedObjectModel *__managedObjectModel;
     if (!coordinator) {
         return nil;
     }
-    __managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    __managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     [__managedObjectContext setPersistentStoreCoordinator:coordinator];
     return __managedObjectContext;
 }
