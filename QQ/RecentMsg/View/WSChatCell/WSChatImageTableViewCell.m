@@ -14,7 +14,6 @@
 #define kMinWidthImageView             (20)
 #define kMinHeightImageView            (60)
 #define kMaxHeightImageView            (140)
-//#define kMinTraingImageViewSupView     (60)//图片与父视图右侧最小间距
 
 @interface WSChatImageTableViewCell ()
 @end
@@ -67,6 +66,17 @@
     if (h > kMaxHeightImageView){
         h = kMaxHeightImageView;
     }
+    
+    w = (wOriginal/hOriginal)*h;
+    
+    if (w < kMinWidthImageView) {
+        w = kMinWidthImageView;
+    }
+    
+    if (xBubble + w + minTraingImageViewSuperView > width) {
+        w = width - xBubble - minTraingImageViewSuperView;
+    }
+    
     
     return CGSizeMake(w, h);
 }
